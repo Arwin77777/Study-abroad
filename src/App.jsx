@@ -16,7 +16,7 @@ function App() {
     <div className="min-h-screen scroll-smooth">
       <Navbar />
       <div className="pt-16"> {/* offset for fixed navbar */}
-        <Breadcrumb />
+        {/* <Breadcrumb /> */}
         <HeroBanner />
         <SectionNavBar />
         <section id="key-details" className="scroll-mt-32 py-16 bg-white">
@@ -62,7 +62,7 @@ function App() {
           </div>
         </section>
       </div>
-      <ContactUsButton />
+      {/* <ContactUsButton /> */}
     </div>
   )
 }
