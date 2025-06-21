@@ -1,56 +1,80 @@
 import { useState } from 'react';
 import { Menu, Close, ExpandMore, WhatsApp, Phone } from '@mui/icons-material';
+import StudyAbroadDropdown from './StudyAbroadDropdown';
+import logo from '../assets/FUTURE FORGE CONSULTANCY .png';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const NavLink = ({ href, children, isMobile, isWa, onClick }) => {
+  const baseClasses = "flex items-center space-x-1 cursor-pointer transition-colors duration-300";
+  const desktopClasses = `py-2 border-b-2 border-transparent ${isWa ? 'text-[#336b87] font-medium hover:text-green-600 hover:border-green-600' : 'text-[#336b87] font-medium hover:text-[#336b87] hover:border-[#336b87]'}`;
+  const mobileClasses = `py-3 px-3 rounded-md text-base ${isWa ? 'hover:bg-green-50 hover:text-green-700' : 'hover:bg-[#336b87]/10 hover:text-[#336b87]'}`;
+  
+  const Component = href ? 'a' : 'div';
 
   return (
-    <nav className="backdrop-blur-md bg-white/30 shadow-md fixed w-full z-50">
+    <Component href={href} className={`${baseClasses} ${isMobile ? mobileClasses : desktopClasses}`} onClick={onClick}>
+      {children}
+    </Component>
+  );
+};
+
+const Navbar = () => {
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { component: <StudyAbroadDropdown isMobile={false} /> },
+    { label: 'About us', href: '/about-us' },
+  { label: 'WhatsApp Us', href: 'https://wa.me/1234567890', icon: <WhatsApp fontSize="small" />, isWa: true },
+    { label: '+1 (234) 567-890', href: 'tel:+1234567890', icon: <Phone fontSize="small" /> }
+  ];
+  
+  const mobileNavLinks = [
+    { component: <StudyAbroadDropdown isMobile={true} /> },
+    { label: 'About us', href: '#about-us' },
+    { label: 'Help' },
+    { label: 'WhatsApp Us', href: 'https://wa.me/1234567890', icon: <WhatsApp fontSize="small" />, isWa: true },
+    { label: '+1 (234) 567-890', href: 'tel:+1234567890', icon: <Phone fontSize="small" /> }
+  ];
+
+  const handleNavClick = (href) => {
+    if (href && href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsOpen(false);
+    }
+  };
+
+  return (
+    <nav className="bg-white shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <span className="text-3xl text-primary">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 7L12 2L22 7L12 12L2 7Z" fill="#a78bfa"/>
-                <path d="M6 10V15C6 17.2091 9.13401 19 12 19C14.866 19 18 17.2091 18 15V10" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
-            <span className="text-2xl font-bold text-primary">Study Abroad</span>
+          <div style={{cursor: 'pointer'}} onClick={() => navigate('/')} className="flex items-center">
+            <img src={logo} alt="logo" className="h-12" />
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="flex items-center space-x-1 cursor-pointer text-gray-700 hover:text-primary">
-              <span>Study Abroad</span>
-              <ExpandMore fontSize="small" />
-            </div>
-            <div className="flex items-center space-x-1 cursor-pointer text-gray-700 hover:text-primary">
-              <span>About us</span>
-              <ExpandMore fontSize="small" />
-            </div>
-            <div className="flex items-center space-x-1 cursor-pointer text-gray-700 hover:text-primary">
-              <span>Help</span>
-              <ExpandMore fontSize="small" />
-            </div>
-            <a href="https://wa.me/1234567890" className="flex items-center space-x-1 text-gray-700 hover:text-green-600">
-              <WhatsApp fontSize="small" />
-              <span>WhatsApp Us</span>
-            </a>
-            <a href="tel:+1234567890" className="flex items-center space-x-1 text-gray-700 hover:text-primary">
-              <Phone fontSize="small" />
-              <span>+1 (234) 567-890</span>
-            </a>
-            {/* <a href="#counsellor" className="ml-4 bg-primary hover:bg-secondary text-white font-semibold px-6 py-2 rounded-lg transition-colors">Find your counsellor</a> */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            {navLinks.map((link, index) => (
+              link.component ? <div key={index}>{link.component}</div> : (
+                <NavLink key={index} href={link.href} isWa={link.isWa} onClick={() => handleNavClick(link.href)}>
+                  {link.icon}
+                  <span>{link.label}</span>
+                </NavLink>
+              )
+            ))}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary"
+              className="text-[#336b87] hover:text-[#336b87]/80"
             >
-              {isOpen ? <Close /> : <Menu />}
+              {isOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
             </button>
           </div>
         </div>
@@ -58,28 +82,16 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white/80 backdrop-blur-md shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <div className="flex items-center space-x-1 cursor-pointer text-gray-700 hover:text-primary">
-              <span>Study Abroad</span>
-              <ExpandMore fontSize="small" />
-            </div>
-            <div className="flex items-center space-x-1 cursor-pointer text-gray-700 hover:text-primary">
-              <span>About us</span>
-              <ExpandMore fontSize="small" />
-            </div>
-            <div className="flex items-center space-x-1 cursor-pointer text-gray-700 hover:text-primary">
-              <span>Help</span>
-              <ExpandMore fontSize="small" />
-            </div>
-            <a href="https://wa.me/1234567890" className="flex items-center space-x-1 text-gray-700 hover:text-green-600 py-2">
-              <WhatsApp fontSize="small" />
-              <span>WhatsApp Us</span>
-            </a>
-            <a href="tel:+1234567890" className="flex items-center space-x-1 text-gray-700 hover:text-primary py-2">
-              <Phone fontSize="small" />
-              <span>+1 (234) 567-890</span>
-            </a>
+        <div className="md:hidden bg-white shadow-lg">
+          <div className="px-4 pt-2 pb-4 space-y-1">
+            {mobileNavLinks.map((link, index) => (
+              link.component ? <div key={index} className="px-3">{link.component}</div> : (
+                <NavLink key={index} href={link.href} isMobile={true} isWa={link.isWa} onClick={() => handleNavClick(link.href)}>
+                  {link.icon}
+                  <span>{link.label}</span>
+                </NavLink>
+              )
+            ))}
           </div>
         </div>
       )}

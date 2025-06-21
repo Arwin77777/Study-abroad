@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion';
-import { MailOutline } from '@mui/icons-material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 const indianStates = [
@@ -12,12 +10,14 @@ const indianStates = [
   "Lakshadweep", "Puducherry"
 ];
 
-const ContactUsModal = ({ open, onClose }) => {
+const EnquiryForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
     email: '',
     state: '',
+    course: '',
+    comments: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,8 +26,10 @@ const ContactUsModal = ({ open, onClose }) => {
   // Validation patterns
   const validationPatterns = {
     name: /^[a-zA-Z\s]{2,50}$/,
-    contact: /^(\+91[\s]?)?[789]\d{9}$/,
-    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    contact: /^(\+91[\s]?)?[789]\d{9}$/,  
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    course: /^[a-zA-Z\s.]{0,100}$/,
+    comments: /^[\s\S]{0,500}$/
   };
 
   const validateField = (name, value) => {
@@ -52,6 +54,16 @@ const ContactUsModal = ({ open, onClose }) => {
         break;
       case 'state':
         if (!value) return 'Please select your state';
+        break;
+      case 'course':
+        if (value.trim() && !validationPatterns.course.test(value.trim())) {
+          return 'Course name should be less than 100 characters and contain only letters, spaces, hyphens, and dots';
+        }
+        break;
+      case 'comments':
+        if (value.trim() && !validationPatterns.comments.test(value.trim())) {
+          return 'Comments should be less than 500 characters';
+        }
         break;
       default:
         return '';
@@ -95,13 +107,14 @@ const ContactUsModal = ({ open, onClose }) => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    // Map form data to the template variables you set up in EmailJS
     const templateParams = {
         from_name: formData.name.trim(),
         from_contact: formData.contact.trim(),
         from_email: formData.email.trim(),
         from_state: formData.state,
-        to_name: 'Admin' // Or a dynamic value if needed
+        needed_course: formData.course.trim(),
+        other_comments: formData.comments.trim(),
+        to_name: 'Admin'
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)
@@ -109,95 +122,80 @@ const ContactUsModal = ({ open, onClose }) => {
          console.log('SUCCESS!', response.status, response.text);
          setSubmitStatus('success');
          setIsSubmitting(false);
-         // Reset form and close modal after a short delay
+         // Reset form after a short delay
          setTimeout(() => {
-            setFormData({ name: '', contact: '', email: '', state: '' });
+            setFormData({ name: '', contact: '', email: '', state: '', course: '', comments: '' });
             setErrors({});
-            onClose();
-            setSubmitStatus(null); // Reset status after modal closes
-         }, 2000);
+            setSubmitStatus(null);
+         }, 3000);
       }, (err) => {
          console.error('FAILED...', err);
          setSubmitStatus('error');
          setIsSubmitting(false);
+         // Optionally, hide error after some time
+         setTimeout(() => {
+            setSubmitStatus(null);
+         }, 5000);
       });
   };
 
+  const inputClasses = "w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#336b87] focus:border-transparent transition-shadow shadow-sm disabled:bg-gray-100";
   const getInputClasses = (fieldName) => {
-    return `w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#336b87] transition-shadow ${errors[fieldName] ? 'border-red-500' : 'border-gray-300'}`;
+    return `${inputClasses} ${errors[fieldName] ? 'border-red-500' : 'border-gray-300'}`;
   };
 
-  if (!open) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-      <motion.div
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 50, scale: 0.9 }}
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 relative m-4"
-      >
-        <motion.button
-          whileHover={{ scale: 1.1, rotate: 90 }}
-          whileTap={{ scale: 0.9 }}
-          className="absolute top-4 right-4 text-[#336b87]/70 hover:text-[#336b87] text-3xl"
-          onClick={onClose}
-          aria-label="Close"
-        >
-          &times;
-        </motion.button>
-        <div className="flex items-center mb-6">
-          <span className="text-[#336b87] mr-3">
-            <MailOutline sx={{ fontSize: 32 }} />
-          </span>
-          <h3 className="text-2xl font-bold text-[#336b87]">Contact Us</h3>
-        </div>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">Name</label>
+    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-[#336b87]/20 shadow-xl">
+      <form onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          <div className="form-group">
+            <label htmlFor="name" className="block text-sm font-medium text-black mb-2">Name</label>
             <input 
               type="text" 
+              id="name" 
               name="name" 
               value={formData.name} 
               onChange={handleChange} 
               className={getInputClasses('name')} 
-              placeholder="John Doe" 
               required 
+              placeholder="John Doe" 
               disabled={isSubmitting} 
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">Contact number</label>
+          <div className="form-group">
+            <label htmlFor="contact" className="block text-sm font-medium text-black mb-2">Contact Number</label>
             <input 
               type="tel" 
+              id="contact" 
               name="contact" 
               value={formData.contact} 
               onChange={handleChange} 
               className={getInputClasses('contact')} 
-              placeholder="+91 12345 67890" 
               required 
+              placeholder="+91 12345 67890" 
               disabled={isSubmitting} 
             />
             {errors.contact && <p className="text-red-500 text-sm mt-1">{errors.contact}</p>}
           </div>
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">Email</label>
+          <div className="form-group">
+            <label htmlFor="email" className="block text-sm font-medium text-black mb-2">Email</label>
             <input 
               type="email" 
+              id="email" 
               name="email" 
               value={formData.email} 
               onChange={handleChange} 
               className={getInputClasses('email')} 
-              placeholder="you@example.com" 
-              required 
+              placeholder="john.doe@example.com" 
               disabled={isSubmitting} 
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">State</label>
-            <select 
+          <div className="form-group">
+            <label htmlFor="state" className="block text-sm font-medium text-black mb-2">State</label>
+            <select
+              id="state"
               name="state"
               value={formData.state}
               onChange={handleChange}
@@ -212,36 +210,51 @@ const ContactUsModal = ({ open, onClose }) => {
             </select>
             {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state}</p>}
           </div>
-          
-          <div className="h-12">
-            {submitStatus !== 'success' && (
-              <motion.button 
-                type="submit" 
-                whileHover={{ scale: 1 }}
-                whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                className="w-full bg-[#336b87] hover:bg-[#2a5a70] text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </motion.button>
-            )}
-            
-            {submitStatus === 'success' && (
-              <motion.div initial={{opacity: 0}} animate={{opacity: 1}} className="text-center p-3 bg-green-100 text-green-800 rounded-lg">
-                Message sent successfully!
-              </motion.div>
-            )}
-
-            {submitStatus === 'error' && (
-              <motion.div initial={{opacity: 0}} animate={{opacity: 1}} className="text-center p-3 bg-red-100 text-red-800 rounded-lg">
-                Failed to send. Please try again.
-              </motion.div>
-            )}
+          <div className="form-group md:col-span-2">
+            <label htmlFor="course" className="block text-sm font-medium text-black mb-2">Needed Course <span className="text-[#336b87]">(Optional)</span></label>
+            <input 
+              type="text" 
+              id="course" 
+              name="course" 
+              value={formData.course} 
+              onChange={handleChange} 
+              className={getInputClasses('course')} 
+              placeholder="e.g., Computer Science" 
+              disabled={isSubmitting} 
+            />
+            {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
           </div>
-        </form>
-      </motion.div>
+          <div className="form-group md:col-span-2">
+            <label htmlFor="comments" className="block text-sm font-medium text-black mb-2">Other Comments <span className="text-[#336b87]">(Optional)</span></label>
+            <textarea 
+              id="comments" 
+              name="comments" 
+              value={formData.comments} 
+              onChange={handleChange} 
+              rows="2" 
+              className={getInputClasses('comments')} 
+              placeholder="Any additional information..." 
+              disabled={isSubmitting}
+            ></textarea>
+            {errors.comments && <p className="text-red-500 text-sm mt-1">{errors.comments}</p>}
+          </div>
+        </div>
+        <div className="text-center mt-8">
+          <button type="submit" className="bg-[#336b87] text-white font-bold px-10 py-4 rounded-full shadow-lg hover:bg-[#336b87]/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#336b87]/30 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
+          </button>
+        </div>
+        <div className="mt-4 h-6 text-center">
+            {submitStatus === 'success' && (
+              <p className="text-green-600 font-semibold">Enquiry sent successfully!</p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="text-red-600 font-semibold">Failed to send enquiry. Please try again.</p>
+            )}
+        </div>
+      </form>
     </div>
   );
 };
 
-export default ContactUsModal; 
+export default EnquiryForm; 

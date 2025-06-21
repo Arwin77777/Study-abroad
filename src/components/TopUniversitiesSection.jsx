@@ -1,33 +1,113 @@
-const universities = [
-  {
-    name: 'Durham University',
-    location: 'Durham, England',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+import { motion } from 'framer-motion';
+
+const logos = [
+  { 
+    name: 'University of Toronto', 
+    logo: 'https://d3d0lqu00lnqvz.cloudfront.net/media/media/UofT_cmh2315fl.jpg',
+    country: 'Canada'
   },
-  {
-    name: 'Lancaster University',
-    location: 'Lancaster, England',
-    image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
+  { 
+    name: 'University of California, Berkeley', 
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGVYEW8UDMKQ5TjsAoysasTa8nxPnsTrO2GQ&s',
+    country: 'USA'
   },
-  {
-    name: 'Southampton University',
-    location: 'Southampton, England',
-    image: 'https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80',
+  { 
+    name: 'University of Oxford', 
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuO4jUeRncdQQjS2RVTfnjA6Q2kk3HCrgxLw&s',
+    country: 'UK'
   },
+  { 
+    name: 'University of Melbourne', 
+    logo: 'https://images.shiksha.com/mediadata/images/1539748284phpkXrez1.jpeg',
+    country: 'Australia'
+  },
+  { 
+    name: 'National University of Singapore', 
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbVoyUNQMcIELJCSPae1qXjm4SD3c8p85PIA&s',
+    country: 'Singapore'
+  },
+  { 
+    name: 'University of British Columbia', 
+    logo: 'https://images.shiksha.com/mediadata/images/1533551492phpLKGGFI.jpeg',
+    country: 'Canada'
+  },
+  { 
+    name: 'University of Sydney', 
+    logo: 'https://images.shiksha.com/mediadata/images/1515481785phpZsgL9D_g.png',
+    country: 'Australia'
+  },
+  { 
+    name: 'University of Edinburgh', 
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpPrefsvtemolLUsEDcK5S4-uEPpqVNR2OFQ&s',
+    country: 'UK'
+  },
+  { 
+    name: 'McGill University', 
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT_cNXNnen7gJqEJ15xVkiIiYmOfWPjUrljg&s',
+    country: 'Canada'
+  },
+  { 
+    name: 'University of Queensland', 
+    logo: 'https://www.avanse.com/blogs/images/st-louis-missouri-08222022-brookings-hall-danforth-campus-washington-university-st-louis_1048944-21621914.jpeg',
+    country: 'Australia'
+  }
 ];
 
-const TopUniversitiesSection = () => (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-    {universities.map((u, i) => (
-      <div key={i} className="bg-white rounded-xl shadow hover:shadow-lg border overflow-hidden transition">
-        <img src={u.image} alt={u.name} className="w-full h-40 object-cover" />
-        <div className="p-5">
-          <div className="font-bold text-xl mb-1">{u.name}</div>
-          <div className="text-gray-600">{u.location}</div>
-        </div>
+const TopUniversitiesSection = () => {
+  const duplicatedLogos = [...logos, ...logos];
+
+  return (
+    <div className="relative w-full overflow-hidden bg-transparent py-16">
+      {/* Section Title */}
+      <div className="relative z-10 text-center mb-12">
+        <h2 className="text-4xl font-bold text-[#336b87] mb-4">
+          Top Universities Worldwide
+        </h2>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          Partner with prestigious institutions across the globe for your academic journey
+        </p>
       </div>
-    ))}
-  </div>
-);
+
+      {/* Logo Carousel */}
+      <div className="relative overflow-hidden p-5">
+        <motion.div
+          className="flex items-center"
+          animate={{
+            x: ['0%', '-50%'],
+          }}
+          transition={{
+            ease: 'linear',
+            duration: 5,
+            repeat: Infinity,
+          }}
+        >
+          {duplicatedLogos.map((uni, index) => (
+            <motion.div
+              key={index}
+              className="flex-shrink-0 w-80 h-56 mx-6 group"
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.3 },
+              }}
+            >
+              <div className="relative w-full h-full rounded-2xl shadow-lg overflow-hidden bg-white">
+                <img
+                  src={uni.logo}
+                  alt={uni.name}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-xl font-bold">{uni.name}</h3>
+                  <p className="text-gray-300 text-sm">{uni.country}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
 
 export default TopUniversitiesSection; 

@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 const sections = [
   { id: 'key-details', label: 'Key Details' },
   { id: 'top-universities', label: 'Top Universities' },
-  { id: 'fees', label: 'Fees' },
-  { id: 'requirements', label: 'Requirements' },
+  { id: 'financial-assistance', label: 'Financial Assistance' },
+  { id: 'visa-assistance', label: 'Visa Assistance' },
+  { id: 'travel-assistance', label: 'Travel Assistance' },
   { id: 'courses', label: 'Courses' },
-  { id: 'visa-travel', label: 'Visa & travel' },
   { id: 'faq', label: 'FAQ' },
 ];
 

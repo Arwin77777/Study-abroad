@@ -1,0 +1,18 @@
+{
+  "contactUs": {
+    "title": "Enquiry Form",
+    "name": {
+      "label": "Name",
+      "placeholder": "Your Name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "you@email.com"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "How can we help you?"
+    },
+    "submit": "Send Enquiry"
+  }
+} 

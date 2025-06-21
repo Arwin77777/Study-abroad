@@ -1,0 +1,18 @@
+{
+  "contactUs": {
+    "title": "पूछताछ फॉर्म",
+    "name": {
+      "label": "नाम",
+      "placeholder": "आपका नाम"
+    },
+    "email": {
+      "label": "ईमेल",
+      "placeholder": "आप@ईमेल.कॉम"
+    },
+    "message": {
+      "label": "संदेश",
+      "placeholder": "हम आपकी कैसे मदद कर सकते हैं?"
+    },
+    "submit": "पूछताछ भेजें"
+  }
+} 

@@ -1,154 +1,84 @@
-import React, { useState } from 'react';
-// import { HiOutlineUserGroup } from 'react-icons/hi';
-import Navbar from './Navbar';
-
-const indianStates = [
-  'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
-  'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand',
-  'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur',
-  'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab',
-  'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura',
-  'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Andaman and Nicobar Islands',
-  'Chandigarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi',
-  'Jammu and Kashmir', 'Ladakh', 'Lakshadweep', 'Puducherry'
-];
+import { motion } from 'framer-motion';
+import EnquiryForm from './EnquiryForm';
 
 const HeroBanner = () => {
-  const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    state: '',
-    city: '',
-    query: ''
-  });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    alert('Form submitted!');
-  };
+  const bubbles = [
+    { x: '10vw', y: '20vh', size: 60, duration: 25, delay: 0 },
+    { x: '80vw', y: '30vh', size: 100, duration: 30, delay: 5 },
+    { x: '50vw', y: '70vh', size: 40, duration: 35, delay: 10 },
+    { x: '20vw', y: '85vh', size: 80, duration: 28, delay: 15 },
+    { x: '90vw', y: '80vh', size: 50, duration: 22, delay: 20 },
+  ];
 
   return (
-    <div>
-      {/* <Navbar /> */}
-      <div className="relative w-full min-h-[650px] flex items-center justify-center overflow-hidden">
-        <img
-          src="https://www.aecoverseas.com/wp-content/uploads/2024/11/top-bannerbg-1.webp"
-          alt="Study Abroad Background"
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-700/70 to-gray-200/60 z-10" />
-        {/* Subtle floating shapes in gray */}
-        <div className="absolute z-20 top-10 left-10 animate-pulse w-16 h-16 bg-gray-300/30 rounded-full blur-2xl" />
-        <div className="absolute z-20 bottom-10 right-10 animate-pulse w-24 h-24 bg-gray-400/20 rounded-full blur-2xl" />
-        {/* Content */}
-        <div className="relative z-30 w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-16 py-12">
-          {/* Left: Text */}
-          <div className="md:w-1/2 w-full text-left text-white mb-8 md:mb-0 md:pr-12">
-            <div className="inline-flex items-center mb-4 bg-white/20 px-3 py-1 rounded-full shadow backdrop-blur-sm">
-              {/* <HiOutlineUserGroup className="text-yellow-300 text-xl mr-2" /> */}
-              <span className="text-sm font-semibold tracking-wide text-white">29,000+ Success Stories</span>
-            </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg leading-tight">
-              India's <span className="bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600 bg-clip-text text-transparent">Top-Rated Overseas</span><br />
-              <span className="relative inline-block">
-                Education Consultant
-                <span className="absolute left-0 -bottom-1 w-full h-2 bg-gradient-to-r from-gray-300/60 to-gray-500/60 rounded-full blur-sm animate-pulse" />
-              </span>
+    <div
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: `url('https://www.aecoverseas.com/wp-content/uploads/2024/11/top-bannerbg-1.webp')` }}
+    >
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {bubbles.map((b, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-white/10 rounded-full"
+            style={{
+              width: b.size,
+              height: b.size,
+              left: b.x,
+              top: b.y,
+            }}
+            animate={{
+              y: ['0%', '-50%', '0%'],
+            }}
+            transition={{
+              duration: b.duration,
+              delay: b.delay,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="absolute inset-0 bg-[#336b87]/60 z-10" />
+
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-24 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          <motion.div
+            className="text-white text-center lg:text-left"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg leading-tight">
+              Explore the World of Opportunities With Us
             </h1>
-            <div className="flex items-center space-x-3 mt-2">
-              <span className="inline-block bg-gray-200/80 text-gray-800 text-xs font-bold px-3 py-1 rounded-full shadow">Since 2025</span>
-              <span className="text-lg md:text-xl text-white/90 font-medium">Book your future today!</span>
-            </div>
-          </div>
-          {/* Right: Form */}
-          <div className="md:w-1/2 w-full flex justify-center items-center">
-            <form onSubmit={handleSubmit} className="bg-white/70 backdrop-blur-lg border border-gray-200/60 shadow-2xl rounded-2xl p-8 w-full max-w-md space-y-5">
-              <h1 className="text-xl md:text-2xl font-bold mb-2 text-gray-700 text-center tracking-tight">Book your counselling session now</h1>
-              <div className="flex space-x-2">
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First Name*"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white/80 placeholder-gray-400 transition-all"
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last Name*"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white/80 placeholder-gray-400 transition-all"
-                />
-              </div>
-              <div className="flex space-x-2">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email*"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white/80 placeholder-gray-400 transition-all"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number*"
-                  value={form.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white/80 placeholder-gray-400 transition-all"
-                />
-              </div>
-              <div className="flex space-x-2">
-                <select
-                  name="state"
-                  value={form.state}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white/80 text-gray-700 transition-all"
-                >
-                  <option value="">Select State*</option>
-                  {indianStates.map((state) => (
-                    <option key={state} value={state}>{state}</option>
-                  ))}
-                </select>
-                <input
-                  type="text"
-                  name="city"
-                  placeholder="City*"
-                  value={form.city}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white/80 placeholder-gray-400 transition-all"
-                />
-              </div>
-              <textarea
-                name="query"
-                placeholder="Comment/Query"
-                value={form.query}
-                onChange={handleChange}
-                rows={3}
-                className="w-full px-3 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 bg-white/80 placeholder-gray-400 transition-all"
-              />
+            <p className="mt-6 text-lg lg:text-xl leading-8 text-white drop-shadow-md">
+              Your gateway to global education. We help you find the best universities, courses, and scholarships to make your study abroad dream a reality.
+            </p>
+            <div className="mt-10">
               <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-gray-700 via-gray-500 to-gray-300 hover:from-gray-800 hover:to-gray-400 text-white font-bold py-2 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                onClick={() => {
+                  const destinationsSection = document.getElementById('destinations');
+                  if (destinationsSection) {
+                    destinationsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="rounded-full bg-[#336b87] px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-[#336b87]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#336b87] transition-transform transform hover:scale-105"
               >
-                SUBMIT
+                Explore Destinations
               </button>
-            </form>
+            </div>
+          </motion.div>
+          <div style={{padding:'10px'}}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
+              <EnquiryForm />
+            </motion.div>
           </div>
         </div>
       </div>
