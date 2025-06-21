@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { MailOutline } from '@mui/icons-material';
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 const indianStates = [
   "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", 
@@ -90,37 +89,6 @@ const ContactUsModal = ({ open, onClose }) => {
 
     setIsSubmitting(true);
     setSubmitStatus(null);
-
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    // Map form data to the template variables you set up in EmailJS
-    const templateParams = {
-        from_name: formData.name.trim(),
-        from_contact: formData.contact.trim(),
-        from_email: formData.email.trim(),
-        from_state: formData.state,
-        to_name: 'Admin' // Or a dynamic value if needed
-    };
-
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-         console.log('SUCCESS!', response.status, response.text);
-         setSubmitStatus('success');
-         setIsSubmitting(false);
-         // Reset form and close modal after a short delay
-         setTimeout(() => {
-            setFormData({ name: '', contact: '', email: '', state: '' });
-            setErrors({});
-            onClose();
-            setSubmitStatus(null); // Reset status after modal closes
-         }, 2000);
-      }, (err) => {
-         console.error('FAILED...', err);
-         setSubmitStatus('error');
-         setIsSubmitting(false);
-      });
   };
 
   const getInputClasses = (fieldName) => {

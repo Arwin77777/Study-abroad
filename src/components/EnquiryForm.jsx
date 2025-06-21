@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 const indianStates = [
   "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", 
@@ -102,41 +101,6 @@ const EnquiryForm = () => {
 
     setIsSubmitting(true);
     setSubmitStatus(null);
-
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    const templateParams = {
-        from_name: formData.name.trim(),
-        from_contact: formData.contact.trim(),
-        from_email: formData.email.trim(),
-        from_state: formData.state,
-        needed_course: formData.course.trim(),
-        other_comments: formData.comments.trim(),
-        to_name: 'Admin'
-    };
-
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-         console.log('SUCCESS!', response.status, response.text);
-         setSubmitStatus('success');
-         setIsSubmitting(false);
-         // Reset form after a short delay
-         setTimeout(() => {
-            setFormData({ name: '', contact: '', email: '', state: '', course: '', comments: '' });
-            setErrors({});
-            setSubmitStatus(null);
-         }, 3000);
-      }, (err) => {
-         console.error('FAILED...', err);
-         setSubmitStatus('error');
-         setIsSubmitting(false);
-         // Optionally, hide error after some time
-         setTimeout(() => {
-            setSubmitStatus(null);
-         }, 5000);
-      });
   };
 
   const inputClasses = "w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#336b87] focus:border-transparent transition-shadow shadow-sm disabled:bg-gray-100";
