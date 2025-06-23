@@ -5,7 +5,50 @@ import { continentStudyData } from '../data/continentStudyData.jsx';
 
 // University Modal Component
 function UniversityModal({ university, onClose }) {
+  const navigate = useNavigate();
+  
   if (!university) return null;
+  
+  const handleViewDetails = () => {
+    // Close the modal first
+    onClose();
+    
+    // Find the university's location data by searching through all data
+    let universityLocation = null;
+    
+    // Search through all continents, countries, and cities to find this university
+    Object.entries(continentStudyData).forEach(([continentKey, continentData]) => {
+      Object.entries(continentData.countries || {}).forEach(([countryKey, countryData]) => {
+        Object.entries(countryData.cities || {}).forEach(([cityKey, cityData]) => {
+          if (cityData.universities) {
+            const foundUniversity = cityData.universities.find(uni => uni.name === university.name);
+            if (foundUniversity) {
+              universityLocation = {
+                continent: continentKey,
+                country: countryKey,
+                city: cityKey,
+                continentName: continentData.name,
+                countryName: countryData.name,
+                cityName: cityData.name
+              };
+            }
+          }
+        });
+      });
+    });
+    
+    // Navigate to university detail page with location data
+    const params = new URLSearchParams();
+    if (universityLocation) {
+      params.set('continent', universityLocation.continent);
+      params.set('country', universityLocation.country);
+      params.set('city', universityLocation.city);
+    }
+    params.set('university', university.name);
+    
+    navigate(`/university/${encodeURIComponent(university.name)}?${params.toString()}`);
+  };
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -21,8 +64,7 @@ function UniversityModal({ university, onClose }) {
         className="bg-white max-w-lg w-full rounded-3xl shadow-2xl p-8 relative mx-4"
       >
         <motion.button
-          whileHover={{ scale: 1.1, rotate: 90 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
           className="absolute top-4 right-4 text-3xl text-[#336b87] hover:text-[#336b87]/80 transition-colors"
           onClick={onClose}
         >
@@ -48,10 +90,27 @@ function UniversityModal({ university, onClose }) {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mb-4 text-gray-700"
+          className="mb-6 text-gray-700"
         >
           {university.details}
         </motion.p>
+        
+        {/* View Full Details Button */}
+        <motion.button
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          whileHover={{ 
+            scale: 1.05, 
+            boxShadow: "0 20px 40px -12px rgba(51, 107, 135, 0.3)"
+          }}
+          onClick={handleViewDetails}
+          className="w-full bg-gradient-to-r from-[#336b87] to-[#336b87]/80 text-white font-semibold py-4 px-6 rounded-2xl hover:from-[#336b87]/90 hover:to-[#336b87]/70 transition-all duration-300 flex items-center justify-center space-x-2"
+        >
+          <span className="text-xl">📋</span>
+          <span>View Full Details</span>
+          <span className="text-lg">→</span>
+        </motion.button>
       </motion.div>
     </motion.div>
   );
