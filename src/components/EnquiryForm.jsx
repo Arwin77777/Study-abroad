@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const indianStates = [
   "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", 
@@ -20,7 +23,6 @@ const EnquiryForm = () => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   // Validation patterns
   const validationPatterns = {
@@ -94,13 +96,33 @@ const EnquiryForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-
+  
+    if (!validateForm()) return;
+  
     setIsSubmitting(true);
-    setSubmitStatus(null);
+  
+    const serviceId = 'service_t67izrn';
+    const templateId = 'template_tatpvn9';
+    emailjs.init('xNwQn8UBjxDukCjle');
+  
+    emailjs.send(serviceId, templateId, formData)
+      .then(() => {
+        setIsSubmitting(false);
+        setFormData({
+          name: '',
+          contact: '',
+          email: '',
+          state: '',
+          course: '',
+          comments: ''
+        });
+        toast.success('Form submitted successfully!');
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        setIsSubmitting(false);
+        toast.error('There was an error submitting the form.');
+      });
   };
 
   const inputClasses = "w-full px-2 py-2 border rounded-lg focus:ring-2 focus:ring-[#336b87] focus:border-transparent transition-shadow shadow-sm disabled:bg-gray-100 text-sm";
@@ -110,6 +132,7 @@ const EnquiryForm = () => {
 
   return (
     <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-[#336b87]/20 shadow-xl">
+      <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-x-4 gap-y-4">
           <div className="form-group">
@@ -211,11 +234,11 @@ const EnquiryForm = () => {
           >
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
-          {submitStatus && <p className={`mt-2 text-sm ${submitStatus === 'success' ? 'text-green-500' : 'text-red-500'}`}>{submitStatus === 'success' ? 'Form submitted successfully!' : 'There was an error submitting the form.'}</p>}
+          {/* {submitStatus && <p className={`mt-2 text-sm ${submitStatus === 'success' ? 'text-green-500' : 'text-red-500'}`}>{submitStatus === 'success' ? 'Form submitted successfully!' : 'There was an error submitting the form.'}</p>} */}
         </div>
       </form>
     </div>
   );
 };
 
-export default EnquiryForm; 
+export default EnquiryForm;

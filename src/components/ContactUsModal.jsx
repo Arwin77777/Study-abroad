@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { MailOutline } from '@mui/icons-material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 const indianStates = [
-  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", 
-  "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", 
-  "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", 
-  "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", 
-  "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", 
+  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana",
+  "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+  "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu",
+  "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands",
+  "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh",
   "Lakshadweep", "Puducherry"
 ];
 
@@ -20,7 +21,14 @@ const ContactUsModal = ({ open, onClose }) => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => setSubmitStatus(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   // Validation patterns
   const validationPatterns = {
@@ -61,7 +69,7 @@ const ContactUsModal = ({ open, onClose }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
@@ -81,14 +89,33 @@ const ContactUsModal = ({ open, onClose }) => {
   };
 
   const handleSubmit = (e) => {
+    setSubmitStatus(null);
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
+
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
-    setSubmitStatus(null);
+
+    const serviceId = 'service_t67izrn';
+    const templateId = 'template_tatpvn9';
+    emailjs.init('xNwQn8UBjxDukCjle');
+
+    emailjs.send(serviceId, templateId, formData)
+      .then(() => {
+        setSubmitStatus('success');
+        setIsSubmitting(false);
+        setFormData({
+          name: '',
+          contact: '',
+          email: '',
+          state: ''
+        });
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+      });
   };
 
   const getInputClasses = (fieldName) => {
@@ -98,12 +125,12 @@ const ContactUsModal = ({ open, onClose }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
       <motion.div
         initial={{ opacity: 0, y: 50, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 50, scale: 0.9 }}
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 relative m-4"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 relative m-4 mt-20"
       >
         <motion.button
           whileHover={{ scale: 1.1, rotate: 90 }}
@@ -120,52 +147,52 @@ const ContactUsModal = ({ open, onClose }) => {
           </span>
           <h3 className="text-2xl font-bold text-[#336b87]">Contact Us</h3>
         </div>
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-2" onSubmit={handleSubmit}>
           <div>
             <label className="block text-gray-700 font-semibold mb-1">Name</label>
-            <input 
-              type="text" 
-              name="name" 
-              value={formData.name} 
-              onChange={handleChange} 
-              className={getInputClasses('name')} 
-              placeholder="Eg. Alex Kumar" 
-              required 
-              disabled={isSubmitting} 
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className={getInputClasses('name')}
+              placeholder="Eg. Alex Kumar"
+              required
+              disabled={isSubmitting}
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
           <div>
             <label className="block text-gray-700 font-semibold mb-1">Contact number</label>
-            <input 
-              type="tel" 
-              name="contact" 
-              value={formData.contact} 
-              onChange={handleChange} 
-              className={getInputClasses('contact')} 
-              placeholder="+91 9876543210" 
-              required 
-              disabled={isSubmitting} 
+            <input
+              type="tel"
+              name="contact"
+              value={formData.contact}
+              onChange={handleChange}
+              className={getInputClasses('contact')}
+              placeholder="+91 9876543210"
+              required
+              disabled={isSubmitting}
             />
             {errors.contact && <p className="text-red-500 text-sm mt-1">{errors.contact}</p>}
           </div>
           <div>
             <label className="block text-gray-700 font-semibold mb-1">Email</label>
-            <input 
-              type="email" 
-              name="email" 
-              value={formData.email} 
-              onChange={handleChange} 
-              className={getInputClasses('email')} 
-              placeholder="Eg. alex@gmail.com" 
-              required 
-              disabled={isSubmitting} 
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={getInputClasses('email')}
+              placeholder="Eg. alex@gmail.com"
+              required
+              disabled={isSubmitting}
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
           <div>
             <label className="block text-gray-700 font-semibold mb-1">State</label>
-            <select 
+            <select
               name="state"
               value={formData.state}
               onChange={handleChange}
@@ -180,32 +207,28 @@ const ContactUsModal = ({ open, onClose }) => {
             </select>
             {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state}</p>}
           </div>
-          
-          <div className="h-12">
-            {submitStatus !== 'success' && (
-              <motion.button 
-                type="submit" 
-                whileHover={{ scale: 1 }}
-                whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                className="w-full bg-[#336b87] hover:bg-[#2a5a70] text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </motion.button>
-            )}
-            
-            {submitStatus === 'success' && (
-              <motion.div initial={{opacity: 0}} animate={{opacity: 1}} className="text-center p-3 bg-green-100 text-green-800 rounded-lg">
-                Message sent successfully!
-              </motion.div>
-            )}
 
-            {submitStatus === 'error' && (
-              <motion.div initial={{opacity: 0}} animate={{opacity: 1}} className="text-center p-3 bg-red-100 text-red-800 rounded-lg">
-                Failed to send. Please try again.
-              </motion.div>
-            )}
+          <div className="h-12">
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+              className="w-full bg-[#336b87] hover:bg-[#2a5a70] text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </motion.button>
           </div>
+          {submitStatus === 'success' && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-green-800">
+              Message sent successfully!
+            </motion.div>
+          )}
+          {submitStatus === 'error' && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-800">
+              Failed to send. Please try again.
+            </motion.div>
+          )}
         </form>
       </motion.div>
     </div>
