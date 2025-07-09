@@ -710,10 +710,10 @@ const UniversityDetail = () => {
           className="mb-12"
         >
           <motion.img
-            whileHover={{ scale: 1.02 }}
             src={university.image}
             alt={university.name}
-            className="w-full h-96 object-cover rounded-3xl shadow-2xl"
+            className="w-full h-96 object-cover rounded-3xl"
+            style={{ height: '400px', objectFit: 'contain' }}
           />
         </motion.div>
 

@@ -25,14 +25,14 @@ const Navbar = () => {
   const navLinks = [
     { component: <StudyAbroadDropdown isMobile={false} /> },
     { label: 'About us', href: '/about-us' },
-    { label: '+1 (234) 567-890', href: 'tel:+1234567890', icon: <Phone fontSize="small" /> }
+    { label: '+91 93636 16166', href: 'tel:+91 93636 16166', icon: <Phone fontSize="small" /> }
   ];
   
   const mobileNavLinks = [
     { component: <StudyAbroadDropdown isMobile={true} /> },
     { label: 'About us', href: '#about-us' },
     { label: 'Help' },
-    { label: '+1 (234) 567-890', href: 'tel:+1234567890', icon: <Phone fontSize="small" /> }
+    { label: '+91 93636 16166', href: 'tel:+91 93636 16166', icon: <Phone fontSize="small" /> }
   ];
 
   const handleNavClick = (href) => {

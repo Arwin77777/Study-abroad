@@ -46,13 +46,13 @@ export const continentStudyData = {
               },
               {
                 name: 'New York University (NYU)',
-                image: 'https://www.nyu.edu/content/dam/nyu/nyu-images/nyu-campus-hero.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/en/1/16/New_York_University_Seal.svg',
                 short: 'Major private university in NYC',
                 details: 'NYU is known for its global outlook, diverse student body, and strong programs in business, law, and the arts. Its main campus is located in the heart of Manhattan.'
               },
               {
                 name: 'Weill Cornell Medical College',
-                image: 'https://weill.cornell.edu/sites/default/files/styles/hero_image/public/2019-10/weill-cornell-medicine.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Weill_Cornell_Medicine_at_1300_York_Avenue_NYC.jpg',
                 short: 'Top medical school in New York',
                 details: 'Weill Cornell Medical College is a leading medical school offering a wide range of medical programs and research opportunities.'
               },
@@ -70,13 +70,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Harvard University',
-                image: 'https://www.harvard.edu/wp-content/uploads/2020/09/harvard-yard-1-1600x900.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Harvard_University_coat_of_arms.svg',
                 short: 'Prestigious Ivy League university',
                 details: 'Harvard University, established in 1636, is the oldest institution of higher education in the United States. It is renowned for its academic excellence, distinguished faculty, and global influence.'
               },
               {
                 name: 'Massachusetts Institute of Technology (MIT)',
-                image: 'https://mitadmissions.org/wp-content/uploads/2018/08/mit-dome.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/en/4/44/MIT_Seal.svg',
                 short: 'Top-ranked institute for science and technology',
                 details: 'MIT is a global leader in science, engineering, and technology education and research. The institute is known for its rigorous curriculum, innovative research, and collaborative culture.'
               },
@@ -94,13 +94,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Stanford University',
-                image: 'https://news.stanford.edu/wp-content/uploads/2022/08/StanfordCampusAerial-1600x900.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Seal_of_Leland_Stanford_Junior_University.svg',
                 short: 'Leading research university in Silicon Valley',
                 details: 'Stanford University is a world-renowned private research university located in Stanford, California. It is known for its entrepreneurial spirit, cutting-edge research, and close ties to Silicon Valley.'
               },
               {
                 name: 'University of California, Berkeley',
-                image: 'https://news.berkeley.edu/wp-content/uploads/2022/08/berkeleycampus-1600x900.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Seal_of_University_of_California%2C_Berkeley.svg',
                 short: 'Top public research university',
                 details: 'UC Berkeley is renowned for its academic excellence, vibrant campus life, and commitment to public service. It offers a wide range of programs and is a leader in research and innovation.'
               },
@@ -132,7 +132,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Toronto',
-                image: 'https://www.utoronto.ca/sites/default/files/styles/hero_image/public/2019-10/uoft-hero-1.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/en/0/04/Utoronto_coa.svg',
                 short: 'Canada\'s top-ranked university',
                 details: 'The University of Toronto is known for its research, diverse student body, and beautiful campus. It offers a wide range of programs and is a leader in innovation.'
               },
@@ -149,7 +149,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'McGill University',
-                image: 'https://www.mcgill.ca/newsroom/files/newsroom/styles/slider_full/public/hero_images/2019-10/mcgill-campus.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/en/2/29/McGill_University_CoA.svg',
                 short: 'Leading university in Montreal',
                 details: 'McGill University is recognized for its academic excellence and vibrant student life. It offers a diverse range of programs in a bilingual environment.'
               },
@@ -196,13 +196,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Imperial College London',
-                image: 'https://www.imperial.ac.uk/ImageCropToolT4/imageTool/uploaded-images/newseventsimage_1627297669642_mainnews2012_x1.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Shield_of_Imperial_College_London.svg',
                 short: 'Top science, engineering, and medicine university',
                 details: 'Imperial College London is a leader in STEM education and research, located in the heart of London.'
               },
               {
                 name: 'University College London (UCL)',
-                image: 'https://www.ucl.ac.uk/sites/default/files/styles/hero_image/public/ucl-campus.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/en/d/d1/University_College_London_logo.svg',
                 short: 'Leading multidisciplinary university',
                 details: 'UCL is known for its research excellence and diverse academic community in central London.'
               },
@@ -219,7 +219,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Oxford',
-                image: 'https://www.ox.ac.uk/sites/files/oxford/styles/ow_medium_feature/s3/field/field_image_main/radcliffe_camera_oxford.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Arms_of_University_of_Oxford.svg',
                 short: 'Oldest university in the English-speaking world',
                 details: 'The University of Oxford is renowned for its historic colleges, world-class research, and academic excellence.'
               },
@@ -251,7 +251,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Humboldt University of Berlin',
-                image: 'https://www.hu-berlin.de/en/about/history/humboldt-universitaet-zu-berlin-1',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Huberlin-logo.svg',
                 short: 'Historic university in Berlin',
                 details: 'Humboldt University is one of Germany\'s oldest universities, known for its research excellence and historic significance.'
               },
@@ -268,7 +268,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Technical University of Munich',
-                image: 'https://www.tum.de/en/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg',
                 short: 'Leading technical university',
                 details: 'TUM is one of Germany\'s top technical universities, known for engineering and technology excellence.'
               },
@@ -296,13 +296,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Sorbonne University',
-                image: 'https://www.sorbonne-universite.fr/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Paris_75005_Rue_Saint-Jacques_La_Sorbonne_facade_01c.jpg',
                 short: 'Historic university in Paris',
                 details: 'Sorbonne University is renowned for its humanities, sciences, and medical programs.'
               },
               {
                 name: 'École Polytechnique',
-                image: 'https://www.polytechnique.edu/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/0/05/POLYTECHNIQUE-IP_PARIS.png',
                 short: 'Top engineering school',
                 details: 'École Polytechnique is a leading French institution for science and engineering.'
               }
@@ -329,7 +329,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Oslo',
-                image: 'https://www.uio.no/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/3/31/University_of_Oslo_seal.svg',
                 short: 'Norway’s largest university',
                 details: 'The University of Oslo is known for research and a wide range of academic programs.'
               }
@@ -356,7 +356,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Lomonosov Moscow State University',
-                image: 'https://www.msu.ru/en/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/%D0%9C%D0%93%D0%A3%2C_%D0%B2%D0%B8%D0%B4_%D1%81_%D0%B2%D0%BE%D0%B7%D0%B4%D1%83%D1%85%D0%B0.jpg',
                 short: 'Top university in Russia',
                 details: 'MSU is Russia’s most prestigious university, known for research and academic excellence.'
               }
@@ -371,7 +371,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Saint Petersburg State University',
-                image: 'https://english.spbu.ru/',
+                image: 'https://en.wikipedia.org/wiki/Saint_Petersburg_State_University#/media/File:Coat_of_arms_of_SPbU.svg',
                 short: 'Historic university',
                 details: 'One of Russia’s oldest and most prestigious universities.'
               }
@@ -418,13 +418,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'National University of Singapore (NUS)',
-                image: 'https://www.nus.edu.sg/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/b/b9/NUS_coat_of_arms.svg',
                 short: 'Top university in Asia',
                 details: 'NUS is consistently ranked as one of Asia\'s top universities, known for research excellence and global partnerships.'
               },
               {
                 name: 'Nanyang Technological University (NTU)',
-                image: 'https://www.ntu.edu.sg/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/f/f8/Nanyang_Technological_University_coat_of_arms_vector.svg',
                 short: 'Leading research university',
                 details: 'NTU is known for its innovative research, beautiful campus, and strong industry connections.'
               },
@@ -456,7 +456,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Tokyo',
-                image: 'https://www.u-tokyo.ac.jp/en/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Yasuda_Auditorium_-_Tokyo_University_4.jpg',
                 short: 'Japan\'s top university',
                 details: 'The University of Tokyo is Japan\'s most prestigious university, known for research excellence and academic rigor.'
               },
@@ -483,13 +483,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of the Philippines',
-                image: 'https://up.edu.ph/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/3/3d/University_of_The_Philippines_seal.svg',
                 short: 'Top public university',
                 details: 'UP is the national university, known for academic excellence and research.'
               },
               {
                 name: 'Ateneo de Manila University',
-                image: 'https://www.ateneo.edu/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/6/6c/Ateneo_de_Manila_University_seal.svg',
                 short: 'Leading private university',
                 details: 'Ateneo is known for its strong liberal arts and business programs.'
               }
@@ -516,13 +516,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Malaya',
-                image: 'https://www.um.edu.my/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/8/8f/University_of_Malaya_logo.svg',
                 short: 'Top university in Malaysia',
                 details: 'The University of Malaya is Malaysia’s oldest and highest-ranking university.'
               },
               {
                 name: 'Taylor’s University',
-                image: 'https://university.taylors.edu.my/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/f/f6/Logo_of_Taylor%27s_University.svg',
                 short: 'Leading private university',
                 details: 'Taylor’s University is known for its modern campus and international programs.'
               }
@@ -549,13 +549,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Peking University',
-                image: 'https://english.pku.edu.cn/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg',
                 short: 'Top university in China',
                 details: 'Peking University is a leading research university with a beautiful campus.'
               },
               {
                 name: 'Tsinghua University',
-                image: 'https://www.tsinghua.edu.cn/en/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Tsinghua_University_Logo.svg',
                 short: 'World-class engineering university',
                 details: 'Tsinghua is renowned for science, engineering, and innovation.'
               }
@@ -570,7 +570,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Fudan University',
-                image: 'https://www.fudan.edu.cn/en/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Fudan_University_Logo.svg',
                 short: 'Top university in Shanghai',
                 details: 'Fudan University is known for its research, international outlook, and vibrant campus.'
               }
@@ -596,13 +596,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Dubai',
-                image: 'https://www.ud.ac.ae/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/7/7d/University_of_Dubai_logo.png',
                 short: 'Leading university in Dubai',
                 details: 'The University of Dubai is known for business, law, and IT programs.'
               },
               {
                 name: 'American University in Dubai',
-                image: 'https://www.aud.edu/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Aue.png',
                 short: 'International private university',
                 details: 'AUD offers American-style education in the heart of Dubai.'
               }
@@ -617,7 +617,7 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'Khalifa University',
-                image: 'https://www.ku.ac.ae/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/6/6a/KUSTAR_Logo.jpg',
                 short: 'Top science and tech university',
                 details: 'Khalifa University is a leading institution for science, engineering, and medicine.'
               }
@@ -664,13 +664,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Sydney',
-                image: 'https://www.sydney.edu.au/content/dam/corporate/images/campus-and-facilities/quadrangle.jpeg',
+                image: 'https://upload.wikimedia.org/wikipedia/en/9/9a/University_of_Sydney_coat_of_arms.png',
                 short: 'Australia\'s first university',
                 details: 'The University of Sydney is a world-renowned institution known for its beautiful campus and research excellence.'
               },
               {
                 name: 'University of New South Wales',
-                image: 'https://www.unsw.edu.au/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/6/6e/University_of_New_South_Wales_Crest_Variant_2022.png',
                 short: 'Leading research university',
                 details: 'UNSW is known for its research excellence, innovation, and strong industry connections.'
               },
@@ -687,13 +687,13 @@ export const continentStudyData = {
             universities: [
               {
                 name: 'University of Melbourne',
-                image: 'https://www.unimelb.edu.au/',
+                image: 'https://upload.wikimedia.org/wikipedia/en/b/b4/The_University_of_Melbourne_Coat_of_Arms.svg',
                 short: 'Australia\'s top university',
                 details: 'The University of Melbourne is consistently ranked as Australia\'s top university, known for research excellence and academic leadership.'
               },
               {
                 name: 'Monash University',
-                image: 'https://www.monash.edu/',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Arms_of_Monash_University.svg',
                 short: 'Leading research university',
                 details: 'Monash University is known for its research excellence, innovation, and global outlook.'
               },

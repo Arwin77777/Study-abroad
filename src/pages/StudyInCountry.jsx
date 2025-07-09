@@ -52,17 +52,14 @@ function UniversityModal({ university, onClose }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-100 flex items-center justify-center backdrop-blur-sm"
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0, y: 50 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.8, opacity: 0, y: 50 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="bg-white max-w-lg w-full rounded-3xl shadow-2xl p-8 relative mx-4"
+        className="bg-white max-w-lg w-full rounded-3xl shadow-2xl p-8 relative mx-4 mt-20"
       >
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -78,6 +75,7 @@ function UniversityModal({ university, onClose }) {
           src={university.image}
           alt={university.name}
           className="w-full h-48 object-cover rounded-2xl mb-4 shadow-lg"
+          style={{ height: '200px', objectFit: 'contain' }}
         />
         <motion.h2
           initial={{ y: 20, opacity: 0 }}
@@ -984,12 +982,15 @@ const StudyInCountry = () => {
                         className="bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-xl p-6 flex flex-col items-center text-center cursor-pointer border-2 border-[#336b87]/20 hover:border-[#336b87]/40 transition-all duration-300"
                         onClick={() => setSelectedUniversity(uni)}
                       >
-                        <motion.img
-                          whileHover={{ scale: 1.1 }}
-                          src={uni.image}
-                          alt={uni.name}
-                          className="w-full h-32 object-cover rounded-2xl mb-4 shadow-lg"
-                        />
+                        <div className='w-full h-50' style={{ height: '200px' }}>
+                          <motion.img
+                            whileHover={{ scale: 1.1 }}
+                            src={uni.image}
+                            alt={uni.name}
+                            className="w-full h-50 object-cover rounded-2xl mb-4 shadow-lg"
+                            style={{ height: '200px', objectFit: 'contain' }}
+                          />
+                        </div>
                         <div className="text-xl font-bold text-[#336b87] mb-2">{uni.name}</div>
                         <div className="text-gray-700 text-sm">{uni.short}</div>
                       </motion.div>
@@ -1043,7 +1044,7 @@ const StudyInCountry = () => {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="w-full flex justify-center px-2 py-5 relative z-10"
+            className="w-full flex justify-center px-2 py-5 relative z-1"
           >
             <div className="w-full max-w-7xl bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-2xl px-4 py-12 flex flex-col items-center border-2 border-[#336b87]/20">
               {/* Card Navigation */}
