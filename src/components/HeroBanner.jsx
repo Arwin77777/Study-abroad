@@ -1,45 +1,15 @@
 import { motion } from 'framer-motion';
 import EnquiryForm from './EnquiryForm';
+import GlobeBackground from './GlobeBackground';
+import GraduationCapBackground from './GraduationCapBackground';
 
 const HeroBanner = () => {
-
-  const bubbles = [
-    { x: '10vw', y: '20vh', size: 60, duration: 25, delay: 0 },
-    { x: '80vw', y: '30vh', size: 100, duration: 30, delay: 5 },
-    { x: '50vw', y: '70vh', size: 40, duration: 35, delay: 10 },
-    { x: '20vw', y: '85vh', size: 80, duration: 28, delay: 15 },
-    { x: '90vw', y: '80vh', size: 50, duration: 22, delay: 20 },
-  ];
-
   return (
     <div
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: `url('https://www.aecoverseas.com/wp-content/uploads/2024/11/top-bannerbg-1.webp')` }}
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {bubbles.map((b, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white/10 rounded-full"
-            style={{
-              width: b.size,
-              height: b.size,
-              left: b.x,
-              top: b.y,
-            }}
-            animate={{
-              y: ['0%', '-50%', '0%'],
-            }}
-            transition={{
-              duration: b.duration,
-              delay: b.delay,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
-          />
-        ))}
-      </div>
-
+      <GlobeBackground />
+      {/* <GraduationCapBackground /> */}
       <div className="absolute inset-0 bg-[#336b87]/60 z-10" />
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-24 mb-12">

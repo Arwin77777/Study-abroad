@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { School, Public, EmojiEvents, Psychology } from '@mui/icons-material';
+import { School, Public, EmojiEvents, Psychology, MonetizationOn, Home, Flight } from '@mui/icons-material';
+import BackgroundAnimation from './BackgroundAnimation';
 
 const AboutUsSection = () => {
   const containerVariants = {
@@ -31,6 +32,7 @@ const AboutUsSection = () => {
 
   return (
     <div id="about-us" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      <BackgroundAnimation animationType="bubbles" />
       <div 
         className="absolute inset-0 opacity-5"
         style={{
@@ -165,6 +167,54 @@ const AboutUsSection = () => {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          {/* Loan Help, Help for Stay, Visa Assistance Section */}
+          <h3 className="text-3xl font-bold text-[#336b87] mb-12">Our Services</h3>
+          <motion.div variants={containerVariants} className="space-y-16 mt-16">
+            <motion.div variants={itemVariants} className="grid md:grid-cols-3 gap-8">
+              {/* Loan Help Card */}
+              <motion.div
+                variants={cardVariants}
+                className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200"
+              >
+                <div className="flex items-center mb-6">
+                  <MonetizationOn sx={{ fontSize: 48, color: '#336b87' }} />
+                  <h3 className="text-2xl font-bold text-[#336b87] ml-4">Loan Help</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  We provide guidance on securing educational loans to support your study abroad journey.
+                </p>
+              </motion.div>
+
+              {/* Help for Stay Card */}
+              <motion.div
+                variants={cardVariants}
+                className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200"
+              >
+                <div className="flex items-center mb-6">
+                  <Home sx={{ fontSize: 48, color: '#336b87' }} />
+                  <h3 className="text-2xl font-bold text-[#336b87] ml-4">Help for Stay</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Assistance in finding comfortable and affordable accommodation options.
+                </p>
+              </motion.div>
+
+              {/* Visa Assistance Card */}
+              <motion.div
+                variants={cardVariants}
+                className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200"
+              >
+                <div className="flex items-center mb-6">
+                  <Flight sx={{ fontSize: 48, color: '#336b87' }} />
+                  <h3 className="text-2xl font-bold text-[#336b87] ml-4">Visa Assistance</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Expert advice and support in navigating the visa application process.
+                </p>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

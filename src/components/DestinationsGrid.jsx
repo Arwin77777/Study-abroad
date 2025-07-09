@@ -31,6 +31,7 @@ const destinations = [
         slug: 'uk',
         flagImg: 'https://flagcdn.com/gb.svg',
         image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80',
+        touristPlaces: ['London Eye', 'Stonehenge', 'Big Ben']
     },
     {
         name: 'Canada',
@@ -38,6 +39,7 @@ const destinations = [
         slug: 'canada',
         flagImg: 'https://flagcdn.com/ca.svg',
         image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+        touristPlaces: ['Niagara Falls', 'Banff National Park', 'CN Tower']
     },
     {
         name: 'USA',

@@ -2,6 +2,22 @@ const Hero = () => {
   return (
     <div className="relative bg-gradient-to-r from-primary to-secondary min-h-screen flex items-center">
       <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute bg-white/10 rounded-full"
+            style={{
+              width: `${Math.random() * 50 + 10}px`,
+              height: `${Math.random() * 50 + 10}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `float ${Math.random() * 5 + 5}s ease-in-out infinite`,
+              animationDirection: i % 2 === 0 ? 'normal' : 'reverse'
+            }}
+          />
+        ))}
+      </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
           Your Journey to Global Education Starts Here

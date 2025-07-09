@@ -103,17 +103,17 @@ const EnquiryForm = () => {
     setSubmitStatus(null);
   };
 
-  const inputClasses = "w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#336b87] focus:border-transparent transition-shadow shadow-sm disabled:bg-gray-100";
+  const inputClasses = "w-full px-2 py-2 border rounded-lg focus:ring-2 focus:ring-[#336b87] focus:border-transparent transition-shadow shadow-sm disabled:bg-gray-100 text-sm";
   const getInputClasses = (fieldName) => {
     return `${inputClasses} ${errors[fieldName] ? 'border-red-500' : 'border-gray-300'}`;
   };
 
   return (
-    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-[#336b87]/20 shadow-xl">
+    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-[#336b87]/20 shadow-xl">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-4">
           <div className="form-group">
-            <label htmlFor="name" className="block text-sm font-medium text-black mb-2">Name</label>
+            <label htmlFor="name" className="block text-xs font-medium text-black mb-1">Name</label>
             <input 
               type="text" 
               id="name" 
@@ -122,13 +122,13 @@ const EnquiryForm = () => {
               onChange={handleChange} 
               className={getInputClasses('name')} 
               required 
-              placeholder="John Doe" 
+              placeholder="Eg. Alex Kumar" 
               disabled={isSubmitting} 
             />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
           </div>
           <div className="form-group">
-            <label htmlFor="contact" className="block text-sm font-medium text-black mb-2">Contact Number</label>
+            <label htmlFor="contact" className="block text-xs font-medium text-black mb-1">Contact Number</label>
             <input 
               type="tel" 
               id="contact" 
@@ -137,13 +137,13 @@ const EnquiryForm = () => {
               onChange={handleChange} 
               className={getInputClasses('contact')} 
               required 
-              placeholder="+91 12345 67890" 
+              placeholder="+91 9876543210" 
               disabled={isSubmitting} 
             />
-            {errors.contact && <p className="text-red-500 text-sm mt-1">{errors.contact}</p>}
+            {errors.contact && <p className="text-red-500 text-xs mt-1">{errors.contact}</p>}
           </div>
           <div className="form-group">
-            <label htmlFor="email" className="block text-sm font-medium text-black mb-2">Email</label>
+            <label htmlFor="email" className="block text-xs font-medium text-black mb-1">Email</label>
             <input 
               type="email" 
               id="email" 
@@ -151,19 +151,19 @@ const EnquiryForm = () => {
               value={formData.email} 
               onChange={handleChange} 
               className={getInputClasses('email')} 
-              placeholder="john.doe@example.com" 
+              placeholder="Eg. alex@gmail.com" 
               disabled={isSubmitting} 
             />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
           </div>
           <div className="form-group">
-            <label htmlFor="state" className="block text-sm font-medium text-black mb-2">State</label>
+            <label htmlFor="state" className="block text-xs font-medium text-black mb-1">State</label>
             <select
               id="state"
               name="state"
               value={formData.state}
               onChange={handleChange}
-              className={`${getInputClasses('state')} bg-white`}
+              className={`${getInputClasses('state')} bg-white text-sm`}
               required
               disabled={isSubmitting}
             >
@@ -172,10 +172,10 @@ const EnquiryForm = () => {
                 <option key={state} value={state}>{state}</option>
               ))}
             </select>
-            {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state}</p>}
+            {errors.state && <p className="text-red-500 text-xs mt-1">{errors.state}</p>}
           </div>
           <div className="form-group md:col-span-2">
-            <label htmlFor="course" className="block text-sm font-medium text-black mb-2">Needed Course <span className="text-[#336b87]">(Optional)</span></label>
+            <label htmlFor="course" className="block text-xs font-medium text-black mb-1">Needed Course <span className="text-[#336b87]">(Optional)</span></label>
             <input 
               type="text" 
               id="course" 
@@ -183,13 +183,13 @@ const EnquiryForm = () => {
               value={formData.course} 
               onChange={handleChange} 
               className={getInputClasses('course')} 
-              placeholder="e.g., Computer Science" 
+              placeholder="Eg. Computer Science" 
               disabled={isSubmitting} 
             />
-            {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
+            {errors.course && <p className="text-red-500 text-xs mt-1">{errors.course}</p>}
           </div>
           <div className="form-group md:col-span-2">
-            <label htmlFor="comments" className="block text-sm font-medium text-black mb-2">Other Comments <span className="text-[#336b87]">(Optional)</span></label>
+            <label htmlFor="comments" className="block text-xs font-medium text-black mb-1">Other Comments <span className="text-[#336b87]">(Optional)</span></label>
             <textarea 
               id="comments" 
               name="comments" 
@@ -197,24 +197,21 @@ const EnquiryForm = () => {
               onChange={handleChange} 
               rows="2" 
               className={getInputClasses('comments')} 
-              placeholder="Any additional information..." 
-              disabled={isSubmitting}
-            ></textarea>
-            {errors.comments && <p className="text-red-500 text-sm mt-1">{errors.comments}</p>}
+              placeholder="Eg. I want to know more about the course" 
+              disabled={isSubmitting} 
+            />
+            {errors.comments && <p className="text-red-500 text-xs mt-1">{errors.comments}</p>}
           </div>
         </div>
-        <div className="text-center mt-8">
-          <button type="submit" className="bg-[#336b87] text-white font-bold px-10 py-4 rounded-full shadow-lg hover:bg-[#336b87]/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#336b87]/30 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100" disabled={isSubmitting}>
-            {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
+        <div className="mt-4">
+          <button 
+            type="submit" 
+            className="w-full bg-[#336b87] text-white py-2 rounded-lg shadow-md hover:bg-[#285f6b] transition-colors disabled:opacity-50"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
-        </div>
-        <div className="mt-4 h-6 text-center">
-            {submitStatus === 'success' && (
-              <p className="text-green-600 font-semibold">Enquiry sent successfully!</p>
-            )}
-            {submitStatus === 'error' && (
-              <p className="text-red-600 font-semibold">Failed to send enquiry. Please try again.</p>
-            )}
+          {submitStatus && <p className={`mt-2 text-sm ${submitStatus === 'success' ? 'text-green-500' : 'text-red-500'}`}>{submitStatus === 'success' ? 'Form submitted successfully!' : 'There was an error submitting the form.'}</p>}
         </div>
       </form>
     </div>

@@ -161,6 +161,29 @@ const UniversityDetail = () => {
           'Language learning resources',
           'Cultural adaptation programs'
         ]
+      },
+      accommodation: {
+        options: [
+          'Single rooms with shared facilities',
+          'En-suite rooms',
+          'Studio apartments',
+          'Shared apartments',
+          'Family housing units'
+        ],
+        amenities: [
+          'Wi-Fi and utilities included',
+          '24/7 security and maintenance',
+          'Common areas and study rooms',
+          'Laundry facilities',
+          'Cafeteria and dining options'
+        ],
+        policies: [
+          'No smoking policy',
+          'Quiet hours enforcement',
+          'Guest policy',
+          'Pet policy',
+          'Move-in and move-out procedures'
+        ]
       }
     };
   };
@@ -174,7 +197,8 @@ const UniversityDetail = () => {
     { key: 'costs', icon: '💰', title: 'Costs & Financial Aid' },
     { key: 'scholarships', icon: '🏆', title: 'Scholarships' },
     { key: 'campus', icon: '🏫', title: 'Campus Life' },
-    { key: 'studentLife', icon: '🎓', title: 'Student Life' }
+    { key: 'studentLife', icon: '🎓', title: 'Student Life' },
+    { key: 'accommodation', icon: '🏠', title: 'University Accommodation' }
   ];
 
   if (!university) {
@@ -565,6 +589,27 @@ const UniversityDetail = () => {
                   ))}
                 </div>
               </motion.div>
+            </div>
+          </div>
+        );
+
+      case 'accommodation':
+        return (
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-[#336b87] mb-4">Accommodation Options</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {details.campus.housing.map((option, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.02, x: 10 }}
+                  className="bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 p-6 rounded-xl border-l-4 border-[#336b87]"
+                >
+                  <span className="text-lg text-gray-700">{option}</span>
+                </motion.div>
+              ))}
             </div>
           </div>
         );

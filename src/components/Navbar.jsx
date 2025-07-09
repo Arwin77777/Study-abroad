@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, Close, ExpandMore, WhatsApp, Phone } from '@mui/icons-material';
+import { Menu, Close, ExpandMore, Phone } from '@mui/icons-material';
 import StudyAbroadDropdown from './StudyAbroadDropdown';
 import logo from '../assets/FUTURE FORGE CONSULTANCY .png';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,6 @@ const Navbar = () => {
   const navLinks = [
     { component: <StudyAbroadDropdown isMobile={false} /> },
     { label: 'About us', href: '/about-us' },
-  { label: 'WhatsApp Us', href: 'https://wa.me/1234567890', icon: <WhatsApp fontSize="small" />, isWa: true },
     { label: '+1 (234) 567-890', href: 'tel:+1234567890', icon: <Phone fontSize="small" /> }
   ];
   
@@ -33,7 +32,6 @@ const Navbar = () => {
     { component: <StudyAbroadDropdown isMobile={true} /> },
     { label: 'About us', href: '#about-us' },
     { label: 'Help' },
-    { label: 'WhatsApp Us', href: 'https://wa.me/1234567890', icon: <WhatsApp fontSize="small" />, isWa: true },
     { label: '+1 (234) 567-890', href: 'tel:+1234567890', icon: <Phone fontSize="small" /> }
   ];
 
@@ -52,8 +50,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div style={{cursor: 'pointer'}} onClick={() => navigate('/')} className="flex items-center">
-            <img src={logo} alt="logo" className="h-12" />
+          <div style={{cursor: 'pointer', width: '100px', height: '120px', padding: '5px'}} onClick={() => navigate('/')} className="flex items-center">
+            <img src={logo} alt="logo"  />
           </div>
 
           {/* Desktop menu */}

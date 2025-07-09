@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
-import { School, EmojiEvents, MonetizationOn, Star, Apartment } from '@mui/icons-material';
+import { School, EmojiEvents, MonetizationOn, Star, Apartment, Home, Flight } from '@mui/icons-material';
+import BackgroundAnimation from './BackgroundAnimation';
 
 // Custom Counter for Animated Numbers
 function Counter({ to, isInt = true }) {
@@ -83,6 +84,7 @@ const WhyUsSection = () => {
 
   return (
     <div className="py-20 bg-transparent relative">
+      <BackgroundAnimation animationType="waves" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -137,6 +139,57 @@ const WhyUsSection = () => {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Loan Help, Help for Stay, Visa Assistance Section */}
+        <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          {/* Loan Help Card */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="text-[#336b87]">
+                <MonetizationOn sx={{ fontSize: 40 }} />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-gray-600">Loan Help</h4>
+                <p className="text-sm text-gray-500">Guidance on securing educational loans for your studies.</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Help for Stay Card */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="text-[#336b87]">
+                <Home sx={{ fontSize: 40 }} />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-gray-600">Help for Stay</h4>
+                <p className="text-sm text-gray-500">Assistance in finding accommodation options.</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Visa Assistance Card */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="text-[#336b87]">
+                <Flight sx={{ fontSize: 40 }} />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-gray-600">Visa Assistance</h4>
+                <p className="text-sm text-gray-500">Support in navigating the visa application process.</p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>

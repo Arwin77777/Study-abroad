@@ -5,6 +5,7 @@ import StudyAbroadRoadmap from '../components/StudyAbroadRoadmap'
 import WhyUsSection from '../components/WhyUsSection'
 import TopUniversitiesSection from '../components/TopUniversitiesSection'
 import SuccessStories from '../components/SuccessStories'
+import CoursesSection from '../components/CoursesSection'
 import { motion } from 'framer-motion'
 
 const sectionVariants = {
@@ -100,6 +101,8 @@ function Home() {
         <Section id="destinations" title="Explore Destinations">
           <DestinationsGrid />
         </Section>
+
+        <CoursesSection />
 
         <StudyAbroadRoadmap />
 

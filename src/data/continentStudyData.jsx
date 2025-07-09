@@ -1,3 +1,6 @@
+import Columbia from '../../public/ColumbiaUniversity.svg';
+
+
 export const continentStudyData = {
   northAmerica: {
     name: 'North America',
@@ -10,6 +13,7 @@ export const continentStudyData = {
       { icon: '🔬', title: "Cutting-Edge Research", details: "A global leader in research and innovation, providing opportunities to work on groundbreaking projects." },
       { icon: '💰', title: "High-Quality Facilities", details: "Universities are equipped with state-of-the-art facilities and resources to support student success." },
     ],
+    touristPlaces: ['Grand Canyon', 'Niagara Falls', 'Yellowstone National Park'],
     countries: {
       usa: {
         name: 'United States of America',
@@ -22,6 +26,7 @@ export const continentStudyData = {
           { icon: '🌎', title: "World's Largest Economy", details: "The U.S. economy is the largest in the world, providing a dynamic environment for learning and career growth." },
           { icon: '🏢', title: "Fortune 500 Companies", details: "Home to 124 of the Fortune 500 companies, offering extensive internship and job opportunities with global leaders." },
         ],
+        touristPlaces: ['Statue of Liberty', 'Grand Canyon', 'Yellowstone National Park'],
         cities: {
           newYork: {
             name: 'New York',
@@ -31,10 +36,11 @@ export const continentStudyData = {
               { icon: '🎭', title: "World's entertainment capital" },
               { icon: '🌉', title: "Iconic landmarks and attractions" },
             ],
+            touristPlaces: ['Statue of Liberty', 'Central Park', 'Times Square'],
             universities: [
               {
                 name: 'Columbia University',
-                image: 'https://www.columbia.edu/content/sites/default/files/styles/cu_crop/public/content/Morningside%20Campus%20-%20College%20Walk.jpg',
+                image: Columbia,
                 short: 'Ivy League university in Manhattan',
                 details: 'Columbia University is one of the oldest and most prestigious universities in the US. Located in Manhattan, it offers a diverse range of programs and is known for its global outlook and vibrant urban campus.'
               },
@@ -43,6 +49,12 @@ export const continentStudyData = {
                 image: 'https://www.nyu.edu/content/dam/nyu/nyu-images/nyu-campus-hero.jpg',
                 short: 'Major private university in NYC',
                 details: 'NYU is known for its global outlook, diverse student body, and strong programs in business, law, and the arts. Its main campus is located in the heart of Manhattan.'
+              },
+              {
+                name: 'Weill Cornell Medical College',
+                image: 'https://weill.cornell.edu/sites/default/files/styles/hero_image/public/2019-10/weill-cornell-medicine.jpg',
+                short: 'Top medical school in New York',
+                details: 'Weill Cornell Medical College is a leading medical school offering a wide range of medical programs and research opportunities.'
               },
             ]
           },
@@ -54,6 +66,7 @@ export const continentStudyData = {
               { icon: '🏥', title: "Leading healthcare and research" },
               { icon: '📚', title: "Rich educational heritage" },
             ],
+            touristPlaces: ['Freedom Trail', 'Fenway Park', 'Museum of Fine Arts'],
             universities: [
               {
                 name: 'Harvard University',
@@ -77,6 +90,7 @@ export const continentStudyData = {
               { icon: '🌊', title: "Beautiful Pacific coastline" },
               { icon: '🎬', title: "Entertainment industry center" },
             ],
+            touristPlaces: ['Golden Gate Bridge', 'Disneyland', 'Yosemite National Park'],
             universities: [
               {
                 name: 'Stanford University',
@@ -105,6 +119,7 @@ export const continentStudyData = {
           { icon: '🌍', title: "Multicultural Society", details: "With a rich tapestry of cultures, Canada is a vibrant and diverse nation that celebrates its multicultural heritage." },
           { icon: '💼', title: "Strong Job Market", details: "A thriving economy and a strong job market provide excellent career prospects for graduates." },
         ],
+        touristPlaces: ['Niagara Falls', 'Banff National Park', 'CN Tower'],
         cities: {
           toronto: {
             name: 'Toronto',
@@ -155,6 +170,7 @@ export const continentStudyData = {
       { icon: '🚄', title: "Easy Travel", details: "Excellent transport links make it easy to explore different countries and cultures during your studies." },
       { icon: '🎨', title: "Arts and Culture", details: "Immerse yourself in a rich heritage of art, music, and history, with world-class museums and galleries." },
     ],
+    touristPlaces: ['Eiffel Tower', 'Colosseum', 'Acropolis'],
     countries: {
       uk: {
         name: 'United Kingdom',
@@ -167,6 +183,7 @@ export const continentStudyData = {
           { icon: '🌍', title: "Diverse Community", details: "A vibrant, multicultural society welcomes people from all over the world, creating a dynamic student environment." },
           { icon: '💼', title: "Strong Industry Links", details: "Universities have strong connections with industry, providing excellent internship and career opportunities." },
         ],
+        touristPlaces: ['Big Ben', 'Stonehenge', 'Tower of London'],
         cities: {
           london: {
             name: 'London',
@@ -221,6 +238,7 @@ export const continentStudyData = {
           { icon: '💼', title: "Strong Economy", details: "As Europe's largest economy, Germany offers excellent career prospects and job stability for graduates." },
           { icon: '🏛️', title: "Rich Cultural Heritage", details: "From medieval castles to modern art, Germany has a rich and diverse cultural landscape to explore." },
         ],
+        touristPlaces: ['Brandenburg Gate', 'Neuschwanstein Castle', 'Berlin Wall'],
         cities: {
           berlin: {
             name: 'Berlin',
@@ -257,6 +275,109 @@ export const continentStudyData = {
             ]
           }
         }
+      },
+      france: {
+        name: 'France',
+        icon: '🇫🇷',
+        facts: [
+          { icon: '🍷', title: 'Rich Culture', details: 'France is known for its art, cuisine, and cultural heritage.' },
+          { icon: '🎓', title: 'Prestigious Universities', details: 'Home to some of the world’s top universities and business schools.' },
+          { icon: '🏛️', title: 'Historic Landmarks', details: 'Study near iconic sites like the Eiffel Tower and Louvre.' },
+        ],
+        touristPlaces: ['Eiffel Tower', 'Louvre Museum', 'Mont Saint-Michel'],
+        cities: {
+          paris: {
+            name: 'Paris',
+            icon: '🗼',
+            facts: [
+              { icon: '🎨', title: 'Art and Fashion Capital' },
+              { icon: '🏛️', title: 'Historic Universities' },
+            ],
+            universities: [
+              {
+                name: 'Sorbonne University',
+                image: 'https://www.sorbonne-universite.fr/',
+                short: 'Historic university in Paris',
+                details: 'Sorbonne University is renowned for its humanities, sciences, and medical programs.'
+              },
+              {
+                name: 'École Polytechnique',
+                image: 'https://www.polytechnique.edu/',
+                short: 'Top engineering school',
+                details: 'École Polytechnique is a leading French institution for science and engineering.'
+              }
+            ]
+          }
+        }
+      },
+      norway: {
+        name: 'Norway',
+        icon: '🇳🇴',
+        facts: [
+          { icon: '🌄', title: 'Stunning Nature', details: 'Famous for fjords, mountains, and northern lights.' },
+          { icon: '🎓', title: 'Tuition-Free Education', details: 'Many universities offer free education to international students.' },
+        ],
+        touristPlaces: ['Geirangerfjord', 'Oslo Opera House', 'Northern Lights'],
+        cities: {
+          oslo: {
+            name: 'Oslo',
+            icon: '🏙️',
+            facts: [
+              { icon: '🌲', title: 'Green City' },
+              { icon: '🎓', title: 'Academic Hub' },
+            ],
+            universities: [
+              {
+                name: 'University of Oslo',
+                image: 'https://www.uio.no/',
+                short: 'Norway’s largest university',
+                details: 'The University of Oslo is known for research and a wide range of academic programs.'
+              }
+            ]
+          }
+        }
+      },
+      russia: {
+        name: 'Russia',
+        icon: '🇷🇺',
+        facts: [
+          { icon: '❄️', title: 'Vast Country', details: 'Largest country in the world, spanning Europe and Asia.' },
+          { icon: '🎓', title: 'Strong in Science', details: 'Known for excellence in science, engineering, and mathematics.' },
+        ],
+        touristPlaces: ['Red Square', 'Hermitage Museum', 'Lake Baikal'],
+        cities: {
+          moscow: {
+            name: 'Moscow',
+            icon: '🌆',
+            facts: [
+              { icon: '🏛️', title: 'Cultural and Political Center' },
+              { icon: '🎓', title: 'Top Universities' },
+            ],
+            universities: [
+              {
+                name: 'Lomonosov Moscow State University',
+                image: 'https://www.msu.ru/en/',
+                short: 'Top university in Russia',
+                details: 'MSU is Russia’s most prestigious university, known for research and academic excellence.'
+              }
+            ]
+          },
+          saintPetersburg: {
+            name: 'Saint Petersburg',
+            icon: '🏰',
+            facts: [
+              { icon: '🎨', title: 'Historic and Artistic City' },
+            ],
+            universities: [
+              {
+                name: 'Saint Petersburg State University',
+                image: 'https://english.spbu.ru/',
+                short: 'Historic university',
+                details: 'One of Russia’s oldest and most prestigious universities.'
+              }
+            ]
+          }
+        }
       }
     }
   },
@@ -271,6 +392,7 @@ export const continentStudyData = {
       { icon: '🔬', title: "Technology and innovation hubs" },
       { icon: '🌏', title: "Gateway to Asian markets" },
     ],
+    touristPlaces: ['Great Wall of China', 'Taj Mahal', 'Mount Fuji'],
     countries: {
       singapore: {
         name: 'Singapore',
@@ -283,6 +405,7 @@ export const continentStudyData = {
           { icon: '🔬', title: "Research and innovation" },
           { icon: '🌏', title: "Gateway to Asia" },
         ],
+        touristPlaces: ['Marina Bay Sands', 'Gardens by the Bay', 'Sentosa Island'],
         cities: {
           singapore: {
             name: 'Singapore',
@@ -320,6 +443,7 @@ export const continentStudyData = {
           { icon: '🌏', title: "Asian economic powerhouse" },
           { icon: '🎌', title: "Unique cultural experience" },
         ],
+        touristPlaces: ['Mount Fuji', 'Tokyo Tower', 'Kyoto Temples'],
         cities: {
           tokyo: {
             name: 'Tokyo',
@@ -339,6 +463,167 @@ export const continentStudyData = {
             ]
           }
         }
+      },
+      philippines: {
+        name: 'Philippines',
+        icon: '🇵🇭',
+        facts: [
+          { icon: '🏝️', title: 'Beautiful Islands', details: 'Known for its stunning beaches and islands.' },
+          { icon: '🎓', title: 'English-Taught Programs', details: 'Many universities offer programs in English.' },
+        ],
+        touristPlaces: ['Boracay', 'Chocolate Hills', 'Mayon Volcano'],
+        cities: {
+          manila: {
+            name: 'Manila',
+            icon: '🏙️',
+            facts: [
+              { icon: '🌆', title: 'Capital City' },
+              { icon: '🎓', title: 'Education Hub' },
+            ],
+            universities: [
+              {
+                name: 'University of the Philippines',
+                image: 'https://up.edu.ph/',
+                short: 'Top public university',
+                details: 'UP is the national university, known for academic excellence and research.'
+              },
+              {
+                name: 'Ateneo de Manila University',
+                image: 'https://www.ateneo.edu/',
+                short: 'Leading private university',
+                details: 'Ateneo is known for its strong liberal arts and business programs.'
+              }
+            ]
+          }
+        }
+      },
+      malaysia: {
+        name: 'Malaysia',
+        icon: '🇲🇾',
+        facts: [
+          { icon: '🌴', title: 'Tropical Climate', details: 'Enjoy year-round warm weather and rainforests.' },
+          { icon: '🎓', title: 'Affordable Education', details: 'Malaysia offers quality education at affordable costs.' },
+        ],
+        touristPlaces: ['Petronas Towers', 'Langkawi', 'Batu Caves'],
+        cities: {
+          kualaLumpur: {
+            name: 'Kuala Lumpur',
+            icon: '🏙️',
+            facts: [
+              { icon: '🌆', title: 'Modern Capital' },
+              { icon: '🎓', title: 'Education Hub' },
+            ],
+            universities: [
+              {
+                name: 'University of Malaya',
+                image: 'https://www.um.edu.my/',
+                short: 'Top university in Malaysia',
+                details: 'The University of Malaya is Malaysia’s oldest and highest-ranking university.'
+              },
+              {
+                name: 'Taylor’s University',
+                image: 'https://university.taylors.edu.my/',
+                short: 'Leading private university',
+                details: 'Taylor’s University is known for its modern campus and international programs.'
+              }
+            ]
+          }
+        }
+      },
+      china: {
+        name: 'China',
+        icon: '🇨🇳',
+        facts: [
+          { icon: '🏯', title: 'Ancient Civilization', details: 'China has a rich history and cultural heritage.' },
+          { icon: '🎓', title: 'Top Global Universities', details: 'Home to several universities ranked among the world’s best.' },
+        ],
+        touristPlaces: ['Great Wall', 'Forbidden City', 'Terracotta Army'],
+        cities: {
+          beijing: {
+            name: 'Beijing',
+            icon: '🏯',
+            facts: [
+              { icon: '🏛️', title: 'Capital City' },
+              { icon: '🎓', title: 'Academic Center' },
+            ],
+            universities: [
+              {
+                name: 'Peking University',
+                image: 'https://english.pku.edu.cn/',
+                short: 'Top university in China',
+                details: 'Peking University is a leading research university with a beautiful campus.'
+              },
+              {
+                name: 'Tsinghua University',
+                image: 'https://www.tsinghua.edu.cn/en/',
+                short: 'World-class engineering university',
+                details: 'Tsinghua is renowned for science, engineering, and innovation.'
+              }
+            ]
+          },
+          shanghai: {
+            name: 'Shanghai',
+            icon: '🌆',
+            facts: [
+              { icon: '🏙️', title: 'Global City' },
+            ],
+            universities: [
+              {
+                name: 'Fudan University',
+                image: 'https://www.fudan.edu.cn/en/',
+                short: 'Top university in Shanghai',
+                details: 'Fudan University is known for its research, international outlook, and vibrant campus.'
+              }
+            ]
+          }
+        }
+      },
+      uae: {
+        name: 'United Arab Emirates',
+        icon: '🇦🇪',
+        facts: [
+          { icon: '🏙️', title: 'Modern Cities', details: 'Home to futuristic cities like Dubai and Abu Dhabi.' },
+          { icon: '🎓', title: 'International Campuses', details: 'Many top global universities have campuses in the UAE.' },
+        ],
+        touristPlaces: ['Burj Khalifa', 'Sheikh Zayed Mosque', 'Palm Jumeirah'],
+        cities: {
+          dubai: {
+            name: 'Dubai',
+            icon: '🌆',
+            facts: [
+              { icon: '🏙️', title: 'Business and Tourism Hub' },
+            ],
+            universities: [
+              {
+                name: 'University of Dubai',
+                image: 'https://www.ud.ac.ae/',
+                short: 'Leading university in Dubai',
+                details: 'The University of Dubai is known for business, law, and IT programs.'
+              },
+              {
+                name: 'American University in Dubai',
+                image: 'https://www.aud.edu/',
+                short: 'International private university',
+                details: 'AUD offers American-style education in the heart of Dubai.'
+              }
+            ]
+          },
+          abuDhabi: {
+            name: 'Abu Dhabi',
+            icon: '🏙️',
+            facts: [
+              { icon: '🏛️', title: 'Cultural Capital' },
+            ],
+            universities: [
+              {
+                name: 'Khalifa University',
+                image: 'https://www.ku.ac.ae/',
+                short: 'Top science and tech university',
+                details: 'Khalifa University is a leading institution for science, engineering, and medicine.'
+              }
+            ]
+          }
+        }
       }
     }
   },
@@ -353,6 +638,7 @@ export const continentStudyData = {
       { icon: '🏖️', title: "Excellent quality of life" },
       { icon: '🔬', title: "Research excellence" },
     ],
+    touristPlaces: ['Sydney Opera House', 'Great Barrier Reef', 'Uluru'],
     countries: {
       australia: {
         name: 'Australia',
@@ -365,6 +651,7 @@ export const continentStudyData = {
           { icon: '💼', title: "Strong economy" },
           { icon: '🏖️', title: "High quality of life" },
         ],
+        touristPlaces: ['Sydney Opera House', 'Great Barrier Reef', 'Uluru'],
         cities: {
           sydney: {
             name: 'Sydney',

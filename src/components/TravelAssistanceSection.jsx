@@ -24,7 +24,10 @@ const TravelAssistanceSection = () => {
         'Off-campus accommodation',
         'Homestay arrangements',
         'Temporary housing solutions',
-        'Roommate matching'
+        'Roommate matching',
+        'University accommodation guidance',
+        'Private home or hostel options',
+        'Assistance with lease agreements'
       ]
     },
     {

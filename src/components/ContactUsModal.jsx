@@ -129,7 +129,7 @@ const ContactUsModal = ({ open, onClose }) => {
               value={formData.name} 
               onChange={handleChange} 
               className={getInputClasses('name')} 
-              placeholder="John Doe" 
+              placeholder="Eg. Alex Kumar" 
               required 
               disabled={isSubmitting} 
             />
@@ -143,7 +143,7 @@ const ContactUsModal = ({ open, onClose }) => {
               value={formData.contact} 
               onChange={handleChange} 
               className={getInputClasses('contact')} 
-              placeholder="+91 12345 67890" 
+              placeholder="+91 9876543210" 
               required 
               disabled={isSubmitting} 
             />
@@ -157,7 +157,7 @@ const ContactUsModal = ({ open, onClose }) => {
               value={formData.email} 
               onChange={handleChange} 
               className={getInputClasses('email')} 
-              placeholder="you@example.com" 
+              placeholder="Eg. alex@gmail.com" 
               required 
               disabled={isSubmitting} 
             />
