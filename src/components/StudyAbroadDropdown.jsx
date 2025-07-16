@@ -143,7 +143,7 @@ const StudyAbroadDropdown = () => {
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <Link
-                  to="/study-in-usa"
+                  to="/study-abroad?continent=northAmerica&country=usa"
                   className="flex items-center text-xs text-[#336b87] hover:text-[#336b87]/80"
                   onClick={() => setIsOpen(false)}
                 >

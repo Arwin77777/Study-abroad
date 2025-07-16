@@ -855,12 +855,13 @@ const StudyInCountry = () => {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="w-full md:w-[350px] lg:w-[400px] flex justify-center "
+              className="w-full md:w-[350px] lg:w-[400px] m-4 flex justify-center items-center"
             >
               <img
                 src={imageSrc}
                 alt="Student"
                 className="w-full h-auto object-cover shadow-xl"
+                style={{height: '400px', borderRadius: '200px'}}
               />
             </motion.div>
           </div>
