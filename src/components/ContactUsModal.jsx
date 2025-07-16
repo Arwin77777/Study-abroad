@@ -130,7 +130,7 @@ const ContactUsModal = ({ open, onClose }) => {
         initial={{ opacity: 0, y: 50, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 50, scale: 0.9 }}
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 relative m-4 mt-20"
+        className="bg-gradient-to-br from-[#ffecb3] to-[#ffe082] rounded-2xl shadow-2xl w-full max-w-md p-8 relative m-4 mt-20"
       >
         <motion.button
           whileHover={{ scale: 1.1, rotate: 90 }}
@@ -213,7 +213,7 @@ const ContactUsModal = ({ open, onClose }) => {
               type="submit"
               whileHover={{ scale: 1 }}
               whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-              className="w-full bg-[#336b87] hover:bg-[#2a5a70] text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-[#ffb74d] to-[#ff8a65] hover:from-[#ff7043] hover:to-[#ff5722] text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}

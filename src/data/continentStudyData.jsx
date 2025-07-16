@@ -5,6 +5,7 @@ export const continentStudyData = {
   northAmerica: {
     name: 'North America',
     icon: '🌎',
+    description: 'North America is known for its diverse landscapes, vibrant cultures, and world-class educational institutions.',
     facts: [
       { icon: '🏆', title: "Top-Ranked Universities", details: "Home to many of the world's most prestigious and top-ranked universities, offering world-class education." },
       { icon: '🎓', title: "Leading Student Destination", details: "The most popular choice for international students seeking high-quality education and diverse experiences." },
@@ -18,6 +19,7 @@ export const continentStudyData = {
       usa: {
         name: 'United States of America',
         icon: '🇺🇸',
+        description: 'The USA is a leading destination for international students, offering a wide range of programs and cultural experiences.',
         facts: [
           { icon: '🏅', title: "Top Student Destination", details: "The USA hosts more international students than any other country, with over a million students choosing to broaden their education and life experience." },
           { icon: '🗽', title: "Financial Capital", details: "New York City is the world's premier financial center, offering unparalleled opportunities in finance, business, and commerce." },
@@ -31,6 +33,7 @@ export const continentStudyData = {
           newYork: {
             name: 'New York',
             icon: '🗽',
+            description: 'New York City is a global hub for finance, culture, and education, known for its iconic landmarks and diverse population.',
             facts: [
               { icon: '🏙️', title: "Global financial and cultural hub" },
               { icon: '🎭', title: "World's entertainment capital" },
@@ -61,6 +64,7 @@ export const continentStudyData = {
           boston: {
             name: 'Boston',
             icon: '🏛️',
+            description: 'Boston is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🎓', title: "Academic excellence hub" },
               { icon: '🏥', title: "Leading healthcare and research" },
@@ -85,6 +89,7 @@ export const continentStudyData = {
           california: {
             name: 'California',
             icon: '☀️',
+            description: 'California is known for its vibrant culture, diverse landscapes, and innovative technology, offering a unique educational experience.',
             facts: [
               { icon: '💻', title: "Silicon Valley innovation hub" },
               { icon: '🌊', title: "Beautiful Pacific coastline" },
@@ -111,6 +116,7 @@ export const continentStudyData = {
       canada: {
         name: 'Canada',
         icon: '🇨🇦',
+        description: 'Canada is known for its friendly and multicultural society, offering a safe and inclusive environment for international students.',
         facts: [
           { icon: '🍁', title: "Welcoming Environment", details: "Known for its friendly and multicultural society, Canada offers a safe and inclusive environment for international students." },
           { icon: '🏔️', title: "Stunning Landscapes", details: "From the Rocky Mountains to the Atlantic coast, Canada's natural beauty provides endless opportunities for exploration." },
@@ -124,6 +130,7 @@ export const continentStudyData = {
           toronto: {
             name: 'Toronto',
             icon: '🏙️',
+            description: 'Toronto is a global hub for finance, culture, and education, known for its iconic landmarks and diverse population.',
             facts: [
               { icon: '🌆', title: "Canada's largest city" },
               { icon: '💼', title: "Major financial center" },
@@ -141,6 +148,7 @@ export const continentStudyData = {
           montreal: {
             name: 'Montreal',
             icon: '🏛️',
+            description: 'Montreal is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🎓', title: "Academic excellence center" },
               { icon: '🎭', title: "Cultural and artistic hub" },
@@ -162,6 +170,7 @@ export const continentStudyData = {
   europe: {
     name: 'Europe',
     icon: '🏛️',
+    description: 'Europe offers a rich tapestry of history, culture, and academic excellence, with many of the world’s oldest universities.',
     facts: [
       { icon: '🎓', title: "Rich Academic Traditions", details: "Europe's universities are steeped in history, offering a unique blend of tradition and modernity." },
       { icon: '🏛️', title: "Historic Universities", details: "Study at some of the world's oldest and most respected institutions, with centuries of academic excellence." },
@@ -175,6 +184,7 @@ export const continentStudyData = {
       uk: {
         name: 'United Kingdom',
         icon: '🇬🇧',
+        description: 'The UK is known for its rich history, culture, and academic excellence, offering a unique educational experience.',
         facts: [
           { icon: '🏛️', title: "Historic Universities", details: "The UK is home to some of the world's oldest and most prestigious universities, such as Oxford and Cambridge." },
           { icon: '🎓', title: "Rich Academic Tradition", details: "A long-standing reputation for academic excellence attracts students and researchers from across the globe." },
@@ -188,6 +198,7 @@ export const continentStudyData = {
           london: {
             name: 'London',
             icon: '🏙️',
+            description: 'London is a global hub for finance, culture, and education, known for its iconic landmarks and diverse population.',
             facts: [
               { icon: '🌍', title: "Global financial center" },
               { icon: '🎭', title: "Cultural and arts hub" },
@@ -211,6 +222,7 @@ export const continentStudyData = {
           oxford: {
             name: 'Oxford',
             icon: '🏛️',
+            description: 'Oxford is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '📚', title: "Academic excellence tradition" },
               { icon: '🏛️', title: "Historic university city" },
@@ -230,6 +242,7 @@ export const continentStudyData = {
       germany: {
         name: 'Germany',
         icon: '🇩🇪',
+        description: 'Germany is known for its engineering and technology, offering a unique educational experience.',
         facts: [
           { icon: '🏭', title: "Engineering Leader", details: "Germany is a powerhouse in engineering and technology, offering world-class programs and research opportunities." },
           { icon: '🎓', title: "Low/No Tuition Fees", details: "Public universities in Germany offer free or very low-cost tuition for all students, including internationals." },
@@ -243,6 +256,7 @@ export const continentStudyData = {
           berlin: {
             name: 'Berlin',
             icon: '🏛️',
+            description: 'Berlin is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🎨', title: "Creative and artistic hub" },
               { icon: '🏛️', title: "Historic and modern blend" },
@@ -260,6 +274,7 @@ export const continentStudyData = {
           munich: {
             name: 'Munich',
             icon: '🏔️',
+            description: 'Munich is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🏔️', title: "Bavarian culture and heritage" },
               { icon: '🏭', title: "Technology and industry hub" },
@@ -279,6 +294,7 @@ export const continentStudyData = {
       france: {
         name: 'France',
         icon: '🇫🇷',
+        description: 'France is known for its art, cuisine, and cultural heritage, offering a unique educational experience.',
         facts: [
           { icon: '🍷', title: 'Rich Culture', details: 'France is known for its art, cuisine, and cultural heritage.' },
           { icon: '🎓', title: 'Prestigious Universities', details: 'Home to some of the world’s top universities and business schools.' },
@@ -289,6 +305,7 @@ export const continentStudyData = {
           paris: {
             name: 'Paris',
             icon: '🗼',
+            description: 'Paris is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🎨', title: 'Art and Fashion Capital' },
               { icon: '🏛️', title: 'Historic Universities' },
@@ -313,7 +330,8 @@ export const continentStudyData = {
       norway: {
         name: 'Norway',
         icon: '🇳🇴',
-        facts: [
+        description: 'Norway is known for its stunning nature, offering a unique educational experience.',
+            facts: [
           { icon: '🌄', title: 'Stunning Nature', details: 'Famous for fjords, mountains, and northern lights.' },
           { icon: '🎓', title: 'Tuition-Free Education', details: 'Many universities offer free education to international students.' },
         ],
@@ -322,6 +340,7 @@ export const continentStudyData = {
           oslo: {
             name: 'Oslo',
             icon: '🏙️',
+            description: 'Oslo is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🌲', title: 'Green City' },
               { icon: '🎓', title: 'Academic Hub' },
@@ -340,6 +359,7 @@ export const continentStudyData = {
       russia: {
         name: 'Russia',
         icon: '🇷🇺',
+        description: 'Russia is known for its vast country, offering a unique educational experience.',
         facts: [
           { icon: '❄️', title: 'Vast Country', details: 'Largest country in the world, spanning Europe and Asia.' },
           { icon: '🎓', title: 'Strong in Science', details: 'Known for excellence in science, engineering, and mathematics.' },
@@ -349,6 +369,7 @@ export const continentStudyData = {
           moscow: {
             name: 'Moscow',
             icon: '🌆',
+            description: 'Moscow is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🏛️', title: 'Cultural and Political Center' },
               { icon: '🎓', title: 'Top Universities' },
@@ -365,6 +386,7 @@ export const continentStudyData = {
           saintPetersburg: {
             name: 'Saint Petersburg',
             icon: '🏰',
+            description: 'Saint Petersburg is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🎨', title: 'Historic and Artistic City' },
             ],
@@ -384,6 +406,7 @@ export const continentStudyData = {
   asia: {
     name: 'Asia',
     icon: '🌏',
+    description: 'Asia is a rapidly growing education hub, known for its technological advancements and diverse cultures.',
     facts: [
       { icon: '🎓', title: "Rapidly growing education sector" },
       { icon: '💼', title: "Emerging job markets" },
@@ -397,6 +420,7 @@ export const continentStudyData = {
       singapore: {
         name: 'Singapore',
         icon: '🇸🇬',
+        description: 'Singapore is known for its modern city-state, offering a unique educational experience.',
         facts: [
           { icon: '🏙️', title: "Modern city-state" },
           { icon: '🎓', title: "World-class education" },
@@ -410,6 +434,7 @@ export const continentStudyData = {
           singapore: {
             name: 'Singapore',
             icon: '🏙️',
+            description: 'Singapore is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🏙️', title: "Modern metropolis" },
               { icon: '🌍', title: "Global financial center" },
@@ -435,6 +460,7 @@ export const continentStudyData = {
       japan: {
         name: 'Japan',
         icon: '🇯🇵',
+        description: 'Japan is known for its rich cultural heritage, offering a unique educational experience.',
         facts: [
           { icon: '🏯', title: "Rich cultural heritage" },
           { icon: '🔬', title: "Technology innovation leader" },
@@ -448,6 +474,7 @@ export const continentStudyData = {
           tokyo: {
             name: 'Tokyo',
             icon: '🗼',
+            description: 'Tokyo is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🏙️', title: "World's largest metropolis" },
               { icon: '🔬', title: "Technology and innovation hub" },
@@ -467,6 +494,7 @@ export const continentStudyData = {
       philippines: {
         name: 'Philippines',
         icon: '🇵🇭',
+        description: 'Philippines is known for its beautiful islands, offering a unique educational experience.',
         facts: [
           { icon: '🏝️', title: 'Beautiful Islands', details: 'Known for its stunning beaches and islands.' },
           { icon: '🎓', title: 'English-Taught Programs', details: 'Many universities offer programs in English.' },
@@ -476,6 +504,7 @@ export const continentStudyData = {
           manila: {
             name: 'Manila',
             icon: '🏙️',
+            description: 'Manila is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🌆', title: 'Capital City' },
               { icon: '🎓', title: 'Education Hub' },
@@ -500,6 +529,7 @@ export const continentStudyData = {
       malaysia: {
         name: 'Malaysia',
         icon: '🇲🇾',
+        description: 'Malaysia is known for its tropical climate, offering a unique educational experience.',
         facts: [
           { icon: '🌴', title: 'Tropical Climate', details: 'Enjoy year-round warm weather and rainforests.' },
           { icon: '🎓', title: 'Affordable Education', details: 'Malaysia offers quality education at affordable costs.' },
@@ -509,6 +539,7 @@ export const continentStudyData = {
           kualaLumpur: {
             name: 'Kuala Lumpur',
             icon: '🏙️',
+            description: 'Kuala Lumpur is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🌆', title: 'Modern Capital' },
               { icon: '🎓', title: 'Education Hub' },
@@ -630,6 +661,7 @@ export const continentStudyData = {
   australia: {
     name: 'Australia',
     icon: '🦘',
+    description: 'Australia is renowned for its stunning natural landscapes, high-quality education, and multicultural society.',
     facts: [
       { icon: '🌊', title: "Beautiful natural landscapes" },
       { icon: '🎓', title: "High quality education" },
@@ -643,6 +675,7 @@ export const continentStudyData = {
       australia: {
         name: 'Australia',
         icon: '🇦🇺',
+        description: 'Australia is known for its stunning natural landscapes, high-quality education, and multicultural society.',
         facts: [
           { icon: '🦘', title: "Unique wildlife and nature" },
           { icon: '🌊', title: "Beautiful coastlines" },
@@ -656,6 +689,7 @@ export const continentStudyData = {
           sydney: {
             name: 'Sydney',
             icon: '🏙️',
+            description: 'Sydney is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🌉', title: "Iconic Landmarks", details: "Home to the iconic Opera House and Harbour Bridge, Sydney is a city of breathtaking views." },
               { icon: '💼', title: "Economic Hub", details: "As Australia's largest city, Sydney is a major center for finance, business, and tech." },
@@ -679,6 +713,7 @@ export const continentStudyData = {
           melbourne: {
             name: 'Melbourne',
             icon: '🏛️',
+            description: 'Melbourne is a hub for education, innovation, and culture, known for its historic landmarks and vibrant academic atmosphere.',
             facts: [
               { icon: '🎭', title: "Cultural capital of Australia" },
               { icon: '🏛️', title: "Historic architecture" },

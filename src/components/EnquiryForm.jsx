@@ -125,18 +125,19 @@ const EnquiryForm = () => {
       });
   };
 
-  const inputClasses = "w-full px-2 py-2 border rounded-lg focus:ring-2 focus:ring-[#336b87] focus:border-transparent transition-shadow shadow-sm disabled:bg-gray-100 text-sm";
+  // Apply gradient background to the form container
+  const inputClasses = "w-full px-2 py-2 border rounded-lg focus:ring-2 focus:ring-[#4f91b7] focus:border-transparent transition-shadow shadow-sm disabled:bg-gray-100 text-sm";
   const getInputClasses = (fieldName) => {
     return `${inputClasses} ${errors[fieldName] ? 'border-red-500' : 'border-gray-300'}`;
   };
 
   return (
-    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-[#336b87]/20 shadow-xl">
+    <div className="bg-gradient-to-br from-[#336b87]/40 to-[#4f91b7]/40 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-[#336b87]/60 shadow-xl">
       <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-x-4 gap-y-4">
           <div className="form-group">
-            <label htmlFor="name" className="block text-xs font-medium text-black mb-1">Name</label>
+            <label htmlFor="name" className="block text-xs font-semibold text-white mb-1">Name</label>
             <input 
               type="text" 
               id="name" 
@@ -151,7 +152,7 @@ const EnquiryForm = () => {
             {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
           </div>
           <div className="form-group">
-            <label htmlFor="contact" className="block text-xs font-medium text-black mb-1">Contact Number</label>
+            <label htmlFor="contact" className="block text-xs font-semibold text-white mb-1">Contact Number</label>
             <input 
               type="tel" 
               id="contact" 
@@ -166,7 +167,7 @@ const EnquiryForm = () => {
             {errors.contact && <p className="text-red-500 text-xs mt-1">{errors.contact}</p>}
           </div>
           <div className="form-group">
-            <label htmlFor="email" className="block text-xs font-medium text-black mb-1">Email</label>
+            <label htmlFor="email" className="block text-xs font-semibold text-white mb-1">Email</label>
             <input 
               type="email" 
               id="email" 
@@ -180,7 +181,7 @@ const EnquiryForm = () => {
             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
           </div>
           <div className="form-group">
-            <label htmlFor="state" className="block text-xs font-medium text-black mb-1">State</label>
+            <label htmlFor="state" className="block text-xs font-semibold text-white mb-1">State</label>
             <select
               id="state"
               name="state"
@@ -198,7 +199,7 @@ const EnquiryForm = () => {
             {errors.state && <p className="text-red-500 text-xs mt-1">{errors.state}</p>}
           </div>
           <div className="form-group md:col-span-2">
-            <label htmlFor="course" className="block text-xs font-medium text-black mb-1">Needed Course <span className="text-[#336b87]">(Optional)</span></label>
+            <label htmlFor="course" className="block text-xs font-semibold text-white mb-1">Needed Course <span className="text-white">(Optional)</span></label>
             <input 
               type="text" 
               id="course" 
@@ -212,7 +213,7 @@ const EnquiryForm = () => {
             {errors.course && <p className="text-red-500 text-xs mt-1">{errors.course}</p>}
           </div>
           <div className="form-group md:col-span-2">
-            <label htmlFor="comments" className="block text-xs font-medium text-black mb-1">Other Comments <span className="text-[#336b87]">(Optional)</span></label>
+            <label htmlFor="comments" className="block text-xs font-medium text-white mb-1">Other Comments <span className="text-white">(Optional)</span></label>
             <textarea 
               id="comments" 
               name="comments" 

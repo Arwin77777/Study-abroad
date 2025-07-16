@@ -3,6 +3,31 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { continentStudyData } from '../data/continentStudyData.jsx';
 import GraduationCapBackground from '../components/GraduationCapBackground.jsx';
+import UK from '../assets/destinations/UK.jpeg';
+import Canada from '../assets/destinations/Canada.jpeg';
+import USA from '../assets/destinations/USA.jpeg';
+import Australia from '../assets/destinations/Australia.jpeg';
+import NewZealand from '../assets/destinations/NewZealand.jpeg';
+import Dubai from '../assets/destinations/Dubai.jpeg';
+import Singapore from '../assets/destinations/Singapore.jpeg';
+import Japan from '../assets/destinations/Japan.jpeg';
+import France from '../assets/destinations/France.jpeg';
+import Germany from '../assets/destinations/Germany.jpeg';
+import Italy from '../assets/destinations/Italy.jpeg';
+import Netherlands from '../assets/destinations/Netherlands.jpeg';
+import Norway from '../assets/destinations/Norway.jpeg';
+import Spain from '../assets/destinations/Spain.jpeg';
+import Sweden from '../assets/destinations/Sweden.jpeg';
+import Switzerland from '../assets/destinations/Switzerland.jpeg';
+import SouthKorea from '../assets/destinations/SouthKorea.jpeg';
+import China from '../assets/destinations/China.jpeg';
+import Russia from '../assets/destinations/Russia.jpeg';
+import Ireland from '../assets/destinations/Ireland.jpeg';
+import Asia from '../assets/destinations/Asia.jpeg';
+import Europe from '../assets/destinations/Europe.jpeg';
+import NorthAmerica from '../assets/destinations/NorthAmerica.jpeg';
+import World from '../assets/destinations/World.jpeg';
+import AustraliaMap from '../assets/destinations/AustraliaMap.jpeg';
 
 // University Modal Component
 function UniversityModal({ university, onClose }) {
@@ -745,361 +770,281 @@ const StudyInCountry = () => {
 
   console.log(currentData);
 
+  // Function to map images based on currentData.name
+  const getImageForCurrentData = (name) => {
+    const imageMap = {
+      'North America': NorthAmerica,
+      'Europe': Europe,
+      'Asia': Asia,
+      'United States of America': USA,
+      'Canada': Canada,
+      'United Kingdom': UK,
+      'Germany': Germany,
+      'France': France,
+      'Russia': Russia,
+      'Ireland': Ireland,
+      'Australia': AustraliaMap,
+      'New Zealand': NewZealand,
+      'Dubai': Dubai,
+      'Singapore': Singapore,
+      'Japan': Japan,
+      'Italy': Italy,
+      'Netherlands': Netherlands,
+      'Norway': Norway,
+      'Spain': Spain,
+      'Sweden': Sweden,
+      'Switzerland': Switzerland,
+      'South Korea': SouthKorea,
+      'China': China,
+    };
+
+    return imageMap[name] || World; // Default to UK if no match
+  };
+
+  // Use the function to set the image source dynamically
+  const imageSrc = getImageForCurrentData(currentData?.name);
+
   return (
     <div>
       <div className="relative min-h-screen bg-gradient-to-br from-[#336b87]/5 via-white to-[#336b87]/10 overflow-hidden z-10">
-        {/* Bubble Animation Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-50">
-          {/* Large floating bubbles */}
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={`bubble-${i}`}
-              className="absolute bg-[#336b87]/8 rounded-full"
-              style={{
-                width: Math.random() * 60 + 40,
-                height: Math.random() * 60 + 40,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -100, -200, -300],
-                x: [0, Math.random() * 50 - 25],
-                opacity: [0, 0.6, 0.6, 0],
-                scale: [0.8, 1, 1.2, 0.8],
-              }}
-              transition={{
-                duration: Math.random() * 20 + 15,
-                delay: Math.random() * 10,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-
-          {/* Medium bubbles */}
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={`medium-bubble-${i}`}
-              className="absolute bg-[#336b87]/6 rounded-full"
-              style={{
-                width: Math.random() * 30 + 20,
-                height: Math.random() * 30 + 20,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -80, -160, -240],
-                x: [0, Math.random() * 30 - 15],
-                opacity: [0, 0.4, 0.4, 0],
-                scale: [0.6, 1, 0.8, 0.6],
-              }}
-              transition={{
-                duration: Math.random() * 15 + 10,
-                delay: Math.random() * 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-
-          {/* Small bubbles */}
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={`small-bubble-${i}`}
-              className="absolute bg-[#336b87]/4 rounded-full"
-              style={{
-                width: Math.random() * 15 + 8,
-                height: Math.random() * 15 + 8,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -60, -120, -180],
-                x: [0, Math.random() * 20 - 10],
-                opacity: [0, 0.3, 0.3, 0],
-                scale: [0.5, 1, 0.7, 0.5],
-              }}
-              transition={{
-                duration: Math.random() * 12 + 8,
-                delay: Math.random() * 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-
-          {/* Existing animated background elements */}
-          <motion.div
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -50, 0],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute top-20 left-20 w-32 h-32 bg-[#336b87]/10 rounded-full blur-xl"
-          />
-          <motion.div
-            animate={{
-              x: [0, -80, 0],
-              y: [0, 100, 0],
-              rotate: [360, 180, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute top-40 right-20 w-24 h-24 bg-[#336b87]/15 rounded-full blur-xl"
-          />
-          <motion.div
-            animate={{
-              x: [0, 60, 0],
-              y: [0, -80, 0],
-              rotate: [0, 360, 720],
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute bottom-20 left-1/3 w-20 h-20 bg-[#336b87]/10 rounded-full blur-xl"
-          />
-          <motion.div
-            animate={{
-              y: [0, -70, 0],
-              rotate: [180, 0, -180],
-            }}
-            transition={{
-              duration: 35,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute bottom-1/2 right-1/4 w-28 h-28 bg-[#336b87]/10 rounded-full blur-2xl"
-          />
-          <motion.div
-            animate={{
-              x: [0, 120, 0],
-              rotate: [0, -180, 0],
-            }}
-            transition={{
-              duration: 40,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute top-1/3 left-1/4 w-16 h-16 bg-[#336b87]/5 rounded-full blur-lg"
-          />
-        </div>
-
         <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col items-center gap-12 relative z-10">
-          {/* Right content */}
-          <div className="flex-1 flex flex-col items-center md:items-start w-full">
-            <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="w-full text-center"
-            >
-              <motion.h2
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-3xl md:text-5xl mt-5 mb-5 font-extrabold text-[#336b87] drop-shadow-lg mb-4"
-              >
-                {currentData ? `Study in ${currentData.name}` : 'Study Abroad'}
-              </motion.h2>
+          <div className="w-full flex flex-col md:flex-row items-center justify-between gap-10">
+
+            {/* Text Content */}
+            <div className="relative md:w-3/5 sm:w-full">
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="w-24 h-1 bg-gradient-to-r from-[#336b87] to-[#336b87]/50 mx-auto rounded-full"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex-1 text-left md:text-left space-y-4 p-8 md:px-20 py-10 text-white relative z-10"
+              >
+                <motion.h2
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  className="text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg"
+                >
+                  {currentData ? `Study in ${currentData.name}` : 'Study Abroad'}
+                </motion.h2>
+
+                <motion.p
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  className="text-white/90 text-lg"
+                >
+                  {currentData?.description || 'Your gateway to global education. We help you find the best universities, courses, and scholarships to make your study abroad dream a reality.'}
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  className="w-24 h-1 bg-gradient-to-r from-white to-white/50 rounded-full"
+                />
+              </motion.div>
+
+              {/* Triangle background layer behind text */}
+              <div className="absolute top-0 left-0 w-full h-full z-0 bg-[#336b87]/70" style={{
+                clipPath: 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0% 100%)'
+              }}></div>
+            </div>
+
+            {/* Portrait Image on Right */}
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="w-full md:w-[350px] lg:w-[400px] flex justify-center "
+            >
+              <img
+                src={imageSrc}
+                alt="Student"
+                className="w-full h-auto object-cover shadow-xl"
               />
             </motion.div>
-
-            {/* Filter Section */}
-            <div className="absolute inset-0 -z-10 opacity-80">
-              <GraduationCapBackground />
-            </div>
-            <FilterSection
-              onFilterChange={handleFilterChange}
-              selectedFilters={selectedFilters}
-            />
-
-            {/* Universities Section */}
-            {baseUniversities.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="w-full max-w-7xl mx-auto mt-8 mb-16"
-              >
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="text-4xl font-bold text-center mb-8 text-[#336b87]"
-                >
-                  Top Universities in {currentData?.name}
-                </motion.h2>
-
-                {/* Search Bar */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9 }}
-                  className="mb-8 px-2 md:px-8"
-                >
-                  <div className="relative max-w-lg mx-auto">
-                    <input
-                      type="text"
-                      placeholder={`Search from ${baseUniversities.length} universities...`}
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full px-6 py-4 border-2 border-[#336b87]/20 rounded-full shadow-lg focus:ring-2 focus:ring-[#336b87] focus:border-[#336b87] bg-white/80 backdrop-blur-sm transition-all duration-300 hover:border-[#336b87]/40"
-                    />
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#336b87]">
-                      🔍
-                    </div>
-                  </div>
-                </motion.div>
-
-                {filteredUniversities.length > 0 ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-2 md:px-8">
-                    {filteredUniversities.map((uni, idx) => (
-                      <motion.div
-                        key={uni.name}
-                        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: idx * 0.1, duration: 0.5 }}
-                        whileHover={{
-                          scale: 1.05,
-                          y: -10,
-                          boxShadow: "0 25px 50px -12px rgba(51, 107, 135, 0.25)"
-                        }}
-                        className="bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-xl p-6 flex flex-col items-center text-center cursor-pointer border-2 border-[#336b87]/20 hover:border-[#336b87]/40 transition-all duration-300"
-                        onClick={() => setSelectedUniversity(uni)}
-                      >
-                        <div className='w-full h-50' style={{ height: '200px' }}>
-                          <motion.img
-                            whileHover={{ scale: 1.1 }}
-                            src={uni.image}
-                            alt={uni.name}
-                            className="w-full h-50 object-cover rounded-2xl mb-4 shadow-lg"
-                            style={{ height: '200px', objectFit: 'contain' }}
-                          />
-                        </div>
-                        <div className="text-xl font-bold text-[#336b87] mb-2">{uni.name}</div>
-                        <div className="text-gray-700 text-sm">{uni.short}</div>
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-center py-12"
-                  >
-                    <p className="text-lg text-gray-600">Nothing matches the search.</p>
-                  </motion.div>
-                )}
-              </motion.div>
-            )}
-
-            <AnimatePresence>
-              {selectedUniversity && (
-                <UniversityModal
-                  university={selectedUniversity}
-                  onClose={() => setSelectedUniversity(null)}
-                />
-              )}
-            </AnimatePresence>
-
-            {/* Enhanced Facts Grid */}
-            {facts.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.8 }}
-                className="w-full"
-              >
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9 }}
-                  className="text-4xl font-bold text-center text-[#336b87]"
-                >
-                  Why {currentData?.name}?
-                </motion.h2>
-              </motion.div>
-            )}
           </div>
-        </div>
 
-        {/* Card Navigation Section with background */}
-        {currentData && cardSections.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="w-full flex justify-center px-2 py-5 relative z-1"
-          >
-            <div className="w-full max-w-7xl bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-2xl px-4 py-12 flex flex-col items-center border-2 border-[#336b87]/20">
-              {/* Card Navigation */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
+          {/* Filter Section */}
+          <div className="absolute inset-0 -z-10 opacity-80">
+            <GraduationCapBackground />
+          </div>
+          <FilterSection
+            onFilterChange={handleFilterChange}
+            selectedFilters={selectedFilters}
+          />
+
+          {/* Universities Section */}
+          {baseUniversities.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="w-full max-w-7xl mx-auto mt-8 mb-16"
+            >
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-                className="w-full flex flex-wrap justify-center gap-6 mb-10"
+                transition={{ delay: 0.8 }}
+                className="text-4xl font-bold text-center mb-8 text-[#336b87]"
               >
-                {cardSections.map((section, idx) => (
-                  <motion.button
-                    key={section.key}
-                    initial={{ opacity: 0, y: 30, scale: 0.8 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    onClick={() => setActiveSection(section.key)}
-                    transition={{ delay: idx * 0.1 + 1, duration: 0.5 }}
-                    whileHover={{
-                      scale: 1.05,
-                      y: -5,
-                      boxShadow: "0 20px 40px -12px rgba(51, 107, 135, 0.3)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`flex flex-col items-center justify-center w-56 h-40 rounded-2xl shadow-lg transition-all duration-300 p-6 min-w-[180px] min-h-[120px] cursor-pointer border-2 ${activeSection === section.key
-                      ? 'bg-gradient-to-br from-[#336b87] to-[#336b87]/80 text-white border-[#336b87] shadow-2xl'
-                      : 'bg-gradient-to-br from-white to-[#336b87]/10 text-[#336b87] border-[#336b87]/30 hover:border-[#336b87] hover:shadow-xl'
-                      }`}
-                    tabIndex={0}
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.2, rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                      className="text-5xl mb-3"
-                    >
-                      {section.icon}
-                    </motion.div>
-                    <div className="text-lg font-semibold text-center">{section.title}</div>
-                  </motion.button>
-                ))}
+                Top Universities in {currentData?.name}
+              </motion.h2>
+
+              {/* Search Bar */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+                className="mb-8 px-2 md:px-8"
+              >
+                <div className="relative max-w-lg mx-auto">
+                  <input
+                    type="text"
+                    placeholder={`Search from ${baseUniversities.length} universities...`}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full px-6 py-4 border-2 border-[#336b87]/20 rounded-full shadow-lg focus:ring-2 focus:ring-[#336b87] focus:border-[#336b87] bg-white/80 backdrop-blur-sm transition-all duration-300 hover:border-[#336b87]/40"
+                  />
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#336b87]">
+                    🔍
+                  </div>
+                </div>
               </motion.div>
 
-              {/* Card Content */}
-              <motion.div
-                key={activeSection}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className="w-full max-w-4xl bg-gradient-to-br from-white to-[#336b87]/5 rounded-2xl shadow-lg p-8 mt-2 mb-8 min-h-[400px] border-2 border-[#336b87]/20 text-gray-900"
+              {filteredUniversities.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-2 md:px-8">
+                  {filteredUniversities.map((uni, idx) => (
+                    <motion.div
+                      key={uni.name}
+                      initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ delay: idx * 0.1, duration: 0.5 }}
+                      whileHover={{
+                        scale: 1.05,
+                        y: -10,
+                        boxShadow: "0 25px 50px -12px rgba(51, 107, 135, 0.25)"
+                      }}
+                      className="bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-xl p-6 flex flex-col items-center text-center cursor-pointer border-2 border-[#336b87]/20 hover:border-[#336b87]/40 transition-all duration-300"
+                      onClick={() => setSelectedUniversity(uni)}
+                    >
+                      <div className='w-full h-50' style={{ height: '200px' }}>
+                        <motion.img
+                          whileHover={{ scale: 1.1 }}
+                          src={uni.image}
+                          alt={uni.name}
+                          className="w-full h-50 object-cover rounded-2xl mb-4 shadow-lg"
+                          style={{ height: '200px', objectFit: 'contain' }}
+                        />
+                      </div>
+                      <div className="text-xl font-bold text-[#336b87] mb-2">{uni.name}</div>
+                      <div className="text-gray-700 text-sm">{uni.short}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center py-12"
+                >
+                  <p className="text-lg text-gray-600">Nothing matches the search.</p>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+
+          <AnimatePresence>
+            {selectedUniversity && (
+              <UniversityModal
+                university={selectedUniversity}
+                onClose={() => setSelectedUniversity(null)}
+              />
+            )}
+          </AnimatePresence>
+
+          {/* Enhanced Facts Grid */}
+          {facts.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="w-full"
+            >
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+                className="text-4xl font-bold text-center text-[#336b87]"
               >
-                {cardSections.find(s => s.key === activeSection)?.content}
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
+                Why {currentData?.name}?
+              </motion.h2>
+            </motion.div>
+          )}
+        </div>
       </div>
+
+      {/* Card Navigation Section with background */}
+      {currentData && cardSections.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="w-full flex justify-center px-2 py-5 relative z-1"
+        >
+          <div className="w-full max-w-7xl bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-2xl px-4 py-12 flex flex-col items-center border-2 border-[#336b87]/20">
+            {/* Card Navigation */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="w-full flex flex-wrap justify-center gap-6 mb-10"
+            >
+              {cardSections.map((section, idx) => (
+                <motion.button
+                  key={section.key}
+                  initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  onClick={() => setActiveSection(section.key)}
+                  transition={{ delay: idx * 0.1 + 1, duration: 0.5 }}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -5,
+                    boxShadow: "0 20px 40px -12px rgba(51, 107, 135, 0.3)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`flex flex-col items-center justify-center w-56 h-40 rounded-2xl shadow-lg transition-all duration-300 p-6 min-w-[180px] min-h-[120px] cursor-pointer border-2 ${activeSection === section.key
+                    ? 'bg-gradient-to-br from-[#336b87] to-[#336b87]/80 text-white border-[#336b87] shadow-2xl'
+                    : 'bg-gradient-to-br from-white to-[#336b87]/10 text-[#336b87] border-[#336b87]/30 hover:border-[#336b87] hover:shadow-xl'
+                    }`}
+                  tabIndex={0}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-5xl mb-3"
+                  >
+                    {section.icon}
+                  </motion.div>
+                  <div className="text-lg font-semibold text-center">{section.title}</div>
+                </motion.button>
+              ))}
+            </motion.div>
+
+            {/* Card Content */}
+            <motion.div
+              key={activeSection}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              className="w-full max-w-4xl bg-gradient-to-br from-white to-[#336b87]/5 rounded-2xl shadow-lg p-8 mt-2 mb-8 min-h-[400px] border-2 border-[#336b87]/20 text-gray-900"
+            >
+              {cardSections.find(s => s.key === activeSection)?.content}
+            </motion.div>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };

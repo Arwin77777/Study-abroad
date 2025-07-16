@@ -2,6 +2,27 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+import UK from '../assets/destinations/UK.jpeg';
+import Canada from '../assets/destinations/Canada.jpeg';
+import USA from '../assets/destinations/USA.jpeg';
+import Ireland from '../assets/destinations/Ireland.jpeg';
+import Dubai from '../assets/destinations/Dubai.jpeg';
+import Australia from '../assets/destinations/Australia.jpeg';
+import Singapore from '../assets/destinations/Singapore.jpeg';
+import Japan from '../assets/destinations/Japan.jpeg';
+import France from '../assets/destinations/France.jpeg';
+import Germany from '../assets/destinations/Germany.jpeg';
+import Italy from '../assets/destinations/Italy.jpeg';
+import Netherlands from '../assets/destinations/Netherlands.jpeg';
+import Norway from '../assets/destinations/Norway.jpeg';
+import Spain from '../assets/destinations/Spain.jpeg';
+import Sweden from '../assets/destinations/Sweden.jpeg';
+import Switzerland from '../assets/destinations/Switzerland.jpeg';
+import SouthKorea from '../assets/destinations/SouthKorea.jpeg';
+import China from '../assets/destinations/China.jpeg';
+import Russia from '../assets/destinations/Russia.jpeg';
+import NewZealand from '../assets/destinations/NewZealand.jpeg';
+
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -30,7 +51,7 @@ const destinations = [
         continent: 'europe',
         slug: 'uk',
         flagImg: 'https://flagcdn.com/gb.svg',
-        image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80',
+        image: UK, // Big Ben
         touristPlaces: ['London Eye', 'Stonehenge', 'Big Ben']
     },
     {
@@ -38,7 +59,7 @@ const destinations = [
         continent: 'northAmerica',
         slug: 'canada',
         flagImg: 'https://flagcdn.com/ca.svg',
-        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+        image: Canada, // CN Tower
         touristPlaces: ['Niagara Falls', 'Banff National Park', 'CN Tower']
     },
     {
@@ -46,127 +67,126 @@ const destinations = [
         continent: 'northAmerica',
         slug: 'usa',
         flagImg: 'https://flagcdn.com/us.svg',
-        image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+        image: USA, // Statue of Liberty
     },
     {
         name: 'Ireland',
         continent: 'europe',
         slug: 'ireland',
         flagImg: 'https://flagcdn.com/ie.svg',
-        image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80',
+        image: Ireland, // Cliffs of Moher
     },
     {
         name: 'Dubai',
         continent: 'asia',
         slug: 'dubai',
         flagImg: 'https://flagcdn.com/ae.svg',
-        image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=600&q=80',
+        image: Dubai, // Burj Khalifa
     },
     {
         name: 'Australia',
         continent: 'Australia',
         slug: 'australia',
         flagImg: 'https://flagcdn.com/au.svg',
-        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
+        image: Australia, // Sydney Opera House
     },
     {
         name: 'Singapore',
         continent: 'asia',
         slug: 'singapore',
         flagImg: 'https://flagcdn.com/sg.svg',
-        image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80',
+        image: Singapore, // Marina Bay Sands
     },
     {
         name: 'Japan',
         continent: 'asia',
         slug: 'japan',
         flagImg: 'https://flagcdn.com/jp.svg',
-        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+        image: Japan, // Mount Fuji
     },
     {
         name: 'Germany',
         continent: 'europe',
         slug: 'germany',
         flagImg: 'https://flagcdn.com/de.svg',
-        image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80',
+        image: Germany, // Brandenburg Gate
     },
     {
         name: 'New Zealand',
         continent: 'australia',
         slug: 'new-zealand',
         flagImg: 'https://flagcdn.com/nz.svg',
-        image: 'https://images.unsplash.com/photo-1502784444185-1b134d993d97?auto=format&fit=crop&w=600&q=80',
+        image: NewZealand, // Hobbiton
     },
-    // 10 more countries
     {
         name: 'France',
         continent: 'europe',
         slug: 'france',
         flagImg: 'https://flagcdn.com/fr.svg',
-        image: 'https://images.unsplash.com/photo-1464989646964-452f1db9fa73?auto=format&fit=crop&w=600&q=80',
+        image: France, // Eiffel Tower
     },
     {
         name: 'Italy',
         continent: 'europe',
         slug: 'italy',
         flagImg: 'https://flagcdn.com/it.svg',
-        image: 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=600&q=80',
+        image: Italy, // Colosseum
     },
     {
         name: 'Sweden',
         continent: 'europe',
         slug: 'sweden',
         flagImg: 'https://flagcdn.com/se.svg',
-        image: 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=600&q=80',
+        image: Sweden, // Stockholm Palace
     },
     {
         name: 'Netherlands',
         continent: 'europe',
         slug: 'netherlands',
         flagImg: 'https://flagcdn.com/nl.svg',
-        image: 'https://images.unsplash.com/photo-1464989646964-452f1db9fa73?auto=format&fit=crop&w=600&q=80',
+        image: Netherlands, // Windmills
     },
     {
         name: 'Switzerland',
         continent: 'europe',
         slug: 'switzerland',
         flagImg: 'https://flagcdn.com/ch.svg',
-        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+        image: Switzerland, // Matterhorn
     },
     {
         name: 'Spain',
         continent: 'europe',
         slug: 'spain',
         flagImg: 'https://flagcdn.com/es.svg',
-        image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80',
+        image: Spain, // Sagrada Familia
     },
     {
         name: 'Norway',
         continent: 'europe',
         slug: 'norway',
         flagImg: 'https://flagcdn.com/no.svg',
-        image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80',
+        image: Norway, // Fjords
     },
     {
         name: 'South Korea',
         continent: 'asia',
         slug: 'south-korea',
         flagImg: 'https://flagcdn.com/kr.svg',
-        image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80',
+        image: SouthKorea, // Gyeongbokgung Palace
     },
     {
         name: 'China',
         continent: 'asia',
         slug: 'china',
         flagImg: 'https://flagcdn.com/cn.svg',
-        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+        image: China, // Great Wall of China
     },
     {
         name: 'Russia',
         continent: 'europe',
         slug: 'russia',
         flagImg: 'https://flagcdn.com/ru.svg',
-        image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80',
+        image: Russia, // Saint Basil's Cathedral
     },
 ];
 
@@ -184,7 +204,7 @@ const DestinationsGrid = ({ showAll = false, showMoreButton = true }) => {
     };
 
     return (
-        <section className="py-16 bg-gray-50 min-h-[80vh] relative overflow-hidden">
+        <section className="py-16 bg-gradient-to-br from-[#e0f7ff] to-[#336b87]/10 min-h-[80vh] relative overflow-hidden">
             <div 
                 className="absolute inset-0 opacity-10"
                 style={{
@@ -232,7 +252,7 @@ const DestinationsGrid = ({ showAll = false, showMoreButton = true }) => {
                         {/* Call to Action */}
                         <div className="flex justify-center mb-10">
                             <button
-                                className="bg-[#336b87] text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-[#336b87]/90 transition-colors text-lg"
+                                className="bg-gradient-to-r from-[#336b87] to-[#4f91b7] text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:from-[#2a5a70] hover:to-[#336b87] transition-colors text-lg"
                                 onClick={() => navigate('/contact')}
                             >
                                 Get Free Counselling

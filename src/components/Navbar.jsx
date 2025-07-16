@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 const NavLink = ({ href, children, isMobile, isWa, onClick }) => {
   const baseClasses = "flex items-center space-x-1 cursor-pointer transition-colors duration-300";
-  const desktopClasses = `py-2 border-b-2 border-transparent ${isWa ? 'text-[#336b87] font-medium hover:text-green-600 hover:border-green-600' : 'text-[#336b87] font-medium hover:text-[#336b87] hover:border-[#336b87]'}`;
-  const mobileClasses = `py-3 px-3 rounded-md text-base ${isWa ? 'hover:bg-green-50 hover:text-green-700' : 'hover:bg-[#336b87]/10 hover:text-[#336b87]'}`;
+  const desktopClasses = `py-2 border-b-2 border-transparent ${isWa ? 'text-[#336b87] font-medium hover:text-green-300 hover:border-green-300' : 'text-[#336b87] font-medium hover:text-[#f0f8ff] hover:border-[#f0f8ff]'}`;
+  const mobileClasses = `py-3 px-3 rounded-md text-base ${isWa ? 'hover:bg-green-50 hover:text-green-700' : 'hover:bg-[#f0f8ff]/10 hover:text-[#f0f8ff]'}`;
   
   const Component = href ? 'a' : 'div';
 
@@ -25,13 +25,14 @@ const Navbar = () => {
   const navLinks = [
     { component: <StudyAbroadDropdown isMobile={false} /> },
     { label: 'About us', href: '/about-us' },
+    { label: 'Our services', href: '/our-services' },
     { label: '+91 93636 16166', href: 'tel:+91 93636 16166', icon: <Phone fontSize="small" /> }
   ];
   
   const mobileNavLinks = [
     { component: <StudyAbroadDropdown isMobile={true} /> },
-    { label: 'About us', href: '#about-us' },
-    { label: 'Help' },
+    { label: 'About us', href: '/about-us' },
+    { label: 'Our services', href: '/our-services' },
     { label: '+91 93636 16166', href: 'tel:+91 93636 16166', icon: <Phone fontSize="small" /> }
   ];
 
@@ -46,7 +47,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
+    <nav className="bg-white/60 shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
@@ -70,7 +71,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[#336b87] hover:text-[#336b87]/80"
+              className="text-[#336b87] hover:text-[#f0f8ff]/80"
             >
               {isOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
             </button>

@@ -47,7 +47,7 @@ const bubbleData = [
   { size: 65, top: '60%', duration: 50, delay: 10, from: 'left' },
   { size: 30, top: '70%', duration: 70, delay: 15, from: 'left' },
   { size: 50, top: '30%', duration: 40, delay: 20, from: 'left' },
-  
+
   // Right to Left
   { size: 60, top: '25%', duration: 55, delay: 2, from: 'right' },
   { size: 35, top: '45%', duration: 45, delay: 7, from: 'right' },
@@ -74,13 +74,13 @@ function Home() {
                 left: isFromLeft ? 0 : 'auto',
                 right: !isFromLeft ? 0 : 'auto',
               }}
-              initial={{ 
-                x: isFromLeft ? -bubble.size : `calc(100vw + ${bubble.size}px)`, 
-                opacity: 0 
+              initial={{
+                x: isFromLeft ? -bubble.size : `calc(100vw + ${bubble.size}px)`,
+                opacity: 0
               }}
-              animate={{ 
+              animate={{
                 x: isFromLeft ? '100vw' : `-${bubble.size}px`,
-                opacity: [0, 0.4, 0.4, 0] 
+                opacity: [0, 0.4, 0.4, 0]
               }}
               transition={{
                 duration: bubble.duration,
@@ -115,7 +115,6 @@ function Home() {
         <Section id="success-stories" title="Success Stories">
           <SuccessStories />
         </Section>
-        {/* <AboutUsSection /> */}
       </main>
     </div>
   )
