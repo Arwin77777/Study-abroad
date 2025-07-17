@@ -288,7 +288,6 @@ const HeroBanner = () => {
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 />
-                
                 <EnquiryForm />
               </div>
             </motion.div>

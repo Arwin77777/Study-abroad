@@ -135,7 +135,7 @@ const EnquiryForm = () => {
     <div className="rounded-2xl p-4 md:p-6 shadow-xl">
       <ToastContainer />
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 gap-x-4 gap-y-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-4">
           <div className="form-group">
             <label htmlFor="name" className="block text-xs font-semibold text-white mb-1">Name</label>
             <input 
@@ -230,7 +230,7 @@ const EnquiryForm = () => {
         <div className="mt-4">
           <button 
             type="submit" 
-            className="w-full bg-[#336b87] text-white py-2 rounded-lg shadow-md hover:bg-[#285f6b] transition-colors disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white py-2 rounded-lg shadow-md hover:bg-[#285f6b] transition-colors disabled:opacity-50"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Submitting...' : 'Submit'}
