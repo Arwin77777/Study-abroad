@@ -132,7 +132,7 @@ const EnquiryForm = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#336b87]/40 to-[#4f91b7]/40 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-[#336b87]/60 shadow-xl">
+    <div className="rounded-2xl p-4 md:p-6 shadow-xl">
       <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-x-4 gap-y-4">

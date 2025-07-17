@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 const NavLink = ({ href, children, isMobile, isWa, onClick }) => {
   const baseClasses = "flex items-center space-x-1 cursor-pointer transition-colors duration-300";
-  const desktopClasses = `py-2 border-b-2 border-transparent ${isWa ? 'text-[#336b87] font-medium hover:text-green-300 hover:border-green-300' : 'text-[#336b87] font-medium hover:text-[#f0f8ff] hover:border-[#f0f8ff]'}`;
-  const mobileClasses = `py-3 px-3 rounded-md text-base ${isWa ? 'hover:bg-green-50 hover:text-green-700' : 'hover:bg-[#f0f8ff]/10 hover:text-[#f0f8ff]'}`;
+  const desktopClasses = `py-2 border-b-2 border-transparent ${isWa ? 'text-[#336b87] font-medium hover:text-green-300 hover:border-green-300' : 'text-[#336b87] font-medium hover:text-[#336b87] hover:border-[#336b87]'}`;
+  const mobileClasses = `py-3 px-3 rounded-md text-base ${isWa ? 'hover:bg-green-50 hover:text-green-700' : 'hover:bg-[#336b87]/10 hover:text-[#336b87]'}`;
   
   const Component = href ? 'a' : 'div';
 
@@ -71,7 +71,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[#336b87] hover:text-[#f0f8ff]/80"
+              className="text-[#336b87] hover:text-[#336b87]"
             >
               {isOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
             </button>
@@ -81,7 +81,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden shadow-lg">
           <div className="px-4 pt-2 pb-4 space-y-1">
             {mobileNavLinks.map((link, index) => (
               link.component ? <div key={index} className="px-3">{link.component}</div> : (

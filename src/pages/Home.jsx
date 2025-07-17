@@ -98,7 +98,7 @@ function Home() {
       <main className="relative z-10 overflow-x-hidden">
         <HeroBanner />
 
-        <Section id="destinations" title="Explore Destinations">
+        <Section id="destinations">
           <DestinationsGrid />
         </Section>
 

@@ -6,10 +6,13 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* @layer base {
@@ -33,6 +36,7 @@
     opacity: 0;
     transform: translateY(40px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -43,7 +47,13 @@
   animation: fadeInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
-body {
-  font-family: sans-serif;
+@font-face {
+  font-family: 'Buenos Aires';
+  src: url('./assets/fonts/BuenosAires-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
 }
 
+body {
+  font-family: 'Buenos Aires', sans-serif;
+}

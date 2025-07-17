@@ -1,4 +1,4 @@
-import Columbia from '../../public/ColumbiaUniversity.svg';
+import Columbia from '../assets/ColumbiaUniversity.svg';
 
 
 export const continentStudyData = {
