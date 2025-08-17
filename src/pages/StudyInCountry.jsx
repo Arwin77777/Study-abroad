@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { continentStudyData } from '../data/continentStudyData.jsx';
-import GraduationCapBackground from '../components/GraduationCapBackground.jsx';
 import UK from '../assets/destinations/UK.jpeg';
 import Canada from '../assets/destinations/Canada.jpeg';
 import USA from '../assets/destinations/USA.jpeg';
@@ -28,6 +27,7 @@ import Europe from '../assets/destinations/Europe.jpeg';
 import NorthAmerica from '../assets/destinations/NorthAmerica.jpeg';
 import World from '../assets/destinations/World.jpeg';
 import AustraliaMap from '../assets/destinations/AustraliaMap.jpeg';
+import GlobeBackground from '../components/GlobeBackground.jsx';
 
 // University Modal Component
 function UniversityModal({ university, onClose }) {
@@ -845,7 +845,7 @@ const StudyInCountry = () => {
               </motion.div>
 
               {/* Triangle background layer behind text */}
-              <div className="absolute top-0 left-0 w-full h-full z-0 bg-[#336b87]/70" style={{
+              <div className="absolute top-0 left-0 w-full h-full z-0 bg-slate-900" style={{
                 clipPath: 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0% 100%)'
               }}></div>
             </div>
@@ -868,7 +868,7 @@ const StudyInCountry = () => {
 
           {/* Filter Section */}
           <div className="absolute inset-0 -z-10 opacity-80">
-            <GraduationCapBackground />
+            <GlobeBackground />
           </div>
           <FilterSection
             onFilterChange={handleFilterChange}
