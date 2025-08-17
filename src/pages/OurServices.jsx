@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, Card, CardContent, Typography, CardActionArea } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import AdmissionAtTopUniversity from '../assets/AdmissionAtTopUniversity.png';
 import Airplane from '../assets/Airplane.png';
@@ -42,7 +42,7 @@ const services = [
     image: UniversityAccommodation,
   },
   {
-    title: 'Private Home or Hostel Accommodation',
+    title: 'Private Home or Hostel ',
     description: 'Find private rooms, shared homes, or verified hostels nearby.',
     link: '/our-services/private-accommodation',
     image: PrivateAccommodation,
@@ -53,62 +53,63 @@ const ServicesSection = () => {
   const navigate = useNavigate();
 
   return (
-    <div
-      style={{
-        background: 'linear-gradient(to bottom right, #e1ecf4, #ffffff)',
-        padding: '4rem 2rem',
-      }}
-    >
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
-        style={{ color: '#336b87', fontWeight: 600, margin: '2rem' }}
-      >
-        Our Services
-      </Typography>
+    <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Background Animation */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -inset-10 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-orange-400 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        </div>
+      </div>
 
-      <Grid container spacing={4} justifyContent="center">
-        {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
+            Our Services
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive support for your international education journey
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
             <motion.div
-              whileHover={{ scale: 1.03 }}
+              key={index}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
+              className="group"
             >
-              <Card
-                sx={{
-                  height: '100%',
-                  backgroundColor: '#f2f7fb',
-                  borderRadius: '16px',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                }}
+              <div 
+                onClick={() => navigate(service.link)}
+                className="bg-white/95 backdrop-blur rounded-xl shadow-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25"
               >
-                <CardActionArea onClick={() => navigate(service.link)}>
+                <div className="relative">
                   <img
                     src={service.image}
                     alt={service.title}
-                    style={{
-                      width: '100%',
-                      height: '250px',
-                      objectFit: 'cover',
-                      borderTopLeftRadius: '16px',
-                      borderTopRightRadius: '16px',
-                    }}
+                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <CardContent>
-                    <Typography variant="h6" style={{ color: '#264053', fontWeight: 600 }}>
-                      {service.title}
-                    </Typography>
-                    <Typography variant="body2" style={{ color: '#555', marginTop: '0.5rem' }}>
-                      {service.description}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center text-orange-500 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                    <span className="font-medium mr-2">Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
             </motion.div>
-          </Grid>
-        ))}
-      </Grid>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

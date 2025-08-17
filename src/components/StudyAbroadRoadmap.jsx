@@ -125,7 +125,7 @@ const StudyAbroadRoadmap = () => {
   });
 
   return (
-    <div className="py-20 bg-[#f8faff] relative overflow-hidden">
+    <div className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* Horizontal Bubble Background */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
         {bubbleData.map((bubble, i) => {
@@ -133,7 +133,7 @@ const StudyAbroadRoadmap = () => {
           return (
             <motion.div
               key={i}
-              className="absolute bg-[#336b87]/50 rounded-full"
+              className="absolute bg-orange-500/20 rounded-full"
               style={{
                 width: bubble.size,
                 height: bubble.size,
@@ -170,10 +170,10 @@ const StudyAbroadRoadmap = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#336b87] mb-4">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-4">
             Your Study Abroad Journey
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Our 6-step roadmap ensures a smooth and successful transition from your home country to your dream university.
           </p>
         </motion.div>
@@ -181,7 +181,7 @@ const StudyAbroadRoadmap = () => {
         {/* Vertical Roadmap */}
         <div className="relative">
           {/* Central Timeline - hidden on small screens */}
-          <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-[#336b87]/20 transform md:-translate-x-1/2"></div>
+          <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-orange-500/20 transform md:-translate-x-1/2"></div>
 
           <motion.div
             variants={containerVariants}
@@ -200,25 +200,25 @@ const StudyAbroadRoadmap = () => {
                   <div className={`flex w-full items-center ${isLeft ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                     {/* Card */}
                     <div className="w-full md:w-5/12">
-                      <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-200/90 transition-shadow hover:shadow-2xl">
+                      <div className="bg-white/95 backdrop-blur p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25">
                         <div className="flex items-center space-x-4 mb-3">
-                           <div className="w-10 h-10 bg-[#336b87] rounded-full flex md:hidden items-center justify-center text-white font-bold border-4 border-white shadow-md z-10 mr-4">
+                           <div className="w-10 h-10 bg-orange-500 rounded-lg flex md:hidden items-center justify-center text-white font-bold border-4 border-white shadow-lg shadow-orange-500/25 z-10 mr-4">
                             {step.id}
                           </div>
-                          <div className="w-12 h-12 bg-[#336b87]/10 rounded-full flex items-center justify-center text-[#336b87]">
+                          <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center text-orange-500">
                             {step.icon}
                           </div>
-                          <h3 className="text-lg font-bold text-[#336b87]">
+                          <h3 className="text-lg font-bold text-gray-800">
                             {step.title}
                           </h3>
                         </div>
-                        <p className="text-gray-500 text-sm mb-4 leading-snug">
+                        <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                           {step.description}
                         </p>
                         <div className="space-y-2">
                           {step.details.map((detail, idx) => (
                             <div key={idx} className="flex items-center text-sm text-gray-700">
-                              <CheckCircle className="w-4 h-4 text-[#336b87] mr-2 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-orange-500 mr-2 flex-shrink-0" />
                               <span>{detail}</span>
                             </div>
                           ))}
@@ -228,8 +228,8 @@ const StudyAbroadRoadmap = () => {
 
                     {/* Timeline Dot and Connector for large screens */}
                     <div className="hidden md:flex items-center justify-center w-2/12">
-                      <div className="w-full h-0.5 bg-[#336b87]/30"></div>
-                      <div className="absolute w-8 h-8 bg-[#336b87] rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md z-10">
+                      <div className="w-full h-0.5 bg-orange-500/30"></div>
+                      <div className="absolute w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold border-4 border-white shadow-lg shadow-orange-500/25 z-10">
                         {step.id}
                       </div>
                     </div>

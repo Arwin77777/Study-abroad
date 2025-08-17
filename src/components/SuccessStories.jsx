@@ -90,25 +90,25 @@ const SuccessStories = () => {
   const numStories = stories.length;
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-20">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4 sm:px-6 lg:px-8">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-400 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
 
       {/* Section Header */}
       <div className="text-center z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-indigo-600 font-medium text-sm mb-4">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/95 backdrop-blur rounded-xl text-orange-500 font-medium text-sm mb-4 shadow-xl">
           <Star className="w-4 h-4" />
           Success Stories
         </div>
-        <h2 className="text-5xl font-bold text-gray-800 mb-4">
+        <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
           Dreams Turned Into
-          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"> Reality</span>
+          <span className="text-orange-500"> Reality</span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
           Join thousands of students who have transformed their futures with our expert guidance
         </p>
       </div>
@@ -141,20 +141,20 @@ const SuccessStories = () => {
                 transformStyle: 'preserve-3d',
               }}
             >
-              <div className="w-[420px] h-[300px] bg-white rounded-3xl shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500 hover:scale-105">
+              <div className="w-[420px] h-[300px] bg-white/95 backdrop-blur rounded-xl shadow-xl overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-500 hover:scale-105">
                 {/* Content Section */}
                 <div className="p-8 h-3/5 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-1 mb-3">
                       {[...Array(story.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star key={i} className="w-4 h-4 fill-orange-500 text-orange-500" />
                       ))}
                     </div>
                     
                     <h3 className="text-2xl font-bold text-gray-800 mb-1">{story.name}</h3>
                     
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="flex items-center gap-1 text-indigo-600">
+                      <div className="flex items-center gap-1 text-orange-500">
                         <GraduationCap className="w-4 h-4" />
                         <span className="text-sm font-medium">{story.course}</span>
                       </div>
@@ -164,11 +164,11 @@ const SuccessStories = () => {
                       </div>
                     </div>
                     
-                    <p className="text-sm text-gray-500 mb-4 font-medium">{story.university}</p>
+                    <p className="text-sm text-gray-600 mb-4 font-medium">{story.university}</p>
                   </div>
 
                   <div className="relative">
-                    <Quote className="absolute -top-2 -left-2 w-6 h-6 text-indigo-200" />
+                    <Quote className="absolute -top-2 -left-2 w-6 h-6 text-orange-200" />
                     <p className="text-gray-700 text-base leading-relaxed italic pl-4">
                       {story.testimonial}
                     </p>
@@ -184,7 +184,7 @@ const SuccessStories = () => {
       <div className="flex items-center justify-center gap-8 z-10 mb-8">
         <button 
           onClick={() => goToIndex(activeIndex - 1)}
-          className="group bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300 p-4 rounded-full shadow-lg hover:shadow-xl text-indigo-600 hover:text-indigo-700 hover:scale-110"
+          className="group bg-white/95 backdrop-blur hover:bg-white transition-all duration-300 p-4 rounded-lg shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 text-orange-500 hover:text-orange-600 hover:scale-110"
         >
           <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" />
         </button>
@@ -197,8 +197,8 @@ const SuccessStories = () => {
               onClick={() => goToIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === activeIndex 
-                  ? 'bg-indigo-600 w-8' 
-                  : 'bg-white/60 hover:bg-white/80'
+                  ? 'bg-orange-500 w-8' 
+                  : 'bg-white/95 hover:bg-white'
               }`}
             />
           ))}
@@ -206,7 +206,7 @@ const SuccessStories = () => {
         
         <button 
           onClick={() => goToIndex(activeIndex + 1)}
-          className="group bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300 p-4 rounded-full shadow-lg hover:shadow-xl text-indigo-600 hover:text-indigo-700 hover:scale-110"
+          className="group bg-white/95 backdrop-blur hover:bg-white transition-all duration-300 p-4 rounded-lg shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 text-orange-500 hover:text-orange-600 hover:scale-110"
         >
           <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
         </button>
@@ -216,7 +216,7 @@ const SuccessStories = () => {
       <div className="flex items-center gap-2 text-sm text-gray-600 z-10">
         <button
           onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-          className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full hover:bg-white/80 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-white/95 backdrop-blur rounded-lg hover:bg-white shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300"
         >
           <div className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-green-500' : 'bg-gray-400'}`}></div>
           {isAutoPlaying ? 'Auto-playing' : 'Paused'}
@@ -226,16 +226,16 @@ const SuccessStories = () => {
       {/* Statistics */}
       <div className="mt-16 grid grid-cols-3 gap-8 z-10">
         <div className="text-center">
-          <div className="text-4xl font-bold text-indigo-600 mb-2">5000+</div>
-          <div className="text-gray-600">Success Stories</div>
+          <div className="text-4xl font-bold text-orange-500 mb-2">5000+</div>
+          <div className="text-gray-300">Success Stories</div>
         </div>
         <div className="text-center">
-          <div className="text-4xl font-bold text-indigo-600 mb-2">98%</div>
-          <div className="text-gray-600">Success Rate</div>
+          <div className="text-4xl font-bold text-orange-500 mb-2">98%</div>
+          <div className="text-gray-300">Success Rate</div>
         </div>
         <div className="text-center">
-          <div className="text-4xl font-bold text-indigo-600 mb-2">50+</div>
-          <div className="text-gray-600">Countries</div>
+          <div className="text-4xl font-bold text-orange-500 mb-2">50+</div>
+          <div className="text-gray-300">Countries</div>
         </div>
       </div>
     </div>

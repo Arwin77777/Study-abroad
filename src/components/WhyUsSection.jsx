@@ -83,7 +83,7 @@ const WhyUsSection = () => {
   };
 
   return (
-    <div className="py-20 bg-transparent relative">
+    <div className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
       <BackgroundAnimation animationType="waves" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -93,7 +93,7 @@ const WhyUsSection = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#336b87]">Why Us?</h2>
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">Why Us?</h2>
         </motion.div>
 
         <motion.div
@@ -105,7 +105,7 @@ const WhyUsSection = () => {
         >
           {/* Main Feature Card */}
           <motion.div
-            className="lg:col-span-1 md:col-span-2 bg-[#336b87] text-white p-8 rounded-2xl shadow-2xl flex flex-col justify-center"
+            className="lg:col-span-1 md:col-span-2 bg-orange-500 text-white p-8 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 flex flex-col justify-center"
             variants={itemVariants}
           >
             <h3 className="text-3xl font-bold mb-4">Why Future Forge</h3>
@@ -118,16 +118,16 @@ const WhyUsSection = () => {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+              className="bg-white/95 backdrop-blur p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25"
               variants={itemVariants}
             >
               <div className="flex items-center space-x-4">
-                <div className="text-[#336b87]">
+                <div className="text-orange-500">
                   {stat.icon}
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-600">{stat.title}</h4>
-                  <p className="text-sm text-gray-500">{stat.description.replace("world's", "world&apos;s")}</p>
+                  <h4 className="text-xl font-bold text-gray-800">{stat.title}</h4>
+                  <p className="text-sm text-gray-600">{stat.description.replace("world's", "world&apos;s")}</p>
                 </div>
               </div>
               <div className="mt-4 text-right">
@@ -146,15 +146,15 @@ const WhyUsSection = () => {
           {/* Loan Help Card */}
           <motion.div
             variants={itemVariants}
-            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            className="bg-white/95 backdrop-blur p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25"
           >
             <div className="flex items-center space-x-4">
-              <div className="text-[#336b87]">
+              <div className="text-orange-500">
                 <MonetizationOn sx={{ fontSize: 40 }} />
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-600">Loan Help</h4>
-                <p className="text-sm text-gray-500">Guidance on securing educational loans for your studies.</p>
+                <h4 className="text-xl font-bold text-gray-800">Loan Help</h4>
+                <p className="text-sm text-gray-600">Guidance on securing educational loans for your studies.</p>
               </div>
             </div>
           </motion.div>
@@ -162,15 +162,15 @@ const WhyUsSection = () => {
           {/* Help for Stay Card */}
           <motion.div
             variants={itemVariants}
-            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            className="bg-white/95 backdrop-blur p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25"
           >
             <div className="flex items-center space-x-4">
-              <div className="text-[#336b87]">
+              <div className="text-orange-500">
                 <Home sx={{ fontSize: 40 }} />
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-600">Help for Stay</h4>
-                <p className="text-sm text-gray-500">Assistance in finding accommodation options.</p>
+                <h4 className="text-xl font-bold text-gray-800">Help for Stay</h4>
+                <p className="text-sm text-gray-600">Assistance in finding accommodation options.</p>
               </div>
             </div>
           </motion.div>
@@ -178,15 +178,15 @@ const WhyUsSection = () => {
           {/* Visa Assistance Card */}
           <motion.div
             variants={itemVariants}
-            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            className="bg-white/95 backdrop-blur p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25"
           >
             <div className="flex items-center space-x-4">
-              <div className="text-[#336b87]">
+              <div className="text-orange-500">
                 <Flight sx={{ fontSize: 40 }} />
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-600">Visa Assistance</h4>
-                <p className="text-sm text-gray-500">Support in navigating the visa application process.</p>
+                <h4 className="text-xl font-bold text-gray-800">Visa Assistance</h4>
+                <p className="text-sm text-gray-600">Support in navigating the visa application process.</p>
               </div>
             </div>
           </motion.div>

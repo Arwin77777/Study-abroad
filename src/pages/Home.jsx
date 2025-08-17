@@ -9,12 +9,17 @@ import CoursesSection from '../components/CoursesSection'
 import { motion } from 'framer-motion'
 
 const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { 
+    opacity: 0, 
+    y: 50,
+    scale: 0.95
+  },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
-      duration: 0.6,
+      duration: 0.8,
       ease: "easeOut"
     }
   }
@@ -23,15 +28,15 @@ const sectionVariants = {
 const Section = ({ id, title, children }) => (
   <motion.section
     id={id}
-    className="scroll-mt-15 py-10 sm:py-10"
+    className="scroll-mt-15 py-20"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
     variants={sectionVariants}
   >
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-5">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#336b87] drop-shadow-lg">
+      <div className="text-center mb-16">
+        <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
           {title}
         </h2>
       </div>
@@ -58,7 +63,7 @@ const bubbleData = [
 
 function Home() {
   return (
-    <div className="min-h-screen scroll-smooth bg-white text-gray-800 relative overflow-x-hidden">
+    <div className="min-h-screen scroll-smooth bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-x-hidden">
       {/* Global Bubble Background */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
         {bubbleData.map((bubble, i) => {
@@ -66,7 +71,7 @@ function Home() {
           return (
             <motion.div
               key={i}
-              className="absolute bg-[#336b87]/10 rounded-full"
+              className="absolute bg-orange-500/10 rounded-full mix-blend-overlay"
               style={{
                 width: bubble.size,
                 height: bubble.size,
@@ -95,7 +100,7 @@ function Home() {
       </div>
 
       <Navbar />
-      <main className="relative z-10 overflow-x-hidden">
+      <main className="relative z-10 overflow-x-hidden mt-10">
         <HeroBanner />
 
         <Section id="destinations">

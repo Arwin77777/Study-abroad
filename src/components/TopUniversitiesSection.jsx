@@ -76,19 +76,19 @@ const TopUniversitiesSection = () => {
 
 
   return (
-    <div className="relative w-full overflow-hidden bg-transparent py-16">
+    <div className="relative w-full overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4 sm:px-6 lg:px-8">
       {/* Section Title */}
-      <div className="relative z-10 text-center mb-12">
-        <h2 className="text-4xl font-bold text-[#336b87] mb-4">
+      <div className="relative z-10 text-center mb-16">
+        <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
           Top Universities Worldwide
         </h2>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
           Partner with prestigious institutions across the globe for your academic journey
         </p>
       </div>
 
       {/* Logo Carousel */}
-      <div className="relative overflow-hidden p-5">
+      <div className="relative overflow-hidden p-5 max-w-7xl mx-auto">
         <motion.div
           className="flex"
           ref={carouselRef}
@@ -103,16 +103,22 @@ const TopUniversitiesSection = () => {
                 transition: { duration: 0.3 },
               }}
             >
-              <div className="relative w-full h-full rounded-2xl shadow-lg overflow-hidden bg-white">
+              <div className="relative w-full h-full rounded-xl shadow-xl overflow-hidden bg-white/95 backdrop-blur transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25">
                 <img
                   src={uni.logo}
                   alt={uni.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white transition-opacity duration-300">
-                  <h3 className="text-xl font-bold">{uni.name}</h3>
-                  <p className="text-gray-300 text-sm">{uni.country}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <div className="transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <h3 className="text-xl font-bold text-white mb-2">{uni.name}</h3>
+                    <div className="flex items-center">
+                      <span className="px-3 py-1 bg-orange-500 rounded-lg text-sm font-semibold text-white">
+                        {uni.country}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

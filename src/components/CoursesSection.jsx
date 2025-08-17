@@ -142,10 +142,10 @@ const categories = ['All', 'Technology', 'Medical', 'Business', 'Engineering', '
 
 const BackgroundAnimation = () => (
   <div className="absolute inset-0 overflow-hidden">
-    <div className="absolute -inset-10 opacity-30">
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-      <div className="absolute top-3/4 right-1/4 w-72 h-72 bg-gradient-to-r from-yellow-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" style={{ animationDelay: '4s' }}></div>
+    <div className="absolute -inset-10 opacity-20">
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse"></div>
+      <div className="absolute top-3/4 right-1/4 w-72 h-72 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '4s' }}></div>
     </div>
   </div>
 );
@@ -188,7 +188,7 @@ const CoursesSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-20 px-6 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <BackgroundAnimation />
       
       {/* Header Section */}
@@ -199,16 +199,16 @@ const CoursesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg mb-6">
-            <GraduationCap className="w-6 h-6 text-blue-600" />
-            <span className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Discover Your Future</span>
+          <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur rounded-xl px-6 py-3 shadow-xl mb-6">
+            <GraduationCap className="w-6 h-6 text-orange-500" />
+            <span className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Discover Your Future</span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-6 leading-tight">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Transform Your Future
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Explore world-class programs designed to unlock your potential and shape tomorrow&apos;s leaders
           </p>
         </motion.div>
@@ -224,10 +224,10 @@ const CoursesSection = () => {
             <motion.button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
-                  : 'bg-white/80 backdrop-blur-sm text-gray-600 hover:bg-white hover:shadow-md'
+                  ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600'
+                  : 'bg-white/95 backdrop-blur text-gray-700 hover:bg-white hover:shadow-xl'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -254,7 +254,7 @@ const CoursesSection = () => {
                 onMouseEnter={() => setHoveredCard(idx)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10">
+                <div className="relative bg-white/95 backdrop-blur rounded-xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/25">
                   {/* Image Container */}
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -268,31 +268,31 @@ const CoursesSection = () => {
                     
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-700">
+                      <span className="px-3 py-1 bg-white/95 backdrop-blur rounded-lg text-xs font-semibold text-gray-700">
                         {course.category}
                       </span>
                     </div>
 
                     {/* Rating Badge */}
                     <div className="absolute top-4 right-4">
-                      <div className="flex items-center gap-1 px-2 py-1 bg-yellow-400/90 backdrop-blur-sm rounded-full">
-                        <Star className="w-3 h-3 text-yellow-800 fill-current" />
-                        <span className="text-xs font-bold text-yellow-800">{course.rating}</span>
+                      <div className="flex items-center gap-1 px-2 py-1 bg-orange-500 backdrop-blur rounded-lg">
+                        <Star className="w-3 h-3 text-white fill-current" />
+                        <span className="text-xs font-bold text-white">{course.rating}</span>
                       </div>
                     </div>
 
                     {/* Hover Action */}
-                    <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    {/* <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                       <button className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full font-medium text-gray-800 hover:bg-white transition-colors">
                         <span className="text-sm">Explore</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors">
                       {course.name}
                     </h3>
                     
@@ -303,21 +303,21 @@ const CoursesSection = () => {
                     {/* Stats */}
                     <div className="flex items-center justify-between text-xs text-gray-500">
                       <div className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
+                        <Clock className="w-3 h-3 text-orange-500" />
                         <span>{course.duration}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Users className="w-3 h-3" />
+                        <Users className="w-3 h-3 text-orange-500" />
                         <span>{course.students}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Bottom Gradient Bar */}
-                  <div className={`h-1 bg-gradient-to-r ${course.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+                  <div className="h-1 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   
                   {/* Hover Glow Effect */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10" />
+                  <div className="absolute -inset-0.5 bg-orange-500 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10" />
                 </div>
               </motion.div>
             ))}

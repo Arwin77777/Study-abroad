@@ -255,12 +255,12 @@ const continentColors = {
 
 const BackgroundElements = () => (
     <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -inset-10 opacity-30">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
-            <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute -inset-10 opacity-20">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse"></div>
+            <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '4s' }}></div>
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-blue-50/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-slate-900/30 to-transparent"></div>
     </div>
 );
 
@@ -278,7 +278,6 @@ const DestinationsGrid = () => {
         { value: 'northAmerica', label: 'North America', icon: MapPin },
         { value: 'asia', label: 'Asia', icon: MapPin },
         { value: 'Australia', label: 'Australia', icon: MapPin },
-        { value: 'australia', label: 'Oceania', icon: MapPin }
     ];
 
     const filtered = destinations.filter(dest => {
@@ -301,7 +300,7 @@ const DestinationsGrid = () => {
     ];
 
     return (
-        <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-20 px-6 relative overflow-hidden">
+        <section className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             <BackgroundElements />
             
             <div className="max-w-7xl mx-auto relative z-10">
@@ -319,11 +318,11 @@ const DestinationsGrid = () => {
                         </div>
                     )}
                     
-                    <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-6 leading-tight">
+                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                         {isDestinationsPage ? 'Global Study Destinations' : 'Where Dreams Take Flight'}
                     </h1>
                     
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                         Discover world-class education opportunities across the globe. From historic universities to cutting-edge research institutions.
                     </p>
                 </motion.div>
@@ -345,7 +344,7 @@ const DestinationsGrid = () => {
                                     placeholder="Search destinations..."
                                     value={search}
                                     onChange={e => setSearch(e.target.value)}
-                                    className="w-full pl-12 pr-4 py-4 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-500 transition-all"
+                                    className="w-full pl-12 pr-4 py-4 bg-white/95 backdrop-blur border border-gray-200 rounded-xl shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-700 placeholder-gray-500 transition-all"
                                 />
                             </div>
                             
@@ -377,7 +376,7 @@ const DestinationsGrid = () => {
                                                     onClick={() => setSelectedContinent(continent.value)}
                                                     className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all ${
                                                         selectedContinent === continent.value
-                                                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
+                                                            ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/25'
                                                             : 'bg-white/80 text-gray-600 hover:bg-white hover:shadow-md'
                                                     }`}
                                                 >
@@ -505,7 +504,7 @@ const DestinationsGrid = () => {
                     >
                         <button
                             onClick={() => navigate('/destinations')}
-                            className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all hover:from-blue-700 hover:to-purple-700"
+                            className="group flex items-center gap-3 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all shadow-orange-500/25"
                         >
                             <Globe className="w-5 h-5" />
                             <span>Explore All Destinations</span>
@@ -522,18 +521,10 @@ const DestinationsGrid = () => {
                         transition={{ delay: 1 }}
                         className="text-center mt-16 pt-12 border-t border-gray-200/50"
                     >
-                        <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to Start Your Journey?</h3>
-                        <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                        <h3 className="text-2xl font-bold text-white mb-4">Ready to Start Your Journey?</h3>
+                        <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                             Get personalized guidance from our expert counselors and take the first step towards your dream education abroad.
                         </p>
-                        <button
-                            onClick={() => navigate('/contact')}
-                            className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all"
-                        >
-                            <Users className="w-5 h-5" />
-                            <span>Get Free Counselling</span>
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </button>
                     </motion.div>
                 )}
 
@@ -554,7 +545,7 @@ const DestinationsGrid = () => {
                                 setSearch('');
                                 setSelectedContinent('all');
                             }}
-                            className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                            className="mt-4 px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all shadow-orange-500/25"
                         >
                             Clear Filters
                         </button>

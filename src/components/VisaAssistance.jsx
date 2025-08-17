@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-  Container,
-  Typography,
-  Box,
-  Grid,
-  Paper,
-  Divider,
-} from '@mui/material';
-import { CheckCircle } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { CheckCircle, ArrowRight, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Example image (replace with actual path)
 import visaBanner from '../assets/Airplane.png';
@@ -30,86 +23,109 @@ const steps = [
 ];
 
 const VisaAssistance = () => {
+  const navigate = useNavigate();
   return (
-    <Box sx={{ background: 'linear-gradient(to right, #e1ecf4, #ffffff)', py: 6 }}>
-      <Container>
+    <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Background Animation */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -inset-10 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-orange-400 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        </div>
+      </div>
 
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Hero Section */}
-        <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <Typography variant="h3" sx={{ color: '#336b87', fontWeight: 700, m: '2rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+          <div>
+            <motion.button
+              onClick={() => navigate('/our-services')}
+              className="group flex items-center gap-2 mb-8 bg-white/95 backdrop-blur rounded-xl px-5 py-3 text-gray-800 hover:text-orange-500 shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+              <span className="font-medium">Back to Services</span>
+            </motion.button>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
               Visa Assistance
-            </Typography>
-            <Typography variant="body1" sx={{ m: '2rem' }}>
+            </h1>
+            <p className="text-xl text-gray-300 leading-relaxed">
               From choosing the right visa type to preparing for interviews, our expert counselors guide you through each step to ensure a smooth visa approval process.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <motion.img
+            </p>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <img
               src={visaBanner}
               alt="Visa Assistance"
-              style={{ width: '100%', borderRadius: '12px' }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              className="w-full rounded-xl shadow-xl"
             />
-          </Grid>
-        </Grid>
+          </motion.div>
+        </div>
 
-        <Divider sx={{ my: 5 }} />
-
-        {/* Service Highlights */}
-        <Typography variant="h5" sx={{ color: '#336b87', mb: 3, fontWeight: 600 }}>
-          What’s Included
-        </Typography>
-        <Grid container spacing={3}>
-          {services.map((item, idx) => (
-            <Grid item xs={12} md={6} key={idx}>
-              <Paper elevation={3} sx={{ p: 2, display: 'flex', gap: 2, alignItems: 'center' }}>
-                <CheckCircle sx={{ color: '#336b87' }} />
-                <Typography>{item}</Typography>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
-
-        {/* Process Steps */}
-        <Box sx={{ mt: 8 }}>
-          <Typography variant="h5" sx={{ color: '#336b87', mb: 3, fontWeight: 600 }}>
-            Step-by-Step Visa Process
-          </Typography>
-          <Grid container spacing={4}>
-            {steps.map((step, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Paper
-                  elevation={2}
-                  sx={{
-                    p: 3,
-                    textAlign: 'center',
-                    borderBottom: '4px solid #336b87',
-                    background: '#f8f9fa',
-                  }}
-                >
-                  <Typography variant="h6" sx={{ fontWeight: 600, color: '#264053' }}>
-                    {index + 1}. {step}
-                  </Typography>
-                </Paper>
-              </Grid>
+        {/* Services Section */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-white mb-8">
+            What&apos;s Included
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white/95 backdrop-blur rounded-xl p-6 shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 flex items-center gap-4"
+              >
+                <CheckCircle className="w-6 h-6 text-orange-500 flex-shrink-0" />
+                <p className="text-gray-800">{item}</p>
+              </div>
             ))}
-          </Grid>
-        </Box>
+          </div>
+        </div>
 
-        {/* CTA - Why Choose Us */}
-        <Box sx={{ mt: 10, background: '#336b87', p: 5, borderRadius: 3, color: '#fff' }}>
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+        {/* Step-by-Step Process */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-white mb-8">
+            Step-by-Step Visa Process
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="bg-white/95 backdrop-blur rounded-xl p-6 shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 group"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="w-8 h-8 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-500 transition-colors">
+                    {step}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-orange-500 rounded-xl p-8 shadow-xl">
+          <h2 className="text-3xl font-bold text-white mb-4">
             Why Trust Our Visa Experts?
-          </Typography>
-          <Typography>
+          </h2>
+          <p className="text-white/90 text-lg leading-relaxed mb-6">
             Our dedicated visa team has helped thousands of students successfully secure visas for the USA, UK, Canada, Germany, Australia, and more. We stay updated with embassy policies, ensure accurate documentation, and provide mock interviews that build your confidence.
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+          </p>
+          <div className="flex items-center text-white">
+            <span className="font-medium mr-2">Get Started Today</span>
+            <ArrowRight className="w-5 h-5" />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

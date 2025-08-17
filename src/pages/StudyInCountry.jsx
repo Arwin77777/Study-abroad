@@ -84,11 +84,11 @@ function UniversityModal({ university, onClose }) {
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.8, opacity: 0, y: 50 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="bg-white max-w-lg w-full rounded-3xl shadow-2xl p-8 relative mx-4 mt-20"
+        className="bg-white/95 backdrop-blur max-w-lg w-full rounded-xl shadow-2xl p-8 relative mx-4 mt-20"
       >
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className="absolute top-4 right-4 text-3xl text-[#336b87] hover:text-[#336b87]/80 transition-colors"
+          className="absolute top-4 right-4 text-3xl text-orange-500 hover:text-orange-600 transition-colors"
           onClick={onClose}
         >
           &times;
@@ -106,7 +106,7 @@ function UniversityModal({ university, onClose }) {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-2xl font-bold mb-2 text-[#336b87]"
+          className="text-2xl font-bold mb-2 text-gray-800"
         >
           {university.name}
         </motion.h2>
@@ -129,7 +129,7 @@ function UniversityModal({ university, onClose }) {
             boxShadow: "0 20px 40px -12px rgba(51, 107, 135, 0.3)"
           }}
           onClick={handleViewDetails}
-          className="w-full bg-gradient-to-r from-[#336b87] to-[#336b87]/80 text-white font-semibold py-4 px-6 rounded-2xl hover:from-[#336b87]/90 hover:to-[#336b87]/70 transition-all duration-300 flex items-center justify-center space-x-2"
+          className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
         >
           <span className="text-xl">📋</span>
           <span>View Full Details</span>
@@ -168,7 +168,7 @@ function CustomSelect({ options, value, onChange, placeholder, icon, disabled })
     >
       <motion.label
         whileHover={{ scale: 1.02 }}
-        className="flex items-center text-sm font-medium text-[#336b87] mb-2"
+        className="flex items-center text-sm font-medium text-gray-700 mb-2"
       >
         <span className="text-xl mr-2">{icon}</span> {placeholder.replace('Select a ', '')}
       </motion.label>
@@ -178,14 +178,14 @@ function CustomSelect({ options, value, onChange, placeholder, icon, disabled })
         type="button"
         onClick={() => !disabled && setIsOpen(!isOpen)}
         disabled={disabled}
-        className="w-full px-4 py-3 text-left bg-gradient-to-r from-white to-[#336b87]/5 border-2 border-[#336b87]/20 rounded-2xl flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#336b87] focus:border-[#336b87] disabled:bg-gray-100 disabled:cursor-not-allowed transition-all duration-300 hover:border-[#336b87]/40 hover:shadow-lg"
+        className="w-full px-4 py-3 text-left bg-white border-2 border-gray-200 rounded-xl flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-all duration-300 hover:border-orange-500/40 hover:shadow-lg"
       >
-        <span className={selectedOption ? 'text-[#336b87] font-medium' : 'text-gray-500'}>
+        <span className={selectedOption ? 'text-gray-800 font-medium' : 'text-gray-500'}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <motion.svg
           animate={{ rotate: isOpen ? 180 : 0 }}
-          className="w-5 h-5 text-[#336b87]"
+          className="w-5 h-5 text-orange-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -201,7 +201,7 @@ function CustomSelect({ options, value, onChange, placeholder, icon, disabled })
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-10 w-full mt-2 bg-white border-2 border-[#336b87]/20 rounded-2xl shadow-xl max-h-60 overflow-y-auto"
+            className="absolute z-10 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-xl max-h-60 overflow-y-auto"
           >
             <ul>
               {options.map((option, index) => (
@@ -214,10 +214,10 @@ function CustomSelect({ options, value, onChange, placeholder, icon, disabled })
                     onChange(option.value);
                     setIsOpen(false);
                   }}
-                  className="px-4 py-3 flex items-center hover:bg-gradient-to-r hover:from-[#336b87]/10 hover:to-[#336b87]/5 cursor-pointer transition-all duration-200 hover:scale-[1.02]"
+                  className="px-4 py-3 flex items-center hover:bg-orange-500/10 cursor-pointer transition-all duration-200 hover:scale-[1.02]"
                 >
                   <span className="text-xl mr-3">{option.icon}</span>
-                  <span className="font-medium text-[#336b87]">{option.label}</span>
+                  <span className="font-medium text-gray-800">{option.label}</span>
                 </motion.li>
               ))}
             </ul>
@@ -272,7 +272,7 @@ function FilterSection({ onFilterChange, selectedFilters }) {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full mb-8 bg-gradient-to-br from-[#336b87]/10 via-white to-[#336b87]/5 backdrop-blur-sm rounded-3xl p-8 border-2 border-[#336b87]/20 shadow-2xl"
+      className="w-full mb-8 bg-white/95 backdrop-blur rounded-xl p-8 shadow-xl border border-gray-200/50"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -806,8 +806,8 @@ const StudyInCountry = () => {
 
   return (
     <div>
-      <div className="relative min-h-screen bg-gradient-to-br from-[#336b87]/5 via-white to-[#336b87]/10 overflow-hidden z-10">
-        <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col items-center gap-12 relative z-10">
+      <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center gap-12 relative z-10">
           <div className="w-full flex flex-col md:flex-row items-center justify-between gap-10">
 
             {/* Text Content */}
@@ -822,7 +822,7 @@ const StudyInCountry = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
-                  className="text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg"
+                  className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-white"
                 >
                   {currentData ? `Study in ${currentData.name}` : 'Study Abroad'}
                 </motion.h2>
@@ -831,7 +831,7 @@ const StudyInCountry = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5, duration: 0.6 }}
-                  className="text-white/90 text-lg"
+                  className="text-xl text-gray-300 leading-relaxed"
                 >
                   {currentData?.description || 'Your gateway to global education. We help you find the best universities, courses, and scholarships to make your study abroad dream a reality.'}
                 </motion.p>
@@ -887,7 +887,7 @@ const StudyInCountry = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="text-4xl font-bold text-center mb-8 text-[#336b87]"
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-center mb-16 text-white"
               >
                 Top Universities in {currentData?.name}
               </motion.h2>
@@ -905,9 +905,9 @@ const StudyInCountry = () => {
                     placeholder={`Search from ${baseUniversities.length} universities...`}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-6 py-4 border-2 border-[#336b87]/20 rounded-full shadow-lg focus:ring-2 focus:ring-[#336b87] focus:border-[#336b87] bg-white/80 backdrop-blur-sm transition-all duration-300 hover:border-[#336b87]/40"
+                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl shadow-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white/95 backdrop-blur transition-all duration-300 hover:border-orange-500/40"
                   />
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#336b87]">
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-orange-500">
                     🔍
                   </div>
                 </div>
@@ -926,7 +926,7 @@ const StudyInCountry = () => {
                         y: -10,
                         boxShadow: "0 25px 50px -12px rgba(51, 107, 135, 0.25)"
                       }}
-                      className="bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-xl p-6 flex flex-col items-center text-center cursor-pointer border-2 border-[#336b87]/20 hover:border-[#336b87]/40 transition-all duration-300"
+                      className="bg-white/95 backdrop-blur rounded-xl shadow-xl p-6 flex flex-col items-center text-center cursor-pointer border border-gray-200/50 hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300"
                       onClick={() => setSelectedUniversity(uni)}
                     >
                       <div className='w-full h-50' style={{ height: '200px' }}>
@@ -938,8 +938,8 @@ const StudyInCountry = () => {
                           style={{ height: '200px', objectFit: 'contain' }}
                         />
                       </div>
-                      <div className="text-xl font-bold text-[#336b87] mb-2">{uni.name}</div>
-                      <div className="text-gray-700 text-sm">{uni.short}</div>
+                      <div className="text-xl font-bold text-gray-800 mb-2">{uni.name}</div>
+                      <div className="text-gray-600 text-sm">{uni.short}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -976,7 +976,7 @@ const StudyInCountry = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9 }}
-                className="text-4xl font-bold text-center text-[#336b87]"
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-center text-white"
               >
                 Why {currentData?.name}?
               </motion.h2>
@@ -993,7 +993,7 @@ const StudyInCountry = () => {
           transition={{ delay: 0.8, duration: 1 }}
           className="w-full flex justify-center px-2 py-5 relative z-1"
         >
-          <div className="w-full max-w-7xl bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-2xl px-4 py-12 flex flex-col items-center border-2 border-[#336b87]/20">
+          <div className="w-full max-w-7xl bg-white/95 backdrop-blur rounded-xl shadow-xl px-4 py-12 flex flex-col items-center border border-gray-200/50">
             {/* Card Navigation */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -1014,9 +1014,9 @@ const StudyInCountry = () => {
                     boxShadow: "0 20px 40px -12px rgba(51, 107, 135, 0.3)"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className={`flex flex-col items-center justify-center w-56 h-40 rounded-2xl shadow-lg transition-all duration-300 p-6 min-w-[180px] min-h-[120px] cursor-pointer border-2 ${activeSection === section.key
-                    ? 'bg-gradient-to-br from-[#336b87] to-[#336b87]/80 text-white border-[#336b87] shadow-2xl'
-                    : 'bg-gradient-to-br from-white to-[#336b87]/10 text-[#336b87] border-[#336b87]/30 hover:border-[#336b87] hover:shadow-xl'
+                  className={`flex flex-col items-center justify-center w-56 h-40 rounded-xl shadow-lg transition-all duration-300 p-6 min-w-[180px] min-h-[120px] cursor-pointer border ${activeSection === section.key
+                    ? 'bg-orange-500 text-white border-orange-500 shadow-2xl shadow-orange-500/25'
+                    : 'bg-white/95 backdrop-blur text-gray-800 border-gray-200/50 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/25'
                     }`}
                   tabIndex={0}
                 >
@@ -1039,7 +1039,7 @@ const StudyInCountry = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="w-full max-w-4xl bg-gradient-to-br from-white to-[#336b87]/5 rounded-2xl shadow-lg p-8 mt-2 mb-8 min-h-[400px] border-2 border-[#336b87]/20 text-gray-900"
+              className="w-full max-w-4xl bg-white/95 backdrop-blur rounded-xl shadow-xl p-8 mt-2 mb-8 min-h-[400px] border border-gray-200/50 text-gray-900"
             >
               {cardSections.find(s => s.key === activeSection)?.content}
             </motion.div>
@@ -1050,4 +1050,4 @@ const StudyInCountry = () => {
   );
 };
 
-export default StudyInCountry; 
+export default StudyInCountry;

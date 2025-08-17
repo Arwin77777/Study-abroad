@@ -99,21 +99,21 @@ const StudyAbroadDropdown = ({ isMobile }) => {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef} style={{ maxWidth: '360px' }}>
       <motion.div
         className={`flex items-center space-x-2 cursor-pointer transition-all duration-300 relative group ${
           isMobile 
-            ? 'py-3 px-4 rounded-xl text-gray-700 font-medium hover:text-blue-600 hover:bg-blue-50' 
-            : 'py-3 px-4 rounded-xl text-gray-700 font-medium hover:text-blue-600 hover:bg-blue-50'
+            ? 'py-2 px-3 rounded-lg text-gray-700 font-medium hover:text-blue-600 hover:bg-blue-50' 
+            : 'py-2 px-3 rounded-lg text-gray-700 font-medium hover:text-blue-600 hover:bg-blue-50'
         }`}
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <span className="text-2xl">🌍</span>
-        <span className="font-semibold">Study Abroad</span>
+        <span className="text-xl">🌍</span>
+        <span className="font-semibold text-sm">Study Abroad</span>
         <motion.svg
-          className="w-5 h-5 transition-transform duration-300"
+          className="w-4 h-4 transition-transform duration-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -132,28 +132,28 @@ const StudyAbroadDropdown = ({ isMobile }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className={`absolute ${isMobile ? 'left-0 right-0' : 'left-0'} mt-2 ${
-              isMobile ? 'w-full' : 'w-[420px]'
-            } rounded-2xl shadow-2xl bg-white/95 backdrop-blur-xl ring-1 ring-black/5 border border-gray-100 z-50 overflow-hidden`}
+            className={`absolute ${isMobile ? 'left-0 right-0' : 'left-0'} mt-1 ${
+              isMobile ? 'w-full' : 'w-[360px]'
+            } rounded-xl shadow-xl bg-white/90 backdrop-blur-lg ring-1 ring-black/5 border border-gray-100 z-50 overflow-hidden`}
             variants={dropdownVariants}
             initial="hidden"
             animate="visible"
             exit="hidden"
           >
-            <div className="py-2" role="menu" aria-orientation="vertical">
+            <div className="py-1" role="menu" aria-orientation="vertical">
               
               {/* Enhanced Header */}
               <motion.div 
-                className="px-6 py-4 bg-gradient-to-r from-blue-50 to-purple-50 border-b border-gray-100"
+                className="px-4 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border-b border-gray-100"
                 variants={itemVariants}
               >
                 <Link
                   to="/study-abroad"
-                  className="flex items-center text-base font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200 group"
+                  className="flex items-center text-sm font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200 group"
                   onClick={() => setIsOpen(false)}
                 >
                   <motion.span 
-                    className="mr-3 text-2xl"
+                    className="mr-2 text-xl"
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
                   >
@@ -161,7 +161,7 @@ const StudyAbroadDropdown = ({ isMobile }) => {
                   </motion.span>
                   <span>Browse All Destinations</span>
                   <motion.span
-                    className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
@@ -171,9 +171,9 @@ const StudyAbroadDropdown = ({ isMobile }) => {
               </motion.div>
 
               {/* Continents Grid */}
-              <div className="px-4 py-2">
+              <div className="px-3 py-1">
                 <motion.div 
-                  className="grid grid-cols-1 gap-1"
+                  className="grid grid-cols-1"
                   variants={itemVariants}
                 >
                   {continents.map((continent) => (
@@ -189,22 +189,22 @@ const StudyAbroadDropdown = ({ isMobile }) => {
                     >
                       <Link
                         to={`/study-abroad?continent=${continent.key}`}
-                        className="flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 rounded-xl transition-all duration-200 group"
+                        className="flex items-center justify-between px-3 py-2 text-xs font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 rounded-lg transition-all duration-200 group"
                         role="menuitem"
                         onClick={() => setIsOpen(false)}
                       >
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-2">
                           <motion.span 
-                            className="text-2xl"
+                            className="text-xl"
                             whileHover={{ scale: 1.2, rotate: 10 }}
                             transition={{ duration: 0.2 }}
                           >
                             {continent.icon}
                           </motion.span>
-                          <span className="font-semibold">{continent.name}</span>
+                          <span className="font-semibold text-sm">{continent.name}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                        <div className="flex items-center space-x-1">
+                          <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded-full">
                             {continent.countries.length} countries
                           </span>
                           <motion.span
@@ -223,25 +223,25 @@ const StudyAbroadDropdown = ({ isMobile }) => {
                           <motion.div 
                             className={`absolute top-0 ${
                               submenuPosition === 'right' 
-                                ? 'left-full ml-2' 
-                                : 'right-full mr-2'
-                            } w-72 rounded-2xl shadow-2xl bg-white/95 backdrop-blur-xl ring-1 ring-black/5 border border-gray-100 z-50 overflow-hidden`}
+                                ? 'left-full ml-1' 
+                                : 'right-full mr-1'
+                            } w-64 rounded-xl shadow-xl bg-white/90 backdrop-blur-lg ring-1 ring-black/5 border border-gray-100 z-50 overflow-hidden`}
                             variants={submenuVariants}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
                           >
-                            <div className="py-2">
-                              <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border-b border-gray-100">
-                                <div className="flex items-center space-x-2">
-                                  <span className="text-xl">{continent.icon}</span>
-                                  <span className="text-sm font-bold text-gray-800">
+                            <div className="py-1">
+                              <div className="px-3 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border-b border-gray-100">
+                                <div className="flex items-center space-x-1">
+                                  <span className="text-lg">{continent.icon}</span>
+                                  <span className="text-xs font-bold text-gray-800">
                                     {continent.name}
                                   </span>
                                 </div>
                               </div>
                               
-                              <div className="max-h-80 overflow-y-auto">
+                              <div className="max-h-64 overflow-y-auto">
                                 {continent.countries.map((country) => (
                                   <motion.div
                                     key={country.key}
@@ -251,21 +251,21 @@ const StudyAbroadDropdown = ({ isMobile }) => {
                                   >
                                     <Link
                                       to={`/study-abroad?continent=${continent.key}&country=${country.key}`}
-                                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-200 group"
+                                      className="flex items-center justify-between px-3 py-2 text-xs text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-200 group"
                                       onClick={() => setIsOpen(false)}
                                     >
-                                      <div className="flex items-center space-x-3">
+                                      <div className="flex items-center space-x-2">
                                         <motion.span 
-                                          className="text-lg"
+                                          className="text-base"
                                           whileHover={{ scale: 1.2 }}
                                           transition={{ duration: 0.2 }}
                                         >
                                           {country.icon}
                                         </motion.span>
-                                        <span className="font-medium">{country.name}</span>
+                                        <span className="font-medium text-xs">{country.name}</span>
                                       </div>
-                                      <div className="flex items-center space-x-2">
-                                        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                                      <div className="flex items-center space-x-1">
+                                        <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded-full">
                                           {country.cities.length} cities
                                         </span>
                                         <motion.span
@@ -291,14 +291,14 @@ const StudyAbroadDropdown = ({ isMobile }) => {
 
               {/* Enhanced Popular Destinations */}
               <motion.div 
-                className="px-6 py-4 bg-gradient-to-r from-gray-50 to-blue-50 border-t border-gray-100"
+                className="px-4 py-3 bg-gradient-to-r from-gray-50 to-blue-50 border-t border-gray-100"
                 variants={itemVariants}
               >
-                <div className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-3 flex items-center">
-                  <span className="mr-2">⭐</span>
+                <div className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-2 flex items-center">
+                  <span className="mr-1">⭐</span>
                   Popular Destinations
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2">
                   {[
                     { continent: 'northAmerica', country: 'usa', flag: '🇺🇸', name: 'USA' },
                     { continent: 'europe', country: 'uk', flag: '🇬🇧', name: 'UK' },
@@ -312,11 +312,11 @@ const StudyAbroadDropdown = ({ isMobile }) => {
                     >
                       <Link
                         to={`/study-abroad?continent=${destination.continent}&country=${destination.country}`}
-                        className="flex items-center space-x-2 p-3 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-white/60 rounded-xl transition-all duration-200 group"
+                        className="flex items-center space-x-1 p-2 text-xs font-medium text-gray-700 hover:text-blue-600 hover:bg-white/60 rounded-lg transition-all duration-200 group"
                         onClick={() => setIsOpen(false)}
                       >
                         <motion.span 
-                          className="text-lg"
+                          className="text-base"
                           whileHover={{ scale: 1.2, rotate: 10 }}
                           transition={{ duration: 0.2 }}
                         >

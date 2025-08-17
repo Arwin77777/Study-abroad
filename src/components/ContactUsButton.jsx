@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MailOutline, Close } from '@mui/icons-material';
+import { Mail } from 'lucide-react';
 import ContactUsModal from './ContactUsModal';
 
 const ContactUsButton = () => {
@@ -13,12 +13,12 @@ const ContactUsButton = () => {
     <>
       <motion.button
         onClick={openModal}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 right-8 bg-[#336b87] text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center z-40"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-8 right-8 bg-orange-500 hover:bg-orange-600 text-white w-16 h-16 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 flex items-center justify-center z-40 transition-all duration-300"
         aria-label="Contact Us"
       >
-        <MailOutline fontSize="large" />
+        <Mail className="w-8 h-8" />
       </motion.button>
       
       <AnimatePresence>

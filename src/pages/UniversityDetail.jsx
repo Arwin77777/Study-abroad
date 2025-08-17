@@ -203,20 +203,20 @@ const UniversityDetail = () => {
 
   if (!university) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#336b87]/5 via-white to-[#336b87]/10 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           className="text-center"
         >
           <div className="text-6xl mb-4">🔍</div>
-          <h2 className="text-2xl font-bold text-[#336b87] mb-2">University Not Found</h2>
-          <p className="text-gray-600 mb-4">The university you&apos;re looking for doesn&apos;t exist.</p>
+          <h2 className="text-2xl font-bold text-white mb-2">University Not Found</h2>
+          <p className="text-gray-300 mb-4">The university you&apos;re looking for doesn&apos;t exist.</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate(-1)}
-            className="px-6 py-3 bg-[#336b87] text-white rounded-full hover:bg-[#336b87]/80 transition-colors"
+            className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-lg transition-all duration-300 font-semibold text-lg"
           >
             Go Back
           </motion.button>
@@ -248,12 +248,12 @@ const UniversityDetail = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-gradient-to-br from-[#336b87]/10 to-[#336b87]/20 p-4 rounded-xl text-center border-2 border-[#336b87]/30"
+                  className="bg-orange-500/10 p-4 rounded-xl text-center border border-orange-500/30"
                 >
-                  <div className="text-sm font-semibold text-[#336b87] mb-1">
+                  <div className="text-sm font-semibold text-gray-700 mb-1">
                     {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
                   </div>
-                  <div className="text-lg font-bold text-[#336b87]">{value}</div>
+                  <div className="text-lg font-bold text-orange-500">{value}</div>
                 </motion.div>
               ))}
             </div>
@@ -270,16 +270,16 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ scale: 1.02, x: 10 }}
-                className="bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 p-6 rounded-xl border-l-4 border-[#336b87]"
+                className="bg-orange-500/5 p-6 rounded-xl border-l-4 border-orange-500"
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-xl font-bold text-[#336b87] mb-2">{program.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">{program.name}</h3>
                     <p className="text-gray-600 mb-1"><strong>Level:</strong> {program.level}</p>
                     <p className="text-gray-600 mb-1"><strong>Duration:</strong> {program.duration}</p>
                   </div>
                   <div className="text-right">
-                    <div className="bg-[#336b87] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="bg-orange-500 text-white px-3 py-1 rounded-lg text-sm font-semibold">
                       {program.ranking}
                     </div>
                   </div>
@@ -297,13 +297,13 @@ const UniversityDetail = () => {
               animate={{ opacity: 1, y: 0 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
             >
-              <div className="bg-gradient-to-br from-[#336b87]/10 to-[#336b87]/20 p-4 rounded-xl text-center border-2 border-[#336b87]/30">
-                <div className="text-sm font-semibold text-[#336b87] mb-1">Acceptance Rate</div>
-                <div className="text-2xl font-bold text-[#336b87]">{sectionData.acceptanceRate}</div>
+              <div className="bg-orange-500/10 p-4 rounded-xl text-center border border-orange-500/30">
+                <div className="text-sm font-semibold text-gray-700 mb-1">Acceptance Rate</div>
+                <div className="text-2xl font-bold text-orange-500">{sectionData.acceptanceRate}</div>
               </div>
-              <div className="bg-gradient-to-br from-[#336b87]/10 to-[#336b87]/20 p-4 rounded-xl text-center border-2 border-[#336b87]/30">
-                <div className="text-sm font-semibold text-[#336b87] mb-1">Application Deadline</div>
-                <div className="text-lg font-bold text-[#336b87]">{sectionData.applicationDeadline}</div>
+              <div className="bg-orange-500/10 p-4 rounded-xl text-center border border-orange-500/30">
+                <div className="text-sm font-semibold text-gray-700 mb-1">Application Deadline</div>
+                <div className="text-lg font-bold text-orange-500">{sectionData.applicationDeadline}</div>
               </div>
             </motion.div>
             
@@ -313,7 +313,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">Requirements</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">Requirements</h3>
                 <div className="space-y-2">
                   {sectionData.requirements.map((req, idx) => (
                     <motion.div
@@ -321,9 +321,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">✓</span>
+                      <span className="text-orange-500 text-xl">✓</span>
                       <span className="text-gray-700">{req}</span>
                     </motion.div>
                   ))}
@@ -335,7 +335,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">Required Documents</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">Required Documents</h3>
                 <div className="space-y-2">
                   {sectionData.documents.map((doc, idx) => (
                     <motion.div
@@ -343,9 +343,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.5 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">📄</span>
+                      <span className="text-orange-500 text-xl">📄</span>
                       <span className="text-gray-700">{doc}</span>
                     </motion.div>
                   ))}
@@ -361,10 +361,10 @@ const UniversityDetail = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-br from-[#336b87]/10 to-[#336b87]/20 p-6 rounded-xl border-2 border-[#336b87]/30"
+              className="bg-orange-500/10 p-6 rounded-xl border border-orange-500/30"
             >
-              <h3 className="text-2xl font-bold text-[#336b87] mb-4">Total Estimated Cost</h3>
-              <div className="text-3xl font-bold text-[#336b87]">{sectionData.total}</div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Total Estimated Cost</h3>
+              <div className="text-3xl font-bold text-orange-500">{sectionData.total}</div>
             </motion.div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -373,7 +373,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">Tuition Fees</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">Tuition Fees</h3>
                 <div className="space-y-3">
                   {Object.entries(sectionData.tuition).map(([key, value], idx) => (
                     <motion.div
@@ -381,12 +381,12 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + idx * 0.1 }}
-                      className="flex justify-between items-center p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex justify-between items-center p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="font-semibold text-[#336b87]">
+                      <span className="font-semibold text-gray-700">
                         {key.charAt(0).toUpperCase() + key.slice(1)}
                       </span>
-                      <span className="font-bold text-[#336b87]">{value}</span>
+                      <span className="font-bold text-orange-500">{value}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -397,7 +397,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">Living Expenses</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">Living Expenses</h3>
                 <div className="space-y-3">
                   {Object.entries(sectionData.living).map(([key, value], idx) => (
                     <motion.div
@@ -405,12 +405,12 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.5 + idx * 0.1 }}
-                      className="flex justify-between items-center p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex justify-between items-center p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="font-semibold text-[#336b87]">
+                      <span className="font-semibold text-gray-700">
                         {key.charAt(0).toUpperCase() + key.slice(1)}
                       </span>
-                      <span className="font-bold text-[#336b87]">{value}</span>
+                      <span className="font-bold text-orange-500">{value}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -429,15 +429,15 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 p-6 rounded-xl border-l-4 border-[#336b87]"
+                className="bg-orange-500/5 p-6 rounded-xl border-l-4 border-orange-500"
               >
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-[#336b87] mb-2">{scholarship.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">{scholarship.name}</h3>
                     <p className="text-gray-600 mb-1"><strong>Eligibility:</strong> {scholarship.eligibility}</p>
                   </div>
                   <div className="text-right ml-4">
-                    <div className="bg-[#336b87] text-white px-4 py-2 rounded-full font-semibold">
+                    <div className="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold">
                       {scholarship.amount}
                     </div>
                   </div>
@@ -456,7 +456,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">🏗️ Facilities</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">🏗️ Facilities</h3>
                 <div className="space-y-2">
                   {sectionData.facilities.map((facility, idx) => (
                     <motion.div
@@ -464,9 +464,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">🏢</span>
+                      <span className="text-orange-500 text-xl">🏢</span>
                       <span className="text-gray-700">{facility}</span>
                     </motion.div>
                   ))}
@@ -478,7 +478,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">🏠 Housing</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">🏠 Housing</h3>
                 <div className="space-y-2">
                   {sectionData.housing.map((option, idx) => (
                     <motion.div
@@ -486,9 +486,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">🏠</span>
+                      <span className="text-orange-500 text-xl">🏠</span>
                       <span className="text-gray-700">{option}</span>
                     </motion.div>
                   ))}
@@ -500,7 +500,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">🚌 Transportation</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">🚌 Transportation</h3>
                 <div className="space-y-2">
                   {sectionData.transportation.map((option, idx) => (
                     <motion.div
@@ -508,9 +508,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.6 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">🚌</span>
+                      <span className="text-orange-500 text-xl">🚌</span>
                       <span className="text-gray-700">{option}</span>
                     </motion.div>
                   ))}
@@ -529,7 +529,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">👥 Student Clubs</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">👥 Student Clubs</h3>
                 <div className="space-y-2">
                   {sectionData.clubs.map((club, idx) => (
                     <motion.div
@@ -537,9 +537,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">👥</span>
+                      <span className="text-orange-500 text-xl">👥</span>
                       <span className="text-gray-700">{club}</span>
                     </motion.div>
                   ))}
@@ -551,7 +551,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">🎉 Events</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">🎉 Events</h3>
                 <div className="space-y-2">
                   {sectionData.events.map((event, idx) => (
                     <motion.div
@@ -559,9 +559,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">🎉</span>
+                      <span className="text-orange-500 text-xl">🎉</span>
                       <span className="text-gray-700">{event}</span>
                     </motion.div>
                   ))}
@@ -573,7 +573,7 @@ const UniversityDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <h3 className="text-xl font-bold text-[#336b87] mb-4">🤝 Support Services</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">🤝 Support Services</h3>
                 <div className="space-y-2">
                   {sectionData.support.map((service, idx) => (
                     <motion.div
@@ -581,9 +581,9 @@ const UniversityDetail = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.6 + idx * 0.05 }}
-                      className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-orange-500/5 rounded-lg"
                     >
-                      <span className="text-[#336b87] text-xl">🤝</span>
+                      <span className="text-orange-500 text-xl">🤝</span>
                       <span className="text-gray-700">{service}</span>
                     </motion.div>
                   ))}
@@ -596,7 +596,7 @@ const UniversityDetail = () => {
       case 'accommodation':
         return (
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-[#336b87] mb-4">Accommodation Options</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">Accommodation Options</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {details.campus.housing.map((option, idx) => (
                 <motion.div
@@ -605,7 +605,7 @@ const UniversityDetail = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.02, x: 10 }}
-                  className="bg-gradient-to-r from-[#336b87]/5 to-[#336b87]/10 p-6 rounded-xl border-l-4 border-[#336b87]"
+                  className="bg-orange-500/5 p-6 rounded-xl border-l-4 border-orange-500"
                 >
                   <span className="text-lg text-gray-700">{option}</span>
                 </motion.div>
@@ -620,13 +620,13 @@ const UniversityDetail = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#336b87]/5 via-white to-[#336b87]/10 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
       {/* Bubble Animation Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={`bubble-${i}`}
-            className="absolute bg-[#336b87]/8 rounded-full"
+            className="absolute bg-orange-500/10 rounded-full mix-blend-overlay"
             style={{
               width: Math.random() * 60 + 40,
               height: Math.random() * 60 + 40,
@@ -649,7 +649,7 @@ const UniversityDetail = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -661,7 +661,7 @@ const UniversityDetail = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate(-1)}
-            className="mb-6 px-6 py-3 bg-[#336b87] text-white rounded-full hover:bg-[#336b87]/80 transition-colors flex items-center space-x-2 mx-auto"
+            className="mb-6 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-lg transition-all duration-300 flex items-center gap-2 mx-auto font-semibold text-lg"
           >
             <span>←</span>
             <span>Back to Universities</span>
@@ -671,7 +671,7 @@ const UniversityDetail = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl md:text-6xl font-extrabold text-[#336b87] mb-4"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-white mb-4"
           >
             {university.name}
           </motion.h1>
@@ -680,14 +680,14 @@ const UniversityDetail = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="w-24 h-1 bg-gradient-to-r from-[#336b87] to-[#336b87]/50 mx-auto rounded-full mb-4"
+            className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-500/50 mx-auto rounded-full mb-4"
           />
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="text-xl text-gray-600 mb-2"
+            className="text-xl text-gray-300 mb-2"
           >
             {university.location?.cityName}, {university.location?.countryName}
           </motion.p>
@@ -696,7 +696,7 @@ const UniversityDetail = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="text-lg text-gray-500"
+            className="text-lg text-gray-400"
           >
             {university.short}
           </motion.p>
@@ -712,7 +712,7 @@ const UniversityDetail = () => {
           <motion.img
             src={university.image}
             alt={university.name}
-            className="w-full h-96 object-cover rounded-3xl"
+            className="w-full h-96 object-cover rounded-xl shadow-xl"
             style={{ height: '400px', objectFit: 'contain' }}
           />
         </motion.div>
@@ -737,10 +737,10 @@ const UniversityDetail = () => {
                 boxShadow: "0 20px 40px -12px rgba(51, 107, 135, 0.3)"
               }}
               whileTap={{ scale: 0.95 }}
-              className={`flex items-center space-x-3 px-6 py-4 rounded-2xl shadow-lg transition-all duration-300 border-2 ${
+              className={`flex items-center gap-3 px-6 py-4 rounded-xl shadow-lg transition-all duration-300 border ${
                 activeSection === section.key 
-                  ? 'bg-gradient-to-br from-[#336b87] to-[#336b87]/80 text-white border-[#336b87] shadow-2xl' 
-                  : 'bg-gradient-to-br from-white to-[#336b87]/10 text-[#336b87] border-[#336b87]/30 hover:border-[#336b87] hover:shadow-xl'
+                  ? 'bg-orange-500 text-white border-orange-500 shadow-2xl shadow-orange-500/25' 
+                  : 'bg-white/95 backdrop-blur text-gray-800 border-gray-200/50 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/25'
               }`}
             >
               <span className="text-2xl">{section.icon}</span>
@@ -756,7 +756,7 @@ const UniversityDetail = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.5 }}
-          className="bg-gradient-to-br from-white to-[#336b87]/5 rounded-3xl shadow-2xl p-8 border-2 border-[#336b87]/20"
+          className="bg-white/95 backdrop-blur rounded-xl shadow-xl p-8 border border-gray-200/50"
         >
           {renderSectionContent()}
         </motion.div>
