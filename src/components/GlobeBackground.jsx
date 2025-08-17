@@ -1,7 +1,7 @@
 import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars, useTexture } from '@react-three/drei';
-import WorldMapTexture from '../assets/World map.jpeg';
+import WorldMapTexture from '../assets/WorldMap.jpeg';
 
 const GlobeModel = () => {
   const globeRef = useRef();
